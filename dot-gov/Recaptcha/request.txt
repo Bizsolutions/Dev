@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+	
+	
+	    
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/pvlsearch/images/favicon.ico" >
+
+    
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Professional &amp; Vocational License Search</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta name="description" content="dcca, department of commerce and consumer affairs, Hawaii, states, eHawaiiGov, hawaii information consortium" />
+    <meta content="text/html" name="DC.format" />
+    <meta content="en" name="DC.language" />
+
+	<link href="/pvlsearch/static/global//css/style.css" rel="stylesheet">
+	<link href="/pvlsearch/static//css/main.css" rel="stylesheet">
+	
+	<script src="/pvlsearch/static/global//js/lib/modernizr-respond.js"></script>
+	
+	
+
+
+ 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-939376-1']);
+  _gaq.push(['_setDomainName', '.ehawaii.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
+
+
+
+	<!--[if lt IE 9]>
+	<link href="/pvlsearch/static/global//_css/ie.css" rel="stylesheet">
+	<![endif]-->
+</head>
+<body>
+	<!-- skip links -->
+	<ul class="visually-hidden">
+		<li><a href="#navigation">Skip to Navigation</a></li>
+		<li><a href="#main">Skip to Content</a></li>
+	</ul>
+	<!-- end skip links -->
+	<!--[if lt IE 7]>
+	        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or 
+	        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+	<!-- Navigation top -->
+	<div class="navbar navbar-inverse navbar-fixed-top" data-spy="affix">
+		<div class="navbar-inner">
+			<div class="container">
+				<button class="button-toggler btn btn-navbar hidden-toggler"
+					value="Toggle Element" data-target="#off-canvas-header"
+					data-transition="slide" type="button">
+					<i class="icon-cog"></i>
+				</button>
+				<button data-target=".nav-collapse" data-toggle="collapse"
+					class="btn btn-navbar" type="button">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="brand" href="/" title="PVL Search home"
+					id="home-link"><i class="icon-search"></i> PVL Search</a>
+				
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right" id="navigation">
+						<li><a href="#" title="Chat" onclick="window.open('http://messenger.providesupport.com/messenger/hic.html','hic_chat',
+									'menubar=0,location=0,scrollbars=auto,resizable=1,status=0,width=650,height=680');"><i 
+								class="icon-comment"></i>Help Chat ONLINE</a></li>
+						<li><a href="#" class="button-toggler hidden-phone"
+							id="desktop-settings" value="Toggle Element"
+							data-target="#off-canvas-header" data-transition="slide"><i
+								class="icon-plus-sign"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Off-canvas content -->
+		<div id="off-canvas-header" class="hide off-canvas-header">
+			<ul class="unstyled inline settings-list">
+				<li><a href="http://hawaii.gov" title="eHawaii.gov"><span
+						aria-hidden="true" data-icon="&#x23;"></span> eHawaii.gov</a></li>
+				<li><a href="http://cca.hawaii.gov/" title="DLNR Home"><i
+						class="icon-home"></i> DCCA Home</a></li>
+				<li class="header-connected"><a
+					href="http://stayconnected.hawaii.gov/"
+					title="Link to Stay Connected"><span aria-hidden="true"
+						data-icon="&#x24;"></span> Stay Connected</a></li>
+				<li class="header-textsizer visible-desktop pull-right"><span
+					aria-hidden="true" data-icon="&#x21;" class="smaller-icon"></span>
+					Text size: <a href="#" title="Smaller text size"
+					class="decreaseFont">Smaller</a> | <a href="#"
+					title="Reset text size" class="resetFont">Reset</a> | <a href="#"
+					title="Larger text size" class="increaseFont">Larger</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end top navigation -->
+	<div class="container-fluid site-wrapper">
+
+		<header class="site-header clearfix" role="banner">
+			<div class="pull-left hidden-phone">
+				<img src="/pvlsearch/static//img/state-seal.png" alt="" class="state-seal">
+			</div>
+			<hgroup>
+				<h1>Professional &amp; Vocational Licensing Search</h1>
+				<h2>Department of Commerce &amp; Consumer Affairs</h2>
+			</hgroup>
+		</header>
+
+		<div class="main" role="main">
+			<noscript>
+				<section class="white-bg padded">
+					<strong>Sorry.</strong> JavaScript must be turned on to use this
+					search.
+				</section>
+			</noscript>
+			<section class="white-bg padded" id="content-area"></section>
+			<section class="white-bg padded hide" id="info-area"></section>
+			<section class="white-bg padded hide" id="error-area">
+				<h2>Error</h2>
+				<p>Oops, an error occurred.</p>
+			</section>
+		</div>
+		<!-- License Modal -->
+		<div id="licenseCodes" class="modal hide fade" tabindex="-1"
+			role="dialog" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3 id="myModalLabel">License Type Codes</h3>
+			</div>
+			<div class="modal-body" id="license-modal">
+				<i class="icon-spin icon-spinner icon-large"></i> Searching ...
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">
+					<i class="icon-remove"></i> Close
+				</button>
+			</div>
+		</div>
+		<footer role="contentinfo" class="white-bg padding bottom-margin">
+			<div class="row-fluid">
+				<section class="span8">
+					<p class="lead no-bottom-margin">Professional & Vocational
+						Licensing</p>
+					<small>Department of Commerce & Consumer Affairs</small> <small><a
+						href="http://portal.ehawaii.gov/accessibility.html" title="Accessibility information">Accessibility</a>
+						&nbsp;&nbsp; <a href="https://portal.ehawaii.gov/page/about-us/" title="Contact Us">Contact</a>
+						&nbsp;&nbsp; <a
+						href="http://portal.ehawaii.gov/feedback.html?applicationId=5"
+						title="Give feedback">Feedback</a> &nbsp;&nbsp; <a
+						href="http://portal.ehawaii.gov/privacy-policy.html"
+						title="Privacy Policy">Privacy Policy</a> &nbsp;&nbsp; <a
+						href="http://portal.ehawaii.gov/terms-of-use.html"
+						title="Terms of Use">Terms of Use</a></small>
+				</section>
+				<section class="span4 text-right">
+					<p class="lead no-bottom-margin">Copyright © 2013</p>
+					<small>State of Hawai'i. All rights reserved.</small>
+					<div>
+						<span class="gray">Powered by</span> <a
+							href="http://hic.ehawaii.gov"><abbr
+							title="Hawaii Information Consortium">HIC</abbr></a>
+					</div>
+				</section>
+			</div>
+		</footer>
+	</div>
+	<!-- /container -->
+	<script src="/pvlsearch/static//lib/require.js"
+		data-main="/pvlsearch/static//js/build.min"></script>
+	<!--[if lte IE 7]>
+    <script src="/pvlsearch/static/global//js/lib/ie-fixes.js"></script><![endif]-->
+       
+</body>
+</html>
