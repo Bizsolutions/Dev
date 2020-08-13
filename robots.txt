@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /index.php/
-Allow: /moving.php/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /junk/
-
-Sitemap: https://www.topmovingreviews.com/sitemap.xml

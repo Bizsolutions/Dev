@@ -1,4 +1,0 @@
-0000.000 (1) Opened log file at time: Tue, 31 Mar 2020 16:16:58 +0000 on https://www.topmovingreviews.com/Moving-guides
-0000.001 (1) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 2.12.13.1 WP: 5.3.2 PHP: 5.6.40 (Linux server1.div-moving.xyz 3.10.0-957.5.1.el7.x86_64 #1 SMP Fri Feb 1 14:54:57 UTC 2019 x86_64) MySQL: 5.5.5 WPLANG: en_US Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 11M | 13.5M) multisite: N openssl: OpenSSL 1.0.2u  20 Dec 2019 mcrypt: Y LANG:  ZipArchive::addFile: Y
-0000.041 (1) Free space on disk containing Updraft's temporary directory: 80724.5 MB
-0000.044 (1) This backup task (860006534528) is either complete or began over 2 days ago: ending (1585671418.612, ) (existing jobdata keys: )
