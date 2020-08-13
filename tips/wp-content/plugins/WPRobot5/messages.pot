@@ -1,0 +1,1722 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-03 04:37+0200\n"
+"PO-Revision-Date: 2016-10-03 04:37+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 0.9.5.3\n"
+
+#: api.class.php:41
+msgid "No settings found for this module. Is it active on the Options page?"
+msgstr ""
+
+#: api.class.php:623 api.class.php:831
+msgid "Failed loading XML, errors returned: "
+msgstr ""
+
+#: api.class.php:802 wpr_articles.php:43 wpr_articles.php:103
+msgid "cURL Error Number "
+msgstr ""
+
+#: api.class.php:809 wpr_articles.php:50 wpr_articles.php:110
+msgid "cURL is not installed on this server!"
+msgstr ""
+
+#: info_sources_details.php:382
+msgid "Maximum price to search for in USD, e.g. '100' without quotes."
+msgstr ""
+
+#: info_sources_details.php:383
+#, php-format
+msgid ""
+"Use to search for deals and special offers, e.g. enter '30' to only return "
+"items with 30% off or more."
+msgstr ""
+
+#: EDD_SL_Plugin_Updater.php:189
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: EDD_SL_Plugin_Updater.php:197
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+
+#: EDD_SL_Plugin_Updater.php:340
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: EDD_SL_Plugin_Updater.php:340 wpr_page_curation.php:415
+#: wpr_page_curation.php:457
+msgid "Error"
+msgstr ""
+
+#: wprobot.php:72
+msgid "Error deleting options: "
+msgstr ""
+
+#: wprobot.php:101
+msgid "Error saving options: "
+msgstr ""
+
+#: wprobot.php:120 wprobot.php:128 wprobot.php:165
+msgid "Error loading available sites: "
+msgstr ""
+
+#: wprobot.php:137
+msgid "Select a site below and click the import button to load its options:"
+msgstr ""
+
+#: wprobot.php:189 wprobot.php:212 wprobot.php:222 wprobot.php:243
+#: wprobot.php:253
+msgid "Error loading options: "
+msgstr ""
+
+#: wprobot.php:322 wprobot.php:360
+msgid "Thank you! The installation of WP Robot 5 is now complete."
+msgstr ""
+
+#: wprobot.php:323
+msgid ""
+"<strong>Next step:</strong> Please go to the \"<a href=\"admin.php?page=wpr5-"
+"options\">Options</a>\" page. There you can activate the content sources you "
+"intend to use on this site and configure your settings for them."
+msgstr ""
+
+#: wprobot.php:337 wprobot.php:362 wprobot.php:392 wpr_page_curation.php:359
+#: wpr_page_options.php:228
+msgid "Error: "
+msgstr ""
+
+#: wprobot.php:339 wprobot.php:364 wprobot.php:394
+msgid ""
+"Error: Your license key could not be verified. Please make sure to copy it "
+"exactly from the email you received. If the problem persists please contact "
+"support."
+msgstr ""
+
+#: wprobot.php:342 wprobot.php:367 wprobot.php:397
+msgid "Error: Please enter your license key."
+msgstr ""
+
+#: wprobot.php:388
+msgid ""
+"Thank you! Your license has been renewed and you can continue to use WP "
+"Robot."
+msgstr ""
+
+#: wprobot.php:390
+msgid ""
+"Error: You cannot use another trial key on this site. Please enter a full "
+"version license."
+msgstr ""
+
+#: wprobot.php:409
+msgid "Beta To Full Version Upgrade"
+msgstr ""
+
+#: wprobot.php:409
+msgid ""
+"Thank you for participating in the WP Robot 5 beta. The <strong>beta test "
+"has now ended</strong> and to continue using WP Robot 5 you need to upgrade "
+"to the launch version by entering your new license key below. If you do not "
+"have one <a href=\"http://wprobot.net/order/\">you can obtain one here</a>."
+msgstr ""
+
+#: wprobot.php:411 wprobot.php:417 wprobot.php:423 wprobot.php:429
+msgid "Your License Key"
+msgstr ""
+
+#: wprobot.php:415
+msgid "Finish Installation"
+msgstr ""
+
+#: wprobot.php:415
+msgid ""
+"Thank you for activating WP Robot 5! To finish the installation please enter "
+"your license key below and press the save button."
+msgstr ""
+
+#: wprobot.php:421 wprobot.php:427
+msgid "Renew Your License"
+msgstr ""
+
+#: wprobot.php:421
+msgid ""
+"Your license key has expired. Please <a href=\"http://wprobot.net/checkout/?"
+"edd_license_key="
+msgstr ""
+
+#: wprobot.php:427
+msgid ""
+"Your WP Robot 5 trial period has ended. Please <a href=\"http://wprobot.net/"
+"order/\" target=\"_blank\">order the full version of WP Robot 5 here</a> to "
+"continue using the plugin."
+msgstr ""
+
+#: wprobot.php:500 wpr_page_automation.php:369
+#: wpr_page_create_campaign.php:738
+msgid "Campaigns"
+msgstr ""
+
+#: wprobot.php:506 wpr_page_automation.php:370
+#: wpr_page_create_campaign.php:739 wpr_page_create_campaign.php:764
+msgid "Create Campaign"
+msgstr ""
+
+#: wprobot.php:512
+msgid "Curation"
+msgstr ""
+
+#: wprobot.php:518
+msgid "Options"
+msgstr ""
+
+#: wprobot.php:643
+msgid "Every Six Minutes"
+msgstr ""
+
+#: wprobot.php:782
+msgid ""
+"Error: No template found. Edit your campaign and make sure at least one post "
+"template is added."
+msgstr ""
+
+#: wprobot.php:898
+msgid "Skipping module because of duplicate content. Will retry next time"
+msgstr ""
+
+#: wprobot.php:1050
+msgid ""
+"Skipping post because all content was already posted to your site. Will "
+"retry next time."
+msgstr ""
+
+#: wprobot.php:1055
+msgid "Error: No content found."
+msgstr ""
+
+#: wprobot.php:1059
+msgid "Error: Post could not be created because main module failed."
+msgstr ""
+
+#: wprobot.php:1063
+msgid "Error: Post could not be created."
+msgstr ""
+
+#: wprobot.php:1067
+msgid "Error: Skipping post because no content was found."
+msgstr ""
+
+#: wprobot.php:1086
+msgid "Post skipped because required keyword has not been found."
+msgstr ""
+
+#: wprobot.php:1099
+msgid "Post skipped because exclude keyword has been found."
+msgstr ""
+
+#: wprobot.php:1134
+msgid ""
+"Error: Yandex API key is required for automatic translation. Please edit "
+"your campaign and enter the key."
+msgstr ""
+
+#: wprobot.php:1142
+msgid "Translation failed with error:"
+msgstr ""
+
+#: wprobot.php:1147
+msgid "Error: The post could not be translated."
+msgstr ""
+
+#: wprobot.php:1164
+msgid "Rewriting failed with error:"
+msgstr ""
+
+#: wprobot.php:1166
+msgid "Error: The post could not be rewritten. Empty response received"
+msgstr ""
+
+#: wprobot.php:1177
+msgid "Error: No content found. Empty title or post body."
+msgstr ""
+
+#: wprobot.php:1241 wpr_page_automation.php:268
+msgid "Article has been created successfully."
+msgstr ""
+
+#: wprobot.php:1243
+msgid "Error: Inserting post failed. "
+msgstr ""
+
+#: wpr_articles.php:69 wpr_articles.php:79
+msgid "No (more) articles found."
+msgstr ""
+
+#: wpr_editor.php:31
+msgid "WP Robot 5"
+msgstr ""
+
+#: wpr_editor.php:55
+msgid ""
+"Please wait while the content is being retreived from the source you "
+"selected."
+msgstr ""
+
+#: wpr_editor.php:64
+msgid "Topic"
+msgstr ""
+
+#: wpr_editor.php:66
+msgid "Source"
+msgstr ""
+
+#: wpr_editor.php:68 wpr_page_create_campaign.php:384
+#: wpr_page_curation.php:661
+msgid "(choose one)"
+msgstr ""
+
+#: wpr_editor.php:73
+msgid "Start"
+msgstr ""
+
+#: wpr_editor.php:81
+msgid "Template"
+msgstr ""
+
+#: wpr_editor.php:89 wpr_page_curation.php:699
+msgid "Your settings (edit to override)"
+msgstr ""
+
+#: wpr_editor.php:113
+msgid ""
+"Please choose and activate at least one content source on the \"Choose "
+"Sources\" page first."
+msgstr ""
+
+#: wpr_editor.php:123
+msgid "Select All."
+msgstr ""
+
+#: wpr_editor.php:133
+msgid "Check to insert content below:"
+msgstr ""
+
+#: wpr_page_automation.php:253
+msgid "The campaign has been deleted."
+msgstr ""
+
+#: wpr_page_automation.php:268
+msgid "View article."
+msgstr ""
+
+#: wpr_page_automation.php:270
+msgid "Unknown error: Campaign could not be processed."
+msgstr ""
+
+#: wpr_page_automation.php:282
+msgid "The campaign has been unpaused and autoposting will continue."
+msgstr ""
+
+#: wpr_page_automation.php:286
+msgid "The campaign has been paused."
+msgstr ""
+
+#: wpr_page_automation.php:293 wpr_page_automation.php:305
+#: wpr_page_automation.php:330
+msgid "Please select at least one campaign!"
+msgstr ""
+
+#: wpr_page_automation.php:299
+msgid "Campaigns have been paused."
+msgstr ""
+
+#: wpr_page_automation.php:311
+msgid "Campaigns have been continued."
+msgstr ""
+
+#: wpr_page_automation.php:324
+msgid "Campaigns have been deleted."
+msgstr ""
+
+#: wpr_page_automation.php:351
+#, php-format
+msgid "%1$s posts have been created successfully %2$s"
+msgstr ""
+
+#: wpr_page_automation.php:352
+#, php-format
+msgid ""
+" and %1$s posts have been skipped. Please see the <a href=\"?page=wpr-log"
+"\">error log</a> for details."
+msgstr ""
+
+#: wpr_page_automation.php:356
+#, php-format
+msgid ""
+"Error: %1$s posts could not be created. Please see the error log for details."
+msgstr ""
+
+#: wpr_page_automation.php:391
+msgid "Are you sure you want to delete this campaign?"
+msgstr ""
+
+#: wpr_page_automation.php:395
+msgid "Next Run:"
+msgstr ""
+
+#: wpr_page_automation.php:397
+msgid "Paused"
+msgstr ""
+
+#: wpr_page_automation.php:419
+msgid " Feeds"
+msgstr ""
+
+#: wpr_page_automation.php:423
+msgid " Keywords"
+msgstr ""
+
+#: wpr_page_automation.php:430
+msgid "s created"
+msgstr ""
+
+#: wpr_page_automation.php:436
+msgid " Errors"
+msgstr ""
+
+#: wpr_page_automation.php:473
+msgid "Load full log"
+msgstr ""
+
+#: wpr_page_automation.php:481
+msgid "Select all campaigns"
+msgstr ""
+
+#: wpr_page_automation.php:485
+msgid "Are you sure you want to delete all selected campaigns?"
+msgstr ""
+
+#: wpr_page_automation.php:485
+msgid "Delete Selected"
+msgstr ""
+
+#: wpr_page_automation.php:486
+msgid "Pause Selected"
+msgstr ""
+
+#: wpr_page_automation.php:487
+msgid "Continue Selected"
+msgstr ""
+
+#: wpr_page_automation.php:491
+msgid "Bulk create"
+msgstr ""
+
+#: wpr_page_automation.php:491
+msgid "articles"
+msgstr ""
+
+#: wpr_page_automation.php:491
+msgid "Post to Selected"
+msgstr ""
+
+#: wpr_page_automation.php:495
+msgid "No campaigns have been created yet."
+msgstr ""
+
+#: wpr_page_create_campaign.php:331 wpr_page_create_campaign.php:338
+#: wpr_page_create_campaign.php:342 wpr_page_create_campaign.php:345
+#: wpr_page_create_campaign.php:1069 wpr_page_options.php:284
+msgid "Name"
+msgstr ""
+
+#: wpr_page_create_campaign.php:331 wpr_page_create_campaign.php:338
+#: wpr_page_create_campaign.php:342 wpr_page_create_campaign.php:345
+#: wpr_page_create_campaign.php:1070
+msgid "Value"
+msgstr ""
+
+#: wpr_page_create_campaign.php:345
+msgid "Order Now"
+msgstr ""
+
+#: wpr_page_create_campaign.php:398
+msgid ""
+"<strong>Important: </strong> You have not activated any content sources yet. "
+"Before you can create a campaign you need to go to the <a href=\"admin.php?"
+"page=wpr5-options\">Options page</a> and configure the content sources you "
+"intend to use."
+msgstr ""
+
+#: wpr_page_create_campaign.php:526
+msgid ""
+"Missing data: Please enter a keyword, category, name and posting inverval "
+"for your new campaign."
+msgstr ""
+
+#: wpr_page_create_campaign.php:727
+msgid ""
+"<strong>Your campaign has been created!</strong> You can go to the <a href="
+"\"admin.php?page=wpr5-automation\">Campaigns page</a> to view details and "
+"create manual posts for it or create another campaign below."
+msgstr ""
+
+#: wpr_page_create_campaign.php:752
+msgid "Enter your keywords"
+msgstr ""
+
+#: wpr_page_create_campaign.php:753
+msgid "Enter a category"
+msgstr ""
+
+#: wpr_page_create_campaign.php:754
+msgid "Set the posting frequency"
+msgstr ""
+
+#: wpr_page_create_campaign.php:755
+msgid "Add post templates"
+msgstr ""
+
+#: wpr_page_create_campaign.php:762
+msgid "Edit Campaign"
+msgstr ""
+
+#: wpr_page_create_campaign.php:771
+msgid ""
+"To create your autoposting campaign only the 4 steps listed above are "
+"required. All other settings on the page are optional and can be changed to "
+"customize your campaign."
+msgstr ""
+
+#: wpr_page_create_campaign.php:772
+msgid ""
+"For more detailed instructions <a href=\"http://wprobot.net/wp-robot-5-"
+"documentation/#create\" target=\"_blank\">take a look at this article in our "
+"online documentation</a>."
+msgstr ""
+
+#: wpr_page_create_campaign.php:779
+msgid "Main Settings"
+msgstr ""
+
+#: wpr_page_create_campaign.php:786
+msgid "Campaign Type:"
+msgstr ""
+
+#: wpr_page_create_campaign.php:788
+msgid "Keyword Campaign"
+msgstr ""
+
+#: wpr_page_create_campaign.php:789
+msgid "RSS Campaign"
+msgstr ""
+
+#: wpr_page_create_campaign.php:792
+msgid "Campaign Name"
+msgstr ""
+
+#: wpr_page_create_campaign.php:794
+msgid "Schedule"
+msgstr ""
+
+#: wpr_page_create_campaign.php:794
+msgid "Create"
+msgstr ""
+
+#: wpr_page_create_campaign.php:806
+msgid "0 (no autoposting)"
+msgstr ""
+
+#: wpr_page_create_campaign.php:809
+msgid "new posts every"
+msgstr ""
+
+#: wpr_page_create_campaign.php:811
+msgid "Hours"
+msgstr ""
+
+#: wpr_page_create_campaign.php:812
+msgid "Days"
+msgstr ""
+
+#: wpr_page_create_campaign.php:813
+msgid "Minutes"
+msgstr ""
+
+#: wpr_page_create_campaign.php:818 wpr_page_curation.php:876
+msgid "Post Status"
+msgstr ""
+
+#: wpr_page_create_campaign.php:820 wpr_page_curation.php:879
+msgid "Published"
+msgstr ""
+
+#: wpr_page_create_campaign.php:821 wpr_page_curation.php:881
+msgid "Draft"
+msgstr ""
+
+#: wpr_page_create_campaign.php:825 wpr_page_curation.php:859
+msgid "Post Type"
+msgstr ""
+
+#: wpr_page_create_campaign.php:839
+msgid "Author"
+msgstr ""
+
+#: wpr_page_create_campaign.php:851
+msgid "RSS Feeds"
+msgstr ""
+
+#: wpr_page_create_campaign.php:851 wpr_page_create_campaign.php:862
+#: wpr_page_create_campaign.php:872 wpr_page_create_campaign.php:1025
+#: wpr_page_create_campaign.php:1037 wpr_page_create_campaign.php:1049
+msgid "(one per line)"
+msgstr ""
+
+#: wpr_page_create_campaign.php:856
+msgid ""
+"Enter the full URL of RSS feeds you want to post to your site. If you enter "
+"multiple one will be selected randomly each time the campaign is run.<br/"
+">Example:<br/>https://www.engadget.com/rss-full.xml"
+msgstr ""
+
+#: wpr_page_create_campaign.php:862
+msgid "Keywords"
+msgstr ""
+
+#: wpr_page_create_campaign.php:867
+msgid ""
+"Enter search words you want to post content for.<br/>If you enter multiple "
+"one will be selected randomly each time the campaign is run."
+msgstr ""
+
+#: wpr_page_create_campaign.php:872
+msgid "Categories"
+msgstr ""
+
+#: wpr_page_create_campaign.php:878
+msgid ""
+"Enter a single category or one category on each line per keyword.<br/"
+">Categories not existing yet will get created."
+msgstr ""
+
+#: wpr_page_create_campaign.php:879
+msgid "Add existing: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:883 wpr_page_options.php:498
+msgid "Templates"
+msgstr ""
+
+#: wpr_page_create_campaign.php:907 wpr_page_create_campaign.php:972
+msgid "Title:"
+msgstr ""
+
+#: wpr_page_create_campaign.php:924 wpr_page_create_campaign.php:982
+msgid "Add another <b>source</b>: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:929 wpr_page_create_campaign.php:987
+msgid "Location: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:931 wpr_page_create_campaign.php:989
+msgid "After main source"
+msgstr ""
+
+#: wpr_page_create_campaign.php:932 wpr_page_create_campaign.php:990
+msgid "Before main source"
+msgstr ""
+
+#: wpr_page_create_campaign.php:935 wpr_page_create_campaign.php:993
+msgid "Keyword: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:937 wpr_page_create_campaign.php:995
+msgid "Use campaign keyword."
+msgstr ""
+
+#: wpr_page_create_campaign.php:938 wpr_page_create_campaign.php:996
+msgid "Use title of main content source."
+msgstr ""
+
+#: wpr_page_create_campaign.php:941 wpr_page_create_campaign.php:999
+msgid "Probability: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:1017
+msgid ""
+"<b>Add Template</b> - Choose the main content source for your template: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:1017
+msgid "or click to <a id=\"add-all-sources\" href=\"#\">add all</a>"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1021
+msgid "Optional Settings"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1025
+msgid "Exclude Keywords"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1031
+msgid ""
+"Posts containing the keywords you enter here will be skipped and not created "
+"on your site."
+msgstr ""
+
+#: wpr_page_create_campaign.php:1037
+msgid "Require Keywords"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1043
+msgid ""
+"If a post does not contain at least one of the keywords you enter here it "
+"will be skipped."
+msgstr ""
+
+#: wpr_page_create_campaign.php:1049
+msgid "Replace Keywords"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1055
+msgid ""
+"Replace keywords or code in posts with other content.<br/><b>Syntax</b>: "
+"Keyword|Replace With|Chance<br/>Example: <i>Wordpress|Joomla|50</i>"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1061
+msgid "Custom Fields"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1076
+msgid "Add Field"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1076
+msgid "Quick setup custom fields for WooCommerce"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1080
+msgid "Translation"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1081
+msgid "Yandex Translation API key: "
+msgstr ""
+
+#: wpr_page_create_campaign.php:1081
+msgid ""
+"(required, get one for free <a href=\"http://api.yandex.com/key/form.xml?"
+"service=trnsl\">here</a>)"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1082
+msgid "Translate posts by this campaign from"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1085 wpr_page_create_campaign.php:1106
+#: wpr_page_create_campaign.php:1144 wpr_page_create_campaign.php:1165
+#: wpr_page_create_campaign.php:1203 wpr_page_create_campaign.php:1224
+#: wpr_page_create_campaign.php:1262 wpr_page_create_campaign.php:1283
+msgid "German"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1086 wpr_page_create_campaign.php:1100
+#: wpr_page_create_campaign.php:1145 wpr_page_create_campaign.php:1159
+#: wpr_page_create_campaign.php:1204 wpr_page_create_campaign.php:1218
+#: wpr_page_create_campaign.php:1263 wpr_page_create_campaign.php:1277
+msgid "English"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1087 wpr_page_create_campaign.php:1104
+#: wpr_page_create_campaign.php:1146 wpr_page_create_campaign.php:1163
+#: wpr_page_create_campaign.php:1205 wpr_page_create_campaign.php:1222
+#: wpr_page_create_campaign.php:1264 wpr_page_create_campaign.php:1281
+msgid "French"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1089 wpr_page_create_campaign.php:1148
+#: wpr_page_create_campaign.php:1207 wpr_page_create_campaign.php:1266
+msgid "Afrikaans"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1090 wpr_page_create_campaign.php:1149
+#: wpr_page_create_campaign.php:1208 wpr_page_create_campaign.php:1267
+msgid "Albanian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1091 wpr_page_create_campaign.php:1150
+#: wpr_page_create_campaign.php:1209 wpr_page_create_campaign.php:1268
+msgid "Arabic"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1092 wpr_page_create_campaign.php:1151
+#: wpr_page_create_campaign.php:1210 wpr_page_create_campaign.php:1269
+msgid "Belarusian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1093 wpr_page_create_campaign.php:1152
+#: wpr_page_create_campaign.php:1211 wpr_page_create_campaign.php:1270
+msgid "Bulgarian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1094 wpr_page_create_campaign.php:1153
+#: wpr_page_create_campaign.php:1212 wpr_page_create_campaign.php:1271
+msgid "Catalan"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1095 wpr_page_create_campaign.php:1154
+#: wpr_page_create_campaign.php:1213 wpr_page_create_campaign.php:1272
+msgid "Chinese"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1096 wpr_page_create_campaign.php:1155
+#: wpr_page_create_campaign.php:1214 wpr_page_create_campaign.php:1273
+msgid "Croatian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1097 wpr_page_create_campaign.php:1156
+#: wpr_page_create_campaign.php:1215 wpr_page_create_campaign.php:1274
+msgid "Czech"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1098 wpr_page_create_campaign.php:1157
+#: wpr_page_create_campaign.php:1216 wpr_page_create_campaign.php:1275
+msgid "Danish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1099 wpr_page_create_campaign.php:1158
+#: wpr_page_create_campaign.php:1217 wpr_page_create_campaign.php:1276
+msgid "Dutch"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1101 wpr_page_create_campaign.php:1160
+#: wpr_page_create_campaign.php:1219 wpr_page_create_campaign.php:1278
+msgid "Estonian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1102 wpr_page_create_campaign.php:1161
+#: wpr_page_create_campaign.php:1220 wpr_page_create_campaign.php:1279
+msgid "Filipino"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1103 wpr_page_create_campaign.php:1162
+#: wpr_page_create_campaign.php:1221 wpr_page_create_campaign.php:1280
+msgid "Finnish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1105 wpr_page_create_campaign.php:1164
+#: wpr_page_create_campaign.php:1223 wpr_page_create_campaign.php:1282
+msgid "Galician"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1107 wpr_page_create_campaign.php:1166
+#: wpr_page_create_campaign.php:1225 wpr_page_create_campaign.php:1284
+msgid "Greek"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1108 wpr_page_create_campaign.php:1167
+#: wpr_page_create_campaign.php:1226 wpr_page_create_campaign.php:1285
+msgid "Hebrew"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1109 wpr_page_create_campaign.php:1168
+#: wpr_page_create_campaign.php:1227 wpr_page_create_campaign.php:1286
+msgid "Hindi"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1110 wpr_page_create_campaign.php:1169
+#: wpr_page_create_campaign.php:1228 wpr_page_create_campaign.php:1287
+msgid "Hungarian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1111 wpr_page_create_campaign.php:1170
+#: wpr_page_create_campaign.php:1229 wpr_page_create_campaign.php:1288
+msgid "Icelandic"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1112 wpr_page_create_campaign.php:1171
+#: wpr_page_create_campaign.php:1230 wpr_page_create_campaign.php:1289
+msgid "Indonesian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1113 wpr_page_create_campaign.php:1172
+#: wpr_page_create_campaign.php:1231 wpr_page_create_campaign.php:1290
+msgid "Irish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1114 wpr_page_create_campaign.php:1173
+#: wpr_page_create_campaign.php:1232 wpr_page_create_campaign.php:1291
+msgid "Italian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1115 wpr_page_create_campaign.php:1174
+#: wpr_page_create_campaign.php:1233 wpr_page_create_campaign.php:1292
+msgid "Japanese"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1116 wpr_page_create_campaign.php:1175
+#: wpr_page_create_campaign.php:1234 wpr_page_create_campaign.php:1293
+msgid "Korean"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1117 wpr_page_create_campaign.php:1176
+#: wpr_page_create_campaign.php:1235 wpr_page_create_campaign.php:1294
+msgid "Latvian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1118 wpr_page_create_campaign.php:1177
+#: wpr_page_create_campaign.php:1236 wpr_page_create_campaign.php:1295
+msgid "Lithuanian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1119 wpr_page_create_campaign.php:1178
+#: wpr_page_create_campaign.php:1237 wpr_page_create_campaign.php:1296
+msgid "Macedonian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1120 wpr_page_create_campaign.php:1179
+#: wpr_page_create_campaign.php:1238 wpr_page_create_campaign.php:1297
+msgid "Malay"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1121 wpr_page_create_campaign.php:1180
+#: wpr_page_create_campaign.php:1239 wpr_page_create_campaign.php:1298
+msgid "Maltese"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1122 wpr_page_create_campaign.php:1181
+#: wpr_page_create_campaign.php:1240 wpr_page_create_campaign.php:1299
+msgid "Norwegian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1123 wpr_page_create_campaign.php:1182
+#: wpr_page_create_campaign.php:1241 wpr_page_create_campaign.php:1300
+msgid "Persian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1124 wpr_page_create_campaign.php:1183
+#: wpr_page_create_campaign.php:1242 wpr_page_create_campaign.php:1301
+msgid "Polish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1125 wpr_page_create_campaign.php:1184
+#: wpr_page_create_campaign.php:1243 wpr_page_create_campaign.php:1302
+msgid "Portuguese"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1126 wpr_page_create_campaign.php:1185
+#: wpr_page_create_campaign.php:1244 wpr_page_create_campaign.php:1303
+msgid "Romanian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1127 wpr_page_create_campaign.php:1186
+#: wpr_page_create_campaign.php:1245 wpr_page_create_campaign.php:1304
+msgid "Russian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1128 wpr_page_create_campaign.php:1187
+#: wpr_page_create_campaign.php:1246 wpr_page_create_campaign.php:1305
+msgid "Serbian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1129 wpr_page_create_campaign.php:1188
+#: wpr_page_create_campaign.php:1247 wpr_page_create_campaign.php:1306
+msgid "Slovak"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1130 wpr_page_create_campaign.php:1189
+#: wpr_page_create_campaign.php:1248 wpr_page_create_campaign.php:1307
+msgid "Slovenian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1131 wpr_page_create_campaign.php:1190
+#: wpr_page_create_campaign.php:1249 wpr_page_create_campaign.php:1308
+msgid "Spanish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1132 wpr_page_create_campaign.php:1191
+#: wpr_page_create_campaign.php:1250 wpr_page_create_campaign.php:1309
+msgid "Swahili"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1133 wpr_page_create_campaign.php:1192
+#: wpr_page_create_campaign.php:1251 wpr_page_create_campaign.php:1310
+msgid "Swedish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1134 wpr_page_create_campaign.php:1193
+#: wpr_page_create_campaign.php:1252 wpr_page_create_campaign.php:1311
+msgid "Thai"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1135 wpr_page_create_campaign.php:1194
+#: wpr_page_create_campaign.php:1253 wpr_page_create_campaign.php:1312
+msgid "Turkish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1136 wpr_page_create_campaign.php:1195
+#: wpr_page_create_campaign.php:1254 wpr_page_create_campaign.php:1313
+msgid "Ukrainian"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1137 wpr_page_create_campaign.php:1196
+#: wpr_page_create_campaign.php:1255 wpr_page_create_campaign.php:1314
+msgid "Vietnamese"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1138 wpr_page_create_campaign.php:1197
+#: wpr_page_create_campaign.php:1256 wpr_page_create_campaign.php:1315
+msgid "Welsh"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1139 wpr_page_create_campaign.php:1198
+#: wpr_page_create_campaign.php:1257 wpr_page_create_campaign.php:1316
+msgid "Yiddish"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1141 wpr_page_create_campaign.php:1200
+#: wpr_page_create_campaign.php:1259 wpr_page_curation.php:732
+msgid "to"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1143 wpr_page_create_campaign.php:1202
+#: wpr_page_create_campaign.php:1261
+msgid "---"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1321 wpr_page_curation.php:746
+msgid "Rewriting"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1324
+msgid "Rewrite all posts with "
+msgstr ""
+
+#: wpr_page_create_campaign.php:1333 wpr_page_curation.php:796
+msgid "Please activate a rewriter on the Options page first."
+msgstr ""
+
+#: wpr_page_create_campaign.php:1337
+msgid "Misc"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1339
+msgid ""
+"Strip all links from posts (Important: also strips your affiliate links or "
+"required attribution, so use with caution)."
+msgstr ""
+
+#: wpr_page_create_campaign.php:1343
+msgid "Module Settings"
+msgstr ""
+
+#: wpr_page_create_campaign.php:1360
+msgid ""
+"Select a module above to override its general settings from the Options page "
+"for this campaign. Only sources which you have added to this campaign as "
+"templates are shown above."
+msgstr ""
+
+#: wpr_page_create_campaign.php:1373
+msgid "Check to override global settings of this module in your campaign:"
+msgstr ""
+
+#: wpr_page_curation.php:183
+msgid "Create Bulk Content"
+msgstr ""
+
+#: wpr_page_curation.php:218
+msgid "Please load site data first."
+msgstr ""
+
+#: wpr_page_curation.php:225
+msgid "No generated users found."
+msgstr ""
+
+#: wpr_page_curation.php:229
+msgid "No content. Please generate it on the first tab."
+msgstr ""
+
+#: wpr_page_curation.php:236
+msgid ""
+"Not enough auto-generated users on site - at least one is necessary for each "
+"content item and comment. Create more on the \"Users\" page."
+msgstr ""
+
+#: wpr_page_curation.php:357
+msgid " articles have been created successfuly."
+msgstr ""
+
+#: wpr_page_curation.php:362
+msgid ""
+"Error: No content was built or found in the preview section below. Please do "
+"that on the \"1. Build Content\" tab."
+msgstr ""
+
+#: wpr_page_curation.php:375
+msgid ""
+"Error: For performance reasons the maximum number of PLR articles per import "
+"is limited to 999 files."
+msgstr ""
+
+#: wpr_page_curation.php:406
+msgid "Error: Only .txt files under 500Kb are accepted for upload."
+msgstr ""
+
+#: wpr_page_curation.php:415 wpr_page_curation.php:457
+msgid "Upload failed"
+msgstr ""
+
+#: wpr_page_curation.php:421
+msgid ""
+"Error: For performance reasons the maximum number of CSV items per import is "
+"limited to 999."
+msgstr ""
+
+#: wpr_page_curation.php:454
+msgid "Error: Only .csv files under 500Kb are accepted for upload."
+msgstr ""
+
+#: wpr_page_curation.php:463
+msgid ""
+"Error: For performance reasons the maximum number of API items per import is "
+"limited to 300."
+msgstr ""
+
+#: wpr_page_curation.php:476 wpr_page_curation.php:498
+msgid "No content found. Please try again."
+msgstr ""
+
+#: wpr_page_curation.php:496
+msgid "RSS Error"
+msgstr ""
+
+#: wpr_page_curation.php:510
+msgid ""
+"Please enter your Articlebuilder.net user details on the Options page first."
+msgstr ""
+
+#: wpr_page_curation.php:623
+msgid "Your Sites"
+msgstr ""
+
+#: wpr_page_curation.php:625
+msgid "1. Build Content"
+msgstr ""
+
+#: wpr_page_curation.php:626
+msgid "2. Tools and Rewriting"
+msgstr ""
+
+#: wpr_page_curation.php:627
+msgid "3. Post to Your Sites"
+msgstr ""
+
+#: wpr_page_curation.php:640
+msgid "Fetched"
+msgstr ""
+
+#: wpr_page_curation.php:640
+msgid "items related to the topic"
+msgstr ""
+
+#: wpr_page_curation.php:640 wpr_page_curation.php:679
+msgid "and"
+msgstr ""
+
+#: wpr_page_curation.php:641
+msgid "Imported datafeed items and"
+msgstr ""
+
+#: wpr_page_curation.php:642
+msgid "Imported PLR articles and"
+msgstr ""
+
+#: wpr_page_curation.php:643
+msgid "Imported RSS feeds and"
+msgstr ""
+
+#: wpr_page_curation.php:644
+msgid "added them as new content."
+msgstr ""
+
+#: wpr_page_curation.php:644
+msgid "added them to the beginning of the current content."
+msgstr ""
+
+#: wpr_page_curation.php:644
+msgid "added them to the end of the current content."
+msgstr ""
+
+#: wpr_page_curation.php:651
+msgid "What do you want to do?"
+msgstr ""
+
+#: wpr_page_curation.php:652
+msgid "Create API Content"
+msgstr ""
+
+#: wpr_page_curation.php:653
+msgid "Upload a Datafeed / .csv files"
+msgstr ""
+
+#: wpr_page_curation.php:654
+msgid "Upload PLR content / .txt files"
+msgstr ""
+
+#: wpr_page_curation.php:655
+msgid "Parse RSS Feeds"
+msgstr ""
+
+#: wpr_page_curation.php:659
+msgid "Get"
+msgstr ""
+
+#: wpr_page_curation.php:665
+msgid "items related to the <strong>topic</strong>:"
+msgstr ""
+
+#: wpr_page_curation.php:669
+msgid "Upload the .csv file"
+msgstr ""
+
+#: wpr_page_curation.php:669
+msgid "and parse the first"
+msgstr ""
+
+#: wpr_page_curation.php:669
+msgid "items"
+msgstr ""
+
+#: wpr_page_curation.php:672
+msgid "Upload and import the following .txt files"
+msgstr ""
+
+#: wpr_page_curation.php:672
+msgid ""
+"(select several by dragging or holding down \"strg\". Multiple file "
+"selection only works in new browsers!)"
+msgstr ""
+
+#: wpr_page_curation.php:674
+msgid ""
+"Scan all items in the following RSS Feeds (one URL starting with http:// per "
+"line)"
+msgstr ""
+
+#: wpr_page_curation.php:680
+msgid "add them as new content"
+msgstr ""
+
+#: wpr_page_curation.php:681
+msgid "add them to the end of the current content"
+msgstr ""
+
+#: wpr_page_curation.php:682
+msgid "add them to the beginning of the current content"
+msgstr ""
+
+#: wpr_page_curation.php:685 wpr_page_curation.php:809
+msgid "Go"
+msgstr ""
+
+#: wpr_page_curation.php:730
+msgid "Set Random Dates for Scheduling All Posts"
+msgstr ""
+
+#: wpr_page_curation.php:731
+msgid "Start Date"
+msgstr ""
+
+#: wpr_page_curation.php:732
+msgid "Between Posts"
+msgstr ""
+
+#: wpr_page_curation.php:732
+msgid "day(s)"
+msgstr ""
+
+#: wpr_page_curation.php:735
+msgid "Assign Random Dates"
+msgstr ""
+
+#: wpr_page_curation.php:740
+msgid "Set Random Authors for each Post"
+msgstr ""
+
+#: wpr_page_curation.php:742
+msgid "Assign Random Users"
+msgstr ""
+
+#: wpr_page_curation.php:748
+msgid "Parse spin tags while posting to your sites"
+msgstr ""
+
+#: wpr_page_curation.php:748
+msgid "Yes"
+msgstr ""
+
+#: wpr_page_curation.php:748
+msgid ""
+"Supports spin tags in the format {spin|this|randomly}, nested tags are "
+"supported and a different spin is returned for each individual site you post "
+"to."
+msgstr ""
+
+#: wpr_page_curation.php:752
+msgid "Inject content with your Article Builder account"
+msgstr ""
+
+#: wpr_page_curation.php:754
+msgid "<strong>ArticleBuilder.net Content Injection: </strong>"
+msgstr ""
+
+#: wpr_page_curation.php:755
+msgid ""
+"Use the articlebuilder.net API to inject related content to the articles in "
+"your preview section below."
+msgstr ""
+
+#: wpr_page_curation.php:756 wpr_page_curation.php:840
+msgid "Category"
+msgstr ""
+
+#: wpr_page_curation.php:761
+msgid "How much Content"
+msgstr ""
+
+#: wpr_page_curation.php:763
+msgid "A Little"
+msgstr ""
+
+#: wpr_page_curation.php:764
+msgid "Quite A Bit"
+msgstr ""
+
+#: wpr_page_curation.php:765
+msgid "A Lot"
+msgstr ""
+
+#: wpr_page_curation.php:768
+msgid "Where to Add"
+msgstr ""
+
+#: wpr_page_curation.php:780
+msgid "Inject Content"
+msgstr ""
+
+#: wpr_page_curation.php:781
+msgid ""
+"Please activate ArticleBuilder.net on the \"Choose Sources\" page first and "
+"enter your user details on the \"Options\" page."
+msgstr ""
+
+#: wpr_page_curation.php:784
+msgid "Rewrite all articles below"
+msgstr ""
+
+#: wpr_page_curation.php:787
+msgid "Rewrite all content below with "
+msgstr ""
+
+#: wpr_page_curation.php:794
+msgid "Rewrite Now"
+msgstr ""
+
+#: wpr_page_curation.php:801
+msgid "<strong>Link the keyword</strong>"
+msgstr ""
+
+#: wpr_page_curation.php:809
+msgid "of the times it occurs in the content below."
+msgstr ""
+
+#: wpr_page_curation.php:818
+msgid "<strong>Post Settings</strong>"
+msgstr ""
+
+#: wpr_page_curation.php:821
+msgid "Presets for posting products, forum threads and others"
+msgstr ""
+
+#: wpr_page_curation.php:823
+msgid "What do you want to create?"
+msgstr ""
+
+#: wpr_page_curation.php:825
+msgid "Default WordPress posts"
+msgstr ""
+
+#: wpr_page_curation.php:826
+msgid "WordPress pages"
+msgstr ""
+
+#: wpr_page_curation.php:827
+msgid "WooCommerce products"
+msgstr ""
+
+#: wpr_page_curation.php:828
+msgid "Easy Digital Downloads downloads"
+msgstr ""
+
+#: wpr_page_curation.php:829
+msgid "bbPress forum topics"
+msgstr ""
+
+#: wpr_page_curation.php:832
+msgid "Make a choice above to automatically configure the post settings below."
+msgstr ""
+
+#: wpr_page_curation.php:844
+msgid "Select category"
+msgstr ""
+
+#: wpr_page_curation.php:850 wpr_page_curation.php:895
+msgid "or"
+msgstr ""
+
+#: wpr_page_curation.php:852
+msgid "create new categories"
+msgstr ""
+
+#: wpr_page_curation.php:853
+msgid ""
+"Separate multiple categories by comma. Categories not existing on your blog "
+"<strong>will get created</strong> automatically."
+msgstr ""
+
+#: wpr_page_curation.php:870
+msgid ""
+"Can be \"post\", \"page\", a custom post type or \"topic\" if posting to "
+"bbPress."
+msgstr ""
+
+#: wpr_page_curation.php:880
+msgid "Pending Review"
+msgstr ""
+
+#: wpr_page_curation.php:887 wpr_page_curation.php:954
+msgid "Author Username"
+msgstr ""
+
+#: wpr_page_curation.php:897
+msgid "create new user"
+msgstr ""
+
+#: wpr_page_curation.php:898
+msgid ""
+"If the username does not exist on a blog yet it <strong>will get created</"
+"strong> automatically."
+msgstr ""
+
+#: wpr_page_curation.php:903
+msgid "Date (optional)"
+msgstr ""
+
+#: wpr_page_curation.php:906
+msgid ""
+"Enter to <strong>schedule future post</strong>. Leave empty to use current "
+"date and time"
+msgstr ""
+
+#: wpr_page_curation.php:911
+msgid "Parent (optional)"
+msgstr ""
+
+#: wpr_page_curation.php:914
+msgid ""
+"Enter a <strong>page ID</strong> to create subpages. To create bbPress forum "
+"topics enter the <strong>forum ID</strong> here."
+msgstr ""
+
+#: wpr_page_curation.php:919
+msgid "Add Comments"
+msgstr ""
+
+#: wpr_page_curation.php:922
+msgid "No"
+msgstr ""
+
+#: wpr_page_curation.php:923
+msgid "Yes, as WP comments"
+msgstr ""
+
+#: wpr_page_curation.php:924
+msgid "Yes, as bbPress replies"
+msgstr ""
+
+#: wpr_page_curation.php:931
+msgid "Create Posts Now"
+msgstr ""
+
+#: wpr_page_curation.php:941
+msgid "Clear Content and Restart"
+msgstr ""
+
+#: wpr_page_curation.php:943
+msgid "Content Preview"
+msgstr ""
+
+#: wpr_page_curation.php:943
+msgid ""
+"(not posted to your sites yet - go to \"3. Post to Your Sites\" to do that)"
+msgstr ""
+
+#: wpr_page_curation.php:948
+msgid "Article"
+msgstr ""
+
+#: wpr_page_curation.php:951
+msgid "Schedule Date"
+msgstr ""
+
+#: wpr_page_curation.php:958
+msgid "Actions"
+msgstr ""
+
+#: wpr_page_curation.php:959
+msgid "Delete This"
+msgstr ""
+
+#: wpr_page_curation.php:960
+msgid "Go to Editor"
+msgstr ""
+
+#: wpr_page_curation.php:962
+msgid "Rewrite"
+msgstr ""
+
+#: wpr_page_curation.php:969
+msgid "Activate in Options"
+msgstr ""
+
+#: wpr_page_curation.php:984
+msgid "Comments"
+msgstr ""
+
+#: wpr_page_options.php:59
+msgid "WP Robot Options"
+msgstr ""
+
+#: wpr_page_options.php:90
+msgid ""
+"Options have been loaded. Don't forget to save the options form below if you "
+"want to keep them on this site."
+msgstr ""
+
+#: wpr_page_options.php:128
+msgid ""
+"WP Robot has been uninstalled. You can now disable and delete the plugin.<br/"
+"><br/><strong>If you intend to reinstall WP Robot please first disable and "
+"reenable the plugin on your blogs \"Plugins\" page - otherwise the "
+"installation will not work!</strong>"
+msgstr ""
+
+#: wpr_page_options.php:135
+msgid "History has been cleared."
+msgstr ""
+
+#: wpr_page_options.php:143
+msgid ""
+"Error: Options could not be loaded from the WP Robot server. Please contact "
+"support. "
+msgstr ""
+
+#: wpr_page_options.php:156
+msgid ""
+"Your selection has been saved. Please <strong>click on the new settings tabs "
+"below</strong> to configure your content sources. Modules with a <span class="
+"\"dashicons dashicons-warning\" style=\"color:#0073AA;\"></span> next to "
+"their name require that you enter your API keys or credentials before they "
+"can be used."
+msgstr ""
+
+#: wpr_page_options.php:191
+msgid "Options have been updated."
+msgstr ""
+
+#: wpr_page_options.php:230
+msgid "Your settings have been imported."
+msgstr ""
+
+#: wpr_page_options.php:242
+msgid "Choose Sources"
+msgstr ""
+
+#: wpr_page_options.php:267
+msgid "Need help? Click here."
+msgstr ""
+
+#: wpr_page_options.php:270
+msgid "Choose Your Content Sources"
+msgstr ""
+
+#: wpr_page_options.php:273
+msgid "Order Alphabetically"
+msgstr ""
+
+#: wpr_page_options.php:274
+msgid "Order by Categories"
+msgstr ""
+
+#: wpr_page_options.php:275
+msgid "Order by Languages"
+msgstr ""
+
+#: wpr_page_options.php:278 wpr_page_options.php:389
+msgid "Save Selections"
+msgstr ""
+
+#: wpr_page_options.php:286
+msgid "Languages (besides English)"
+msgstr ""
+
+#: wpr_page_options.php:287 wpr_page_options.php:432
+msgid "Sign Up"
+msgstr ""
+
+#: wpr_page_options.php:313 wpr_page_options.php:346
+msgid "No account required"
+msgstr ""
+
+#: wpr_page_options.php:315 wpr_page_options.php:348
+msgid "Sign Up for API account"
+msgstr ""
+
+#: wpr_page_options.php:391
+msgid "Reset Sources and Options"
+msgstr ""
+
+#: wpr_page_options.php:393
+msgid "Import Options"
+msgstr ""
+
+#: wpr_page_options.php:395
+msgid ""
+"This will reset all options and sources you have selected and return CMS "
+"Commander to its default configuration after you signed up. Continue?"
+msgstr ""
+
+#: wpr_page_options.php:395
+msgid "Reset All Options"
+msgstr ""
+
+#: wpr_page_options.php:397
+msgid ""
+"This will clear the WP Robot post history and thus all posts in the history "
+"could get posted again. Continue?"
+msgstr ""
+
+#: wpr_page_options.php:397
+msgid "Clear Post History"
+msgstr ""
+
+#: wpr_page_options.php:399 wpr_page_options.php:403
+msgid "Uninstall WP Robot"
+msgstr ""
+
+#: wpr_page_options.php:401
+msgid ""
+"The button below will <b>uninstall WP Robot completely</b> including the "
+"<b>deletion of all database tables and all your settings and campaigns</b>. "
+"All the <b>posts created by WP Robot are not deleted</b>."
+msgstr ""
+
+#: wpr_page_options.php:403
+msgid ""
+"Warning: This will uninstall WP Robot and delete all settings. Continue?"
+msgstr ""
+
+#: wpr_page_options.php:409
+msgid ""
+"To use this module in WP Robot you need to enter your API key or login "
+"credentials below."
+msgstr ""
+
+#: wpr_page_options.php:430
+msgid "Verify"
+msgstr ""
+
+#: wpr_page_options.php:505
+msgid "Template Name: "
+msgstr ""
+
+#: wpr_page_options.php:507
+msgid "Copy"
+msgstr ""
+
+#: wpr_page_options.php:509
+msgid "Delete"
+msgstr ""
+
+#: wpr_page_options.php:527
+msgid "Save All Options"
+msgstr ""
+
+#: wpr_page_options.php:539
+msgid "Import WP Robot 4 Settings"
+msgstr ""
+
+#: wpr_page_options.php:539
+msgid ""
+"We have detected that WP Robot 4 is installed on your site. If you wish you "
+"can now import most of your module settings and API keys into WP Robot 5 by "
+"clicking the button below. Campaigns can unfortunately not be imported. If "
+"you do not wish to import your old settings simply activate one of the "
+"sources below instead."
+msgstr ""
+
+#: wpr_page_options.php:539
+msgid "Import post history as well (to prevent duplicates)"
+msgstr ""
+
+#: wpr_rewriter.php:296 wpr_rewriter.php:302 wpr_rewriter.php:307
+msgid "Rewrite Error: "
+msgstr ""
+
+#: wpr_translation.php:217
+msgid "Translation Error."
+msgstr ""
+
+#: wpr_translation.php:227
+msgid "Translation Error: "
+msgstr ""
+
+#: wpr_translation.php:244
+msgid "Empty text given."
+msgstr ""
+
+#: wpr_translation.php:251
+msgid "No target language specified."
+msgstr ""
+
+#: wpr_translation.php:258
+msgid "Same languages specified."
+msgstr ""
+
+#: wpr_translation.php:286
+msgid "The post could not be translated."
+msgstr ""
