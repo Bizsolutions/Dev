@@ -1,0 +1,37 @@
+.site-header {
+    -moz-box-shadow: 0px 0px 5px $color__gray;
+    -webkit-box-shadow: 0px 0px 5px $color__gray;
+    box-shadow: 0px 0px 5px $color__gray;
+    .header-content {
+         @include outer-container();
+         width: 100%;
+        .site-branding {
+            &.center {
+                text-align: center;
+                @include span-columns(12);
+                @include margin(0);
+                @include padding($base__spacing);
+                float: none;
+            }
+            .site-title {
+                @include margin(0);
+                @include padding(0);
+                a {
+                    @include margin(0);
+                    @include padding(0);
+                    display: block;
+                    font-weight: $font__normal;
+                }
+            }
+            .site-description {
+                @include margin(0);
+                @include padding(0);
+                font-weight: $font__light;
+            }
+            .custom-logo {
+                @include margin(0);
+                @include padding(0);
+            }        
+        }
+    }
+}

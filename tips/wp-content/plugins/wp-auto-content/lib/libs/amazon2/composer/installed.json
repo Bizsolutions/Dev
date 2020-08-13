@@ -1,0 +1,51 @@
+[
+    {
+        "name": "jakiboy/apaapi",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Jakiboy/apaapi.git",
+            "reference": "f1892bbe0f863971d4b3e4c1ae9ce3f35422e1e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Jakiboy/apaapi/zipball/f1892bbe0f863971d4b3e4c1ae9ce3f35422e1e2",
+            "reference": "f1892bbe0f863971d4b3e4c1ae9ce3f35422e1e2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "time": "2020-01-07T15:40:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Apaapi\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jihad Sinnaour",
+                "email": "mail@jihadsinnaour.com",
+                "role": "Founder"
+            }
+        ],
+        "description": "Amazon Product Advertising API v5",
+        "homepage": "https://jakiboy.github.io/apaapi/",
+        "keywords": [
+            "amazon",
+            "apaapi",
+            "api",
+            "jakiboy",
+            "paapi5",
+            "php",
+            "product"
+        ]
+    }
+]

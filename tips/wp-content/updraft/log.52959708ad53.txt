@@ -1,0 +1,126 @@
+0000.003 () Opened log file at time: Tue, 31 Mar 2020 16:18:37 +0000 on https://www.topmovingreviews.com/Moving-guides
+0000.003 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 2.12.13.1 WP: 5.3.2 PHP: 5.6.40 (Linux server1.div-moving.xyz 3.10.0-957.5.1.el7.x86_64 #1 SMP Fri Feb 1 14:54:57 UTC 2019 x86_64) MySQL: 5.5.5 WPLANG: en_US Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 13.5M | 14.3M) multisite: N openssl: OpenSSL 1.0.2u  20 Dec 2019 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.044 () Free space on disk containing Updraft's temporary directory: 80962.8 MB
+0000.045 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_restorer_replacesiteurl":true,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.078 () Will not delete any archives after unpacking them, because there was no cloud storage for this backup
+0000.080 () Entity: db
+0000.080 () restore_backup(backup_file=backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-db.gz, type=db, info=a:0:{}, last_one=)
+0000.080 () Unpacking backup...
+0000.083 () Database successfully unpacked
+0000.085 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.085 () Using direct MySQL access; value of use_mysqli is: 1
+0000.091 () Max packet size: 1024 MB
+0000.091 () Entering maintenance mode
+0000.091 () Enabling Maintenance mode&#8230;
+0000.093 () <strong>Backup of:</strong> https://www.topmovingreviews.com/Moving-guides
+0000.093 () Content URL: https://www.topmovingreviews.com/Moving-guides/wp-content
+0000.093 () Uploads URL: https://www.topmovingreviews.com/Moving-guides/wp-content/uploads
+0000.093 () Old table prefix: TopMoving_
+0000.094 () Site information: multisite=0
+0000.095 () New table prefix: TopMoving_
+0000.097 () Restoring table (MyISAM): TopMoving_options
+0000.145 () Restoring prior UD configuration (table: TopMoving_options; keys: 3)
+0000.147 () No search/replace required: would-be search and replacement are identical
+0000.151 () Restoring table (MyISAM): TopMoving_users
+0000.157 () No search/replace required: would-be search and replacement are identical
+0000.157 () Restoring table (MyISAM): TopMoving_usermeta
+0000.166 () No search/replace required: would-be search and replacement are identical
+0000.166 () Restoring table (MyISAM): TopMoving_commentmeta
+0000.173 () No search/replace required: would-be search and replacement are identical
+0000.173 () Restoring table (MyISAM): TopMoving_comments
+0000.180 () No search/replace required: would-be search and replacement are identical
+0000.180 () Restoring table (MyISAM): TopMoving_links
+0000.186 () No search/replace required: would-be search and replacement are identical
+0000.186 () Restoring table (MyISAM): TopMoving_postmeta
+0000.490 () No search/replace required: would-be search and replacement are identical
+0000.490 () Restoring table (MyISAM): TopMoving_posts
+0000.720 () No search/replace required: would-be search and replacement are identical
+0000.720 () Restoring table (MyISAM): TopMoving_term_relationships
+0000.757 () Skipping this table: data in this table (TopMoving_term_relationships) should not be search/replaced
+0000.757 () Restoring table (MyISAM): TopMoving_term_taxonomy
+0000.763 () No search/replace required: would-be search and replacement are identical
+0000.764 () Restoring table (MyISAM): TopMoving_termmeta
+0000.768 () No search/replace required: would-be search and replacement are identical
+0000.768 () Restoring table (MyISAM): TopMoving_terms
+0000.774 () No search/replace required: would-be search and replacement are identical
+0000.774 () Restoring table (MyISAM): TopMoving_yoast_seo_links
+0000.875 () Database queries processed: 50 in 0.79 seconds
+0000.876 () No search/replace required: would-be search and replacement are identical
+0000.876 () Restoring table (MyISAM): TopMoving_yoast_seo_meta
+0001.027 () No search/replace required: would-be search and replacement are identical
+0001.027 () Restoring table (InnoDB): TopMoving_import_detail_log
+0001.053 () No search/replace required: would-be search and replacement are identical
+0001.054 () Restoring table (InnoDB): TopMoving_import_log_detail
+0001.066 () No search/replace required: would-be search and replacement are identical
+0001.066 () Restoring table (MyISAM): TopMoving_import_postID
+0001.072 () No search/replace required: would-be search and replacement are identical
+0001.072 () Restoring table (MyISAM): TopMoving_pmxe_exports
+0001.084 () No search/replace required: would-be search and replacement are identical
+0001.084 () Restoring table (MyISAM): TopMoving_pmxe_google_cats
+0001.495 () No search/replace required: would-be search and replacement are identical
+0001.495 () Restoring table (MyISAM): TopMoving_pmxe_posts
+0001.587 () No search/replace required: would-be search and replacement are identical
+0001.587 () Restoring table (MyISAM): TopMoving_pmxe_templates
+0001.593 () No search/replace required: would-be search and replacement are identical
+0001.593 () Restoring table (MyISAM): TopMoving_pmxi_files
+0001.598 () No search/replace required: would-be search and replacement are identical
+0001.598 () Restoring table (MyISAM): TopMoving_pmxi_history
+0001.603 () No search/replace required: would-be search and replacement are identical
+0001.603 () Restoring table (MyISAM): TopMoving_pmxi_images
+0001.610 () No search/replace required: would-be search and replacement are identical
+0001.611 () Restoring table (MyISAM): TopMoving_pmxi_imports
+0001.616 () No search/replace required: would-be search and replacement are identical
+0001.616 () Restoring table (MyISAM): TopMoving_pmxi_posts
+0001.621 () No search/replace required: would-be search and replacement are identical
+0001.621 () Restoring table (MyISAM): TopMoving_pmxi_templates
+0001.635 () No search/replace required: would-be search and replacement are identical
+0001.636 () Restoring table (InnoDB): TopMoving_smackcsv_file_events
+0001.658 () No search/replace required: would-be search and replacement are identical
+0001.658 () Restoring table (InnoDB): TopMoving_ultimate_csv_importer_acf_fields
+0001.681 () No search/replace required: would-be search and replacement are identical
+0001.681 () Restoring table (InnoDB): TopMoving_ultimate_csv_importer_mappingtemplate
+0001.706 () No search/replace required: would-be search and replacement are identical
+0001.706 () Restoring table (InnoDB): TopMoving_ultimate_csv_importer_media
+0001.717 () Database queries processed: 100 in 1.63 seconds
+0001.725 () No search/replace required: would-be search and replacement are identical
+0001.725 () Restoring table (InnoDB): TopMoving_ultimate_csv_importer_shortcode_manager
+0001.738 () Unlocking database and leaving maintenance mode
+0001.738 () Disabling Maintenance mode&#8230;
+0001.739 () No search/replace required: would-be search and replacement are identical
+0001.739 () Finished: lines processed: 105 in 1.65 seconds
+0001.739 () Cleaning up rubbish...
+0001.741 () Begin search and replace (updraftplus_restored_db)
+0001.750 () Entity: plugins
+0001.750 () restore_backup(backup_file=backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:67:"/home/topmovingreviews/public_html/Moving-guides/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0001.750 () Unpacking backup... (backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-plugins.zip, 11.7 Mb)
+0002.424 () Moving old data: filesystem method / updraft_dir is potentially possible
+0002.424 () Moving old data: can potentially use wp_filesystem method / -old
+0002.424 () Moving old data out of the way...
+0002.958 () Top-level entities being moved: recent-posts-widget-extended, iframe, wp-subscribe-pro, hide-admin-bar, cool-tag-cloud, index.php, wp-auto-spinner, coming-soon-page, classic-editor, antispam-bee, rvg-optimize-database, wp_rebrandr_1.2.0, updraftplus, better-adsmanager, wp-automatic, wordpress-seo, featured-image-column, super-post-cleaner, google-sitemap-generator, wp-smushit, clickbank-ads-clickbank-widget, magic-post-thumbnail
+0002.969 () Moving unpacked backup into place...
+0003.410 () Top-level entities being moved: mammoth-docx-converter, collapsing-category-list, content-views-query-and-display-post-page, wp-ultimate-exporter, wordpress-importer, index.php, contact-form-7, updraftplus, wordpress-seo, wp-ultimate-csv-importer
+0003.419 () Cleaning up rubbish...
+0003.422 () Entity: themes
+0003.422 () restore_backup(backup_file=backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-themes.zip, type=themes, info=a:2:{s:4:"path";s:66:"/home/topmovingreviews/public_html/Moving-guides/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0003.422 () Unpacking backup... (backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-themes.zip, 1.8 Mb)
+0003.470 () Moving old data: filesystem method / updraft_dir is potentially possible
+0003.470 () Moving old data: can potentially use wp_filesystem method / -old
+0003.470 () Moving old data out of the way...
+0003.628 () Top-level entities being moved: twentytwenty, index.php, Extra
+0003.632 () Moving unpacked backup into place...
+0003.664 () Top-level entities being moved: twentytwenty, clearsky, index.php
+0003.665 () Cleaning up rubbish...
+0003.667 () Entity: uploads
+0003.667 () restore_backup(backup_file=backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:67:"/home/topmovingreviews/public_html/Moving-guides/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0003.667 () Unpacking backup... (backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-uploads.zip, 66.1 Mb)
+0004.728 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.729 () Moving old data: can potentially use wp_filesystem method / -old
+0004.729 () Moving old data out of the way...
+0004.826 () Moving unpacked backup into place...
+0005.009 () Cleaning up rubbish...
+0005.011 () Entity: others
+0005.011 () restore_backup(backup_file=backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-others.zip, type=others, info=a:2:{s:4:"path";s:59:"/home/topmovingreviews/public_html/Moving-guides/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0005.011 () Unpacking backup... (backup_2020-03-27-1858_Top_Moving_Reviews_acc3a1d92136-others.zip, 0 Mb)
+0005.012 () Cleaning up rubbish...
+0005.024 () Restore successful!
+0005.024 () Restore successful

@@ -1,0 +1,21 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(0.9375);
+	line-height: $font__line-height-body;
+    font-weight: $font__normal;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+     hyphens: auto;
+}
+
+@import "headings";
+
+@import "copy";
+
+@import "simple-line-icons";

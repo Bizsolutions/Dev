@@ -1,0 +1,116 @@
+//inline header
+@include media(769px) {
+    .site-header {
+        .header-content {
+            .site-branding {
+                @include padding($base__spacing);
+                &.inline {
+                    float: left;
+                }
+            }
+            //header navigation
+            .header-nav {
+                &.inline {
+                    float: right;
+                    @include margin(($base__spacing + 3) 0);
+                    @include padding(0 $base__spacing 0 0);
+                    background: none;
+                    ul {
+                        list-style: none;
+                        text-align: right;
+                        margin: 0;
+                        li {
+                            *display: inline;
+                            display: inline-block;
+                            a {
+                                display: block;
+                                @include padding($small__spacing 0 $small__spacing $small__spacing);
+                            }
+                        }
+                    }
+                    .site-description {
+                        display: block;
+                        @include padding($small__spacing 0 $small__spacing $small__spacing);
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+    .main-navigation {
+        &.inline {
+            margin:0 -99em;
+            padding:0 99em;  
+            clear: both;
+            //first
+            ul {
+                text-align: center;
+                li:hover > ul,
+                li.focus > ul {
+                    left: 0;
+                    right: auto;
+                }
+                //second level
+                ul {
+                    text-align: left;
+                    float: left;
+                    position: absolute;
+                    top: 100%;
+                    left: -999em;
+                    z-index: 99999;
+                    &:after {
+                        content: none;
+                    }
+                    li {
+                        &:hover > ul,
+                        &.focus > ul {
+                            left: 100%;
+                            width: 100%;
+                        }
+                    }
+                    ul {
+                        left: -999em;
+                        top: 0;
+                    }
+                    //children
+                    .menu-item-has-children > a:after {
+                        font-family: 'simple-line-icons';
+                        content: "\e606";
+                        position: relative;
+                        float: right;
+                        @include opacity(.5);
+                    }
+                }
+            }
+        }
+    }
+}
+@include media(max-width 768px) {
+    .site-branding {
+        &.inline {
+            @include span-columns(12);
+            @include padding($base__spacing);
+            @include margin(0);
+            float: left;
+        }
+     }
+    .header-nav {
+        &.inline {
+            @include span-columns(12);
+            @include padding(0 0 0 $base__spacing);
+            ul {
+                list-style: none;
+                margin: 0;
+                li {
+                    *display: inline;
+                    display: inline-block;
+                    a {
+                        display: block;
+                         @include padding($small__spacing $small__spacing 0 0);
+                    }
+                }
+            }
+        }
+    }
+}
+
