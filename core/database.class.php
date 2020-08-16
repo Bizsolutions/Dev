@@ -26,11 +26,11 @@ class db_class {
 
         // Arvix Server
 
-        $this->db_name = "topmovin_mymovingreviews";
+       $this->db_name = "topmovin_mymovingreviews";
 
-        $this->db_username = "root";
+		$this->db_username = "topmovin_mmr";
 
-        $this->db_password = "admin";
+		$this->db_password = "m&[^y71j*a@&";
     }
 
     //connect function
