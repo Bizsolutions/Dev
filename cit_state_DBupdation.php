@@ -20,7 +20,7 @@ $count              =   0;
    ;
   
     $city    = ltrim(isset($compnay_address[$countarray-3])?$compnay_address[$countarray-3]:0);
-    $state  = substr($compnay_address[$countarray-2],1,2);
+    $state  = substr(isset($compnay_address[$countarray-2]),1,2);
     $com_zipcode=explode(" ",$compnay_address[$countarray-2]);
     $zipcode= isset($com_zipcode[2])?$com_zipcode[2]:'';
     $country= ltrim($compnay_address[$countarray-1]);
