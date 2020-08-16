@@ -152,14 +152,14 @@ xmlhttp.send();
 
          <div class="row">
                 <div class="col-md-4">
-                    <div class="shadow-lg p-3 mb-5 bg-white rounde"> <form name="frm_search" action="https://topmovingreviews.com/searchcompany.php" method="post">
+                    <div class="shadow-lg p-3 mb-5 bg-white rounde"> <form name="frm_search1" action="https://www.topmovingreviews.com/searchcompany.php" method="post">
                             <div class="">
                                 <strong>Write a Moving Company Review Here</strong><br/>
 							 <br>
                              
                                 <div class="">
                               
-                                    <input type="text" value="Search Company Name" name="company_search" onFocus="javascript:document.frm_search.company_search.value='';" class="form-control form-control-sm"> 
+                                    <input  class="form-control form-control-sm" type="text" value="Search Company Name" name="company_search" onFocus="javascript:document.frm_search1.company_search.value='';" > 
                                     <button type="submit" class="btn btn-primary">
                                         <!--<img src="images/ico4.jpg">-->
                                         &nbsp;Search
@@ -168,7 +168,7 @@ xmlhttp.send();
                             </div>
                         </form></div></div>
                          <div class="col-md-4">
-                    <div class="shadow-lg p-3 mb-5 bg-white rounded"> <form name="frm_zip" action="https://topmovingreviews.com/searchzipcode.php" method="post">
+                    <div class="shadow-lg p-3 mb-5 bg-white rounded"> <form name="frm_zip" action="https://www.topmovingreviews.com/searchzipcode.php" method="post">
                             <div class="">
                                 <strong>Find Movers near me</strong><br/>
 							 <br>
