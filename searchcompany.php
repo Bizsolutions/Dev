@@ -347,12 +347,11 @@ if($lastpage > 1)
 
 			if ($counter == $page)
 
-				$pagination.= "<li><span class=\"pagination\">$counter</span></li>";
+					$pagination.= "<li  class=\"page-item active\"><span class=\"page-link \">$counter</span></li>";
 
-			else
+				else
 
-				$pagination.= "<li><a href=\"$targetpage?page=$counter&company_search=$_REQUEST[company_search]\">$counter</a></li>";					
-
+					$pagination.= "<li><a href=\"$targetpage?page=$counter&company_search=$_REQUEST[company_search]\">$counter</a></li>";	
 		}
 
 	}

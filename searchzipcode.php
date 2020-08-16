@@ -227,7 +227,7 @@ xmlhttp.send();
 
 <p>Use the search box below to look up your moving company or explore our article base before moving.</p>
 
-<form name="frm_search" action="searchcompany.php" method="post">
+<form name="frm_search" action="searchzipcode.php" method="post">
 
 <table width="100%" border="0" cellspacing="4	">
 
@@ -267,7 +267,7 @@ $total_pages = $total_pages['num'];
 
 /* Setup vars for query. */
 
-$targetpage = "searchcompany.php"; 	//your file name  (the name of this file)
+$targetpage = "searchzipcode.php"; 	//your file name  (the name of this file)
 
 $limit = 20; 								//how many items to show per page
 
@@ -347,11 +347,11 @@ if($lastpage > 1)
 
 			if ($counter == $page)
 
-				$pagination.= "<li><span class=\"pagination\">$counter</span></li>";
+					$pagination.= "<li  class=\"page-item active\"><span class=\"page-link \">$counter</span></li>";
 
-			else
+				else
 
-				$pagination.= "<li><a href=\"$targetpage?page=$counter&zipcode_search=$_REQUEST[zipcode_search]\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"$targetpage?page=$counter&zipcode_search=$_REQUEST[zipcode_search]\">$counter</a></li>";										
 
 		}
 
