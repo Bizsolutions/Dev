@@ -152,14 +152,14 @@ xmlhttp.send();
 
          <div class="row">
                 <div class="col-md-4">
-                    <div class="shadow-lg p-3 mb-5 bg-white rounde"> <form name="frm_search" action="https://www.topmovingreviews.com/searchcompany.php" method="post">
+                    <div class="shadow-lg p-3 mb-5 bg-white rounde"> <form name="frm_search1" action="https://www.topmovingreviews.com/searchcompany.php" method="post">
                             <div class="">
                                 <strong>Write a Moving Company Review Here</strong><br/>
 							 <br>
                              
                                 <div class="">
                               
-                                    <input type="text" value="Search Company Name" name="zipcode_search" onFocus="javascript:document.frm_search.zipcode_search.value='';" class="form-control form-control-sm"> 
+                                    <input type="text" value="Search Company Name" name="zipcode_search" onFocus="javascript:document.frm_search1.zipcode_search.value='';" class="form-control form-control-sm"> 
                                     <button type="submit" class="btn btn-primary">
                                         <!--<img src="images/ico4.jpg">-->
                                         &nbsp;Search
