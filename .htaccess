@@ -1,9 +1,11 @@
-
-
-Options -Indexes -MultiViews
-
-RewriteEngine on
-RewriteRule ^index.php/(.*)$ /new/$1 [R=301,NC,L]
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteBase /Dev/
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*)$ [L,R=301,NC]
+RewriteCond %{HTTP_HOST} ^localhost [NC]
+</IfModule>
 
 
 

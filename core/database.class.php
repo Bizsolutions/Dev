@@ -30,7 +30,7 @@ class db_class {
 
         $this->db_username = "root";
 
-        $this->db_password = "";
+        $this->db_password = "admin";
     }
 
     //connect function
