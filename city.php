@@ -522,251 +522,91 @@ $total_pages = mysql_num_rows($query);
 
 
 $limit = 10; 								//how many items to show per page
+$arr = explode("?",$_SERVER['REQUEST_URI']);
+$isID = false; 
+$Ispage_num = 0;
 
+if(isset($arr[1])){
+    $isID =  true;
+  $pCount=  explode("=",$arr[1]);
+  $Ispage_num = $pCount[1];
+}
 
+if($isID)
 
-
-
-
-
-if(strlen($_GET['zipcode'])<3)
-
-
-
- $page =$_GET['zipcode'];
-
-
+ $page =$Ispage_num;
 
 else
-
 
 
 $page=1;
-
-
-
-
-
-
-
 if($page) 
-
-
 
 	$start = ($page - 1) * $limit; 			//first item to display on this page
 
-
-
 else
-
-
 
 	$start = 0;								//if no page var is given, set start to 0
-
-
-
-
-
-
-
 /* Get data. */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if(isset($_REQUEST['filter']))
-
-
-
 {
-
-
 
 $filter=$_REQUEST['filter'];
-
-
-
 $sql = "SELECT title,address,id,rating,phone,logo  FROM  companies      where   city in ('$cityname') group by companies.id order by $filter LIMIT $start, $limit";
 
-
-
-}
-
-
-
-else
-
-
-
-{
-
-
-
-
-
+} else {
   $sql ="SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname')  group by companies.id order by   companies.rating desc,count(*) desc  LIMIT $start, $limit";
-
-
-
  //$sql = "SELECT title,address,id,rating,phone  FROM  companies      where   address like '% $cityname,%' LIMIT $start, $limit";
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
 
 $result = mysql_query($sql);
-
-
-
-
-
-
-
 /* Setup page vars for display. */
-
 
 
 if ($page == 0) $page = 1;					//if no page var is given, default to 1.
 
-
-
 $prev = $page - 1;							//previous page is page - 1
-
-
-
 $next = $page + 1;							//next page is page + 1
-
-
-
 $lastpage = ceil($total_pages/$limit);		//lastpage is = total pages / items per page, rounded up.
-
-
-
 $lpm1 = $lastpage - 1;						//last page minus 1
 
-
-
-
-
-
-
 /* 
-
-
-
 	Now we apply our rules and draw the pagination object. 
-
-
-
 	We're actually saving the code to a variable in case we want to draw it more than once.
-
-
-
 */
 
 
 
 $pagination = "";
+$cityname = str_replace(' ', '-', $cityname);
 
 
-
-if($lastpage > 1)
-
-
-
-{	
-
-
-
+$zipcode = isset($_GET['zipcode'])?$_GET['zipcode']:'';
+if($lastpage > 1) {	
 	$pagination .= "<div class=\"pagination\"  ><ul>";
-
-
-
-	//previous button
-
-
-
-	if ($page > 1) 
-
-
-
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$prev/\">Prev</a></li>";
-
-
-
-	else
-
-
-
-		$pagination.= "<li><span class=\"pagination1\">Prev</span></li>";	
-
-
-
 	
-
-
+	//previous button
+	if ($page > 1) 
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$prev\">Prev</a></li>"; 
+	else
+		$pagination.= "<li><span class=\"pagination1\">Prev</span></li>";	
 
 	//pages	
 
 
 
 	if ($lastpage < 7 + ($adjacents * 2))	//not enough pages to bother breaking it up
-
-
-
-	{	
-
-
+    {	
 
 		for ($counter = 1; $counter <= $lastpage; $counter++)
 
-
-
 		{
-
-
-
 			if ($counter == $page)
-
-
-
 				$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
-
-
-
 			else
-
-
-
-				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$counter/\">$counter</a></li>";					
-
-
-
+				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$counter\">$counter</a></li>";					
 		}
-
-
-
 	}
 
 
@@ -811,7 +651,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";					
 
 
 
@@ -879,7 +719,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";					
 
 
 
@@ -947,7 +787,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";					
 
 
 
@@ -975,7 +815,7 @@ if($lastpage > 1)
 
 
 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$next/\">Next</a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$next\">Next</a></li>";
 
 
 
@@ -1292,6 +1132,7 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 
 require 'core/functions.php';
 
+$cityname = str_replace('-', ' ', $cityname);
 
 
 $result = getNearbyMoversByCity($cityname,$stateshrtname,30,200,10);
@@ -1670,7 +1511,15 @@ $res_dot=mysql_fetch_assoc($query_dot);
                     </div>
 
 
-
+<div  class="callfor">
+                            <h2>Best movers nearby</h2>
+                     <div class="input-group "><form name="frm_zip" action="https://www.topmovingreviews.com/searchzipcode.php" method="post">
+	<input type="text" class="form-control" placeholder="Find movers by zip" name="zipcode_search" ></form>
+      <span class="input-group-btn">
+        <input class="btn btn-search newbtn" name="bt" type="submit" value="Find"  onClick="javascript:document.frm_zip.submit();">
+      </span>
+</div>
+                        </div>
 
 
 
