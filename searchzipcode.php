@@ -187,9 +187,9 @@ xmlhttp.send();
 							 <div class="">
 							 <select onChange="return showCity(this.value)"  name="selStateZip" id="selStateZip" class="form-control form-control-sm">
 							 <option>Select State</option>
-							 <?php 	 $sql_state = mysql_query( "SELECT state_code,name  FROM states where usa_state=1");
+							 <?php 	 $sql_state = mysqli_query($link, "SELECT state_code,name  FROM states where usa_state=1");
 
-									while($row_state = mysql_fetch_array($sql_state))
+									while($row_state = mysqli_fetch_array($sql_state))
 
 									{ ?>
 							 <option value="<?php echo $row_state['state_code'] ;?>"><?php echo $row_state['name'] ;?> </option>
@@ -259,7 +259,7 @@ $query = "SELECT COUNT(*) as num FROM $tbl_name where  zipcode like '%$_REQUEST[
 
 
 
-$total_pages = mysql_fetch_array(mysql_query($query));
+$total_pages = mysqli_fetch_array(mysqli_query($link,$query));
 
 $total_pages = $total_pages['num'];
 
@@ -289,7 +289,7 @@ if(isset($_REQUEST['zipcode_search']))
 
 $sql = "SELECT * FROM $tbl_name  where zipcode like '%$_REQUEST[zipcode_search]%' order by rating desc LIMIT $start, $limit";
 
-$result = mysql_query($sql);
+$result = mysqli_query($link,$sql);
 
 
 
@@ -471,7 +471,7 @@ if($lastpage > 1)
 
 
 
-while($res_company=mysql_fetch_array($result))
+while($res_company=mysqli_fetch_array($result))
 
 {
 
@@ -517,9 +517,9 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $res_company["title"]));
 
 <?php  $sql_review="select * from reviews where company_id=$res_company[id]";
 
-	  $query_review=mysql_query($sql_review);	
+	  $query_review=mysqli_query($link,$sql_review);	
 
-	  $res_review=mysql_fetch_assoc($query_review);
+	  $res_review=mysqli_fetch_assoc($query_review);
 
 	  echo substr($res_review["text"],0,140)."...";
 

@@ -26,7 +26,7 @@ $count              =   0;
     $country= ltrim($compnay_address[$countarray-1]);
 
      $sql_update="update  companies set city='$city',state='$state',zipcode='$zipcode',country='$country' where id=$res_company[id]";
-    if(mysqli_query($sql_update))
+    if(mysqli_query($link,$sql_update))
     { 
             $count=$count+1;
     }
