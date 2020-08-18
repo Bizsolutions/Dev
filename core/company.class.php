@@ -42,7 +42,7 @@ class company {
 	}
 	
 	//function to create company
-	function create_company($company_name, $email, $address, $city, $state, $zip, $phone, $fax, $website, $mc_number,$dot_number,$about,$image,$user_name,$pwd) {
+	function create_company($company_name, $email, $address, $city, $state, $zip, $phone, $fax, $website, $mc_number,$dot_number,$about,$image,$user_name,$pwd,$link) {
 		 $str = "INSERT INTO  register_company
 		(c_id,company_name, email, address, city, state, zipcode, phone, fax, web_address, mc_number,dot_number,about_us,company_logo,user_name,pwd)
 		VALUES

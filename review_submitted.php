@@ -7,8 +7,8 @@ $bd = new db_class();
 $db_link = $bd->db_connect();
 $company_id=54;
 $sql_company="SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.website,companies.email  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.id=$company_id";
-$query_company=mysql_query($sql_company);
-$res_company=mysql_fetch_array($query_company);
+$query_company=mysqli_query($link,$sql_company);
+$res_company=mysqli_fetch_array($query_company);
 $compnay_address=explode(",",$res_company['address']);
 $countarray=count($compnay_address);
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -252,7 +252,7 @@ function validate()
 </head>
 <body onLoad="doOnLoad();"onLoad="doOnLoad();">
 <div class=wrapper>
-<?php include 'header-without-form.php'; ?>
+<?php include 'newheaderwithoutbanner.php'; ?>
 <div class=content>
 <div class=block-left>
 
@@ -285,10 +285,10 @@ function validate()
 		<p><strong>We have sent you a confirmation email at <span class="user_mail"><?php  echo $_REQUEST['email'];?></span>. Please click on the link in your email to activate the review.</strong></p>
 		<!--<p><a class="btn_light" href="http://gmail.com" rel="nofollow" target="_blank">Go to activate your review</a></p>-->
 		<p><strong>If you can't find the email, please <span style="color: #ff0000">check your spam directory</span>.</strong></p>
-	</div>
+	
 	
 	<p>Thank you for your review. The review you have submitted will help others decide which moving company to use based on moving reviews like this.</p>
-	
+	</div>
 </div>
 
 				  </section>
@@ -310,9 +310,9 @@ function validate()
 
 $sql_dot="select power_units,usdot_number,mc,safety_url from company_dot_data where  company_name= 'BEST MOVING SERVICE- AMERICAN PRIDE MOVING SERVICE'";
 
-$query_dot=mysql_query($sql_dot);
+$query_dot=mysqli_query($link,$sql_dot);
 
-$res_dot=mysql_fetch_assoc($query_dot);
+$res_dot=mysqli_fetch_assoc($query_dot);
 
 ?>
 
@@ -340,5 +340,6 @@ $res_dot=mysql_fetch_assoc($query_dot);
 </div>
 
 <?php include 'footer.php'; ?>
+
 </body>
 </html>

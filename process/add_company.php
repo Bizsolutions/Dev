@@ -38,7 +38,7 @@ $pwd=$_REQUEST['pwd'];
 
   	move_uploaded_file($_FILES['logo']['tmp_name'], $target);
 
-if($company->create_company($company_name, $email, $address, $city, $state, $zip, $phone, $fax, $website, $mc_number,$dot_number,$about,$image,$user_name,$pwd)) {
+if($company->create_company($company_name, $email, $address, $city, $state, $zip, $phone, $fax, $website, $mc_number,$dot_number,$about,$image,$user_name,$pwd,$link)) {
 	      
 		   echo '<script>alert("New company is added successfully,<br> Our team will review and add your company to our listing. THANK YOU")</script>';
 

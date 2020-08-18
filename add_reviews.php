@@ -7,8 +7,8 @@ $bd = new db_class();
 $db_link = $bd->db_connect();
 $company_id=$_REQUEST['company_id'];
 $sql_company="SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.website,companies.email  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.id=$company_id";
-$query_company=mysql_query($sql_company);
-$res_company=mysql_fetch_array($query_company);
+$query_company=mysqli_query($link,$sql_company);
+$res_company=mysqli_fetch_array($query_company);
 $compnay_address=explode(",",$res_company['address']);
 $countarray=count($compnay_address);
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -768,8 +768,8 @@ $(document).ready(function(){
 		<option value="">Select State</option>
 		<?php
 								   	  $string = "SELECT * FROM us_state_list";
-									  $query = mysql_query($string);
-									  while($result = mysql_fetch_array($query)) {
+									  $query = mysqli_query($link,$string);
+									  while($result = mysqli_fetch_array($query)) {
 								   ?>
                                    		<option value="<?= $result['State_Code']; ?>"><?= $result['State_Name']; ?></option>
                                    <?php } ?>
@@ -788,8 +788,8 @@ $(document).ready(function(){
 		<option value="">Select State</option>
 		<?php
 								   	  $string = "SELECT * FROM us_state_list";
-									  $query = mysql_query($string);
-									  while($result = mysql_fetch_array($query)) {
+									  $query = mysqli_query($link,$string);
+									  while($result = mysqli_fetch_array($query)) {
 								   ?>
                                    		<option value="<?= $result['State_Code']; ?>"><?= $result['State_Name']; ?></option>
                                    <?php } ?> </select></td>
@@ -849,8 +849,8 @@ $(document).ready(function(){
 
 <?php 
 $sql_reviews="SELECT author,rating,text,date,wants_to_contact  FROM   reviews    where company_id=$company_id ORDER BY STR_TO_DATE(date, '%M %d,%Y') desc limit 0,3";
-$query_reviews=mysql_query($sql_reviews);
-while($res_reviews=mysql_fetch_array($query_reviews))
+$query_reviews=mysqli_query($link,$sql_reviews);
+while($res_reviews=mysqli_fetch_array($query_reviews))
 {
 
 ?>
@@ -880,7 +880,7 @@ while($res_reviews=mysql_fetch_array($query_reviews))
 
 $sql_dot="select power_units,usdot_number,mc,safety_url from company_dot_data where  company_name= 'BEST MOVING SERVICE- AMERICAN PRIDE MOVING SERVICE'";
 
-$query_dot=mysql_query($sql_dot);
+$query_dot=mysqli_query($link,$sql_dot);
 
 $res_dot=mysql_fetch_assoc($query_dot);
 
@@ -915,7 +915,7 @@ $company = new company();
 
 $sql_pplview="select Comany_ID,company_name,city,state from company where viewed=1 order by Rand() limit 4";
 
-$query_pplview=mysql_query($sql_pplview);
+$query_pplview=mysqli_query($link,$sql_pplview);
 
 while($res_pplview=mysql_fetch_assoc($query_pplview)){
 

@@ -48,7 +48,7 @@ $year = date('Y');*/
 	echo json_encode(array('success'=>0, 'message'=>'User could not have been created, please try again'));
 }
 */
-if($reviews->create_review($company_id,$review,$firstname,$email,$date,$review_subject,$your_review,$move_size,$order_id,$origin_city,$origin_state,$origin_country,$destination_country,$destination_state, $destination_city, $ip,$container)) {
+if($reviews->create_review($company_id,$review,$firstname,$email,$date,$review_subject,$your_review,$move_size,$order_id,$origin_city,$origin_state,$origin_country,$destination_country,$destination_state, $destination_city, $ip,$container,$link)) {
 	//echo json_encode(array('success'=>1, 'message'=>'Review created successfully'));
 } else {
 	echo json_encode(array('success'=>0, 'message'=>'Review could not have been created, please try again'));
@@ -57,8 +57,8 @@ if($reviews->create_review($company_id,$review,$firstname,$email,$date,$review_s
 
 
  $sql_lastid="SELECT MAX(id) FROM reviews";
-	$query=mysql_query($sql_lastid);
-	$res_id=mysql_fetch_row($query);
+	$query=mysqli_query($link,$sql_lastid);
+	$res_id=mysqli_fetch_row($query);
 
 
 
