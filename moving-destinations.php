@@ -234,9 +234,9 @@ font-family: arial;
 
 							$sql1="select pickup_city,destination_city from pickup_destination_city";
 
-							$query1=mysql_query($sql1);
+							$query1=mysqli_query($link,$sql1);
 
-							while($res1=mysql_fetch_array($query1))
+							while($res1=mysqli_fetch_array($query1))
 
 								{						
 

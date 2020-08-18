@@ -24,7 +24,7 @@ if(isset($_GET['destinationcity']))
 
 $sql1="select * from pickup_destination_city where pickup_city='$pickupcity' and destination_city='$destinationcity'";
 
-$res1=mysql_fetch_array(mysql_query($sql1));
+$res1=mysqli_fetch_array(mysqli_query($link,$sql1));
 
 
 
@@ -666,7 +666,7 @@ $tbl_name='company_state';
 
 
 
-$query = mysql_query("SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$pickupcity') group by companies.id"); 
+$query = mysqli_query($link,"SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$pickupcity') group by companies.id"); 
 
 
 
@@ -674,7 +674,7 @@ $query = mysql_query("SELECT *  FROM    companies  , reviews    where companies.
 
 
 
-$total_pages = mysql_num_rows($query);
+$total_pages = mysqli_num_rows($query);
 
 /* Setup vars for query. */
 $arr = explode("?",$_SERVER['REQUEST_URI']);
@@ -848,25 +848,7 @@ else
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$result = mysql_query($sql);
+$result = mysqli_query($link,$sql);
 
 
 
@@ -1594,7 +1576,7 @@ if($lastpage > 1)
 
 
 
-while($res_comp_city=mysql_fetch_array($result))
+while($res_comp_city=mysqli_fetch_array($result))
 
 
 
@@ -1622,7 +1604,7 @@ while($res_comp_city=mysql_fetch_array($result))
 
 
 
-$sql_reviewcount=mysql_query("select * from reviews where company_id= '$res_comp_city[id]'");
+$sql_reviewcount=mysqli_query($link,"select * from reviews where company_id= '$res_comp_city[id]'");
 
 
 
@@ -1630,7 +1612,7 @@ $sql_reviewcount=mysql_query("select * from reviews where company_id= '$res_comp
 
 
 
-$res_reviewcount=mysql_num_rows($sql_reviewcount);
+$res_reviewcount=mysqli_num_rows($sql_reviewcount);
 
 
 
@@ -1890,7 +1872,7 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $res_comp_city["title"]))
 
 
 
-	  $query_review=mysql_query($sql_review);	
+	  $query_review=mysqli_query($link,$sql_review);	
 
 
 
@@ -2104,7 +2086,7 @@ $sql_dot="select power_units,usdot_number,mc,safety_url,date_format(granted_date
 
 
 
-$query_dot=mysql_query($sql_dot);
+$query_dot=mysqli_query($link,$sql_dot);
 
 
 
@@ -2112,7 +2094,7 @@ $query_dot=mysql_query($sql_dot);
 
 
 
-$res_dot=mysql_fetch_assoc($query_dot);
+$res_dot=mysqli_fetch_assoc($query_dot);
 
 
 
