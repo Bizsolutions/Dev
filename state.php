@@ -11,14 +11,14 @@ if(isset($_GET['stateshrtname']))
 
 
 
-$sql_state=mysql_query("select id,state_code from states where name='$statename' and usa_state=1");
-$res_state=mysql_fetch_array($sql_state);
+$sql_state=mysqli_query($link,"select id,state_code from states where name='$statename' and usa_state=1");
+$res_state=mysqli_fetch_array($sql_state);
 $state_id=$res_state['id'];
 $state_code=$res_state['state_code'];
 
 /*$sql_company="SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.website,companies.email  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.id=$company_id";
-$query_company=mysql_query($sql_company);
-$res_company=mysql_fetch_array($query_company);
+$query_company=mysqli_query($sql_company);
+$res_company=mysqli_fetch_array($query_company);
 $compnay_address=explode(",",$res_company['address']);
 $countarray=count($compnay_address);
 */
@@ -260,8 +260,8 @@ function myFunction() {
                     <div class="popular-listing ">
 					<?php
 					$sql_topbottom_text="select top_heading,top_text,bottom_text,name from states where state_code='$state_code' and usa_state=1";
-					$query_topbottom_text=mysql_query($sql_topbottom_text);
-					$res_topbottom_text= mysql_fetch_array($query_topbottom_text);
+					$query_topbottom_text=mysqli_query($link,$sql_topbottom_text);
+					$res_topbottom_text= mysqli_fetch_array($query_topbottom_text);
 					?>
                         <h1 class="popular-listing-title " style="text-align:left !important;" >
                             2020 Top 10 <?php echo $res_topbottom_text['name']; ?> Movers Reviews & <?php echo $state_code; ?> Moving Companies
@@ -273,8 +273,8 @@ function myFunction() {
 						
 						<?php /*?><?php
 							$random=mt_rand(1,5000);
-							$sql_get_content=mysql_query("select content from city_content where id='$random' limit 0,1");
-							$res_get_content=mysql_fetch_array($sql_get_content);
+							$sql_get_content=mysqli_query("select content from city_content where id='$random' limit 0,1");
+							$res_get_content=mysqli_fetch_array($sql_get_content);
 						 	$city_statecode= "<strong>".ucfirst($cityname).",".strtoupper($stateshrtname)."</strong>";
 						 	$moving_companies="<strong>"."Moving Companies"."</strong>";
 						 	$movers_in="<strong>"."movers in"."</strong>";
@@ -332,11 +332,11 @@ $tbl_name='company_state';
 
 
 
-$query = mysql_query("SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname') group by companies.id"); 
+$query = mysqli_query($link,"SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname') group by companies.id"); 
 
 
 
-$total_pages = mysql_num_rows($query);
+$total_pages = mysqli_num_rows($query);
 
 
 
@@ -345,19 +345,19 @@ $total_pages = mysql_num_rows($query);
 
 
 /* Setup vars for query. */
+$arr = explode("?",$_SERVER['REQUEST_URI']);
+$isID = false; 
+$Ispage_num = 0;
 
-
-
+if(isset($arr[1])){
+    $isID =  true;
+  $pCount=  explode("=",$arr[1]);
+  $Ispage_num = $pCount[1];
+}
 $limit = 10; 								//how many items to show per page
 
-
-
-
-
-
-
-if(is_numeric($_GET['stateshrtname']))
- $page =$_GET['stateshrtname'];
+if($isID)
+ $page =$Ispage_num;
 else
 $page=1;
 
@@ -449,7 +449,7 @@ $sql = "SELECT count(*),companies.title,companies.address,reviews.text,companies
 
 
 
-$result = mysql_query($sql);
+$result = mysqli_query($link,$sql);
 
 
 
@@ -515,7 +515,7 @@ $statename1=str_replace(' ','-',$statename);
 	$pagination .= "<div class=\"pagination\"  ><ul>";
 	//previous button
 	if ($page > 1) 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers?page=$prev\"><-</a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$prev\"><-</a></li>";
 	else
 		$pagination.= "<li><span class=\"pagination1\"><-</span></li>";	
 	
@@ -527,7 +527,7 @@ $statename1=str_replace(' ','-',$statename);
 			if ($counter == $page)
 				$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 			else
-				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$counter/\">$counter</a></li>";					
+				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
 		}
 	}
 	elseif($lastpage > 5 + ($adjacents * 2))	//enough pages to hide some
@@ -540,48 +540,48 @@ $statename1=str_replace(' ','-',$statename);
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
 			}
 			$pagination.= "<li><span>...</span>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$lpm1/\">$lpm1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$lastpage/\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage\">$lastpage</a></li>";		
 		}
 		//in middle; hide some front and some back
 		elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
 		{
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-1/\">1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-2/\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2\">2</a></li>";
 			$pagination.= "<li><span>...</span></li>";
 			for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
 			{
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
 			}
 			$pagination.= "<li><span>...</span></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$lpm1/\">$lpm1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$lastpage/\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage\">$lastpage</a></li>";		
 		}
 		//close to end; only hide early pages
 		else
 		{
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-1/\">1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-2/\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2\">2</a></li>";
 			$pagination.= "<li><span>...</span></li>";
 			for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
 			{
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$counter/\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
 			}
 		}
 	}
 	
 	//next button
 	if ($page < $counter - 1) 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$next/\">-></a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$next\">-></a></li>";
 	else
 		$pagination.= "<li><span class=\"pagination1\">-></span></li>";
 	$pagination.= "</ul></div>\n";		
@@ -593,7 +593,7 @@ $statename1=str_replace(' ','-',$statename);
 
 
 
-while($res_comp_city=mysql_fetch_array($result))
+while($res_comp_city=mysqli_fetch_array($result))
 
 
 
@@ -607,11 +607,11 @@ while($res_comp_city=mysql_fetch_array($result))
 
 
 
-$sql_reviewcount=mysql_query("select * from reviews where company_id= '$res_comp_city[id]'");
+$sql_reviewcount=mysqli_query($link,"select * from reviews where company_id= '$res_comp_city[id]'");
 
 
 
-$res_reviewcount=mysql_num_rows($sql_reviewcount);
+$res_reviewcount=mysqli_num_rows($sql_reviewcount);
 
 
 
@@ -824,11 +824,11 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 
 
 
-	  $query_review=mysql_query($sql_review);	
+	  $query_review=mysqli_query($sql_review);	
 
 
 
-	  $res_review=mysql_fetch_assoc($query_review);*/
+	  $res_review=mysqli_fetch_assoc($query_review);*/
 
 
 
@@ -897,8 +897,8 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
                         <?php /*?><h2><?php echo ucwords($statename); ?>  Movers</h2>
 							<?php
 							$random=mt_rand(1,5000);
-							$sql_get_content=mysql_query("select content from city_content where id='$random' limit 0,1");
-							$res_get_content=mysql_fetch_array($sql_get_content);
+							$sql_get_content=mysqli_query("select content from city_content where id='$random' limit 0,1");
+							$res_get_content=mysqli_fetch_array($sql_get_content);
 						 	$city_statecode= "<strong>".ucfirst($cityname).",".strtoupper($stateshrtname)."</strong>";
 						 	$moving_companies="<strong>"."Moving Companies"."</strong>";
 						 	$movers_in="<strong>"."movers in"."</strong>";
@@ -929,9 +929,9 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 
 $sql_dot="select power_units,usdot_number,mc,safety_url,date_format(granted_date,\"%m-%d-%Y\") as granted_date from company_dot_data where  company_name= '$res_company[title]'";
 
-$query_dot=mysql_query($sql_dot);
+$query_dot=mysqli_query($link,$sql_dot);
 
-$res_dot=mysql_fetch_assoc($query_dot);
+$res_dot=mysqli_fetch_assoc($query_dot);
 
 ?>
 
@@ -962,17 +962,17 @@ $query = @unserialize(file_get_contents('http://ip-api.com/php/' . $ip));
 if ($query && $query['status'] == 'success') {*/
 
 	 $sql_lat="select * from  states_nearby where name='$_GET[statename]' limit 0,1";
-	 $query_lat=mysql_query($sql_lat);
-	 $res_lat=mysql_fetch_array($query_lat);
+	 $query_lat=mysqli_query($link,$sql_lat);
+	 $res_lat=mysqli_fetch_array($query_lat);
 	 $lat = $res_lat['lat'];
 	 $lon = $res_lat['lon'];
 	  $get_state = "SELECT *, ((ACOS(SIN($lat * 3.14 / 180) * SIN(lat * 3.14 / 180) + COS($lat * 3.14 / 180) * COS(lat * 3.14 / 180) * COS(($lon - lon) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) AS distance FROM states_nearby where name <> '$_GET[statename]' HAVING distance<='2000' ORDER BY distance ASC limit 0,6";
-	if ($result = mysql_query($get_state)) {
-		  if(mysql_num_rows($result)>1){
-		while ($row = mysql_fetch_assoc($result)) {
+	if ($result = mysqli_query($link,$get_state)) {
+		  if(mysqli_num_rows($result)>1){
+		while ($row = mysqli_fetch_assoc($result)) {
 		
-		  $query_state_shrtname=mysql_query("select state_code from states where name='$row[name]'");
-		  $res_state_shrtname=mysql_fetch_array($query_state_shrtname);
+		  $query_state_shrtname=mysqli_query($link,"select state_code from states where name='$row[name]'");
+		  $res_state_shrtname=mysqli_fetch_array($query_state_shrtname);
 		 
 		  ?>
 		  
@@ -1009,14 +1009,14 @@ if ($query && $query['status'] == 'success') {*/
                         <div class="city">
  <?php   //select distinct(SUBSTRING_INDEX(SUBSTRING_INDEX(address,\",\",-3),\",\",1)) as city ,id from companies where address like '% $stateshrtname %'
 $sql_city="SELECT  city,state_name,zips FROM `us_city_population` where state_code='$state_code' order by population DESC limit 0,6";
- $query_city=mysql_query($sql_city);
- while($res_city=mysql_fetch_assoc($query_city))
+ $query_city=mysqli_query($link,$sql_city);
+ while($res_city=mysqli_fetch_assoc($query_city))
  {
 //address like '% $res_city[city]%' and address like '% $stateshrtname %'
 /*$sql_state_zip="select SUBSTRING_INDEX(SUBSTRING_INDEX(address,\",\",-2),\",\",1) as state_zipcode from companies where address like '% $stateshrtname %'";
-$query_state_zip=mysql_query($sql_state_zip);
+$query_state_zip=mysqli_query($sql_state_zip);
 
-$res_state_zip=mysql_fetch_array($query_state_zip); */
+$res_state_zip=mysqli_fetch_array($query_state_zip); */
 
 if(strlen($res_city['zips'])==4)
 $res_city['zips']="0".$res_city['zips'];
@@ -1042,14 +1042,14 @@ $res_city['zips']="00".$res_city['zips'];
 		  
 		    <?php   //select distinct(SUBSTRING_INDEX(SUBSTRING_INDEX(address,\",\",-3),\",\",1)) as city ,id from companies where address like '% $stateshrtname %'
 $sql_city="SELECT  city,state_name,zips FROM `us_city_population` where state_code='$state_code' order by population DESC limit 6,7";
- $query_city=mysql_query($sql_city);
- while($res_city=mysql_fetch_assoc($query_city))
+ $query_city=mysqli_query($link,$sql_city);
+ while($res_city=mysqli_fetch_assoc($query_city))
  {
 //address like '% $res_city[city]%' and address like '% $stateshrtname %'
 /*$sql_state_zip="select SUBSTRING_INDEX(SUBSTRING_INDEX(address,\",\",-2),\",\",1) as state_zipcode from companies where address like '% $stateshrtname %'";
-$query_state_zip=mysql_query($sql_state_zip);
+$query_state_zip=mysqli_query($sql_state_zip);
 
-$res_state_zip=mysql_fetch_array($query_state_zip); */
+$res_state_zip=mysqli_fetch_array($query_state_zip); */
 
 if(strlen($res_city['zips'])==4)
 $res_city['zips']="0".$res_city['zips'];
