@@ -39,10 +39,10 @@ class db_class {
 	
 	//connect function
 	function db_connect() {
-		
-		$link = mysqli_connect($this->db_server, $this->db_username, $this->db_password); 
+		global $link;
+		 $link = mysqli_connect($this->db_server, $this->db_username, $this->db_password); 
 		if($link) { 
-   			mysqli_select_db($this->db_name);
+   			mysqli_select_db($link,$this->db_name);
 		}
 		return $link;	
 	}
