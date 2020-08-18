@@ -3,6 +3,7 @@
 
 
 require 'core/database.class.php';
+require 'core/functions.php';
 
 
 
@@ -1130,12 +1131,11 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 
 <?php }
 
-require 'core/functions.php';
 
 $cityname = str_replace('-', ' ', $cityname);
 
-
-$result = getNearbyMoversByCity($cityname,$stateshrtname,30,200,10);
+//$link is the database connection string
+$result = getNearbyMoversByCity($cityname,$stateshrtname,30,200,10,$link);
 
 
 

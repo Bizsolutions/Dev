@@ -11,6 +11,7 @@ class db_class {
 	var $db_password;	// database password
 	var $db_name; // database name
 	
+	
 	function __construct()
     {
         $this->db_server = "localhost";
