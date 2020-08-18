@@ -40,11 +40,11 @@ $sql_state_name="select name from states where state_code='$stateshrtname'";
 
 
 
-$mysql_query_state=mysql_query($sql_state_name);
+$mysql_query_state=mysqli_query($link,$sql_state_name);
 
 
 
-$res_state_name=mysql_fetch_array($mysql_query_state);
+$res_state_name=mysqli_fetch_array($mysql_query_state);
 
 
 
@@ -505,11 +505,11 @@ $tbl_name='company_state';
 
 
 
-$query = mysql_query("SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname') group by companies.id"); 
+$query = mysqli_query($link,"SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname') group by companies.id"); 
 
 
 
-$total_pages = mysql_num_rows($query);
+$total_pages = mysqli_num_rows($query);
 
 
 
@@ -560,7 +560,7 @@ $sql = "SELECT title,address,id,rating,phone,logo  FROM  companies      where   
  //$sql = "SELECT title,address,id,rating,phone  FROM  companies      where   address like '% $cityname,%' LIMIT $start, $limit";
 }
 
-$result = mysql_query($sql);
+$result = mysqli_query($link,$sql);
 /* Setup page vars for display. */
 
 
@@ -839,7 +839,7 @@ if($lastpage > 1) {
 
 
 
-while($res_comp_city=mysql_fetch_array($result))
+while($res_comp_city=mysqli_fetch_array($result))
 
 
 
@@ -853,11 +853,11 @@ while($res_comp_city=mysql_fetch_array($result))
 
 
 
-$sql_reviewcount=mysql_query("select * from reviews where company_id= '$res_comp_city[id]'");
+$sql_reviewcount=mysqli_query($link,"select * from reviews where company_id= '$res_comp_city[id]'");
 
 
 
-$res_reviewcount=mysql_num_rows($sql_reviewcount);
+$res_reviewcount=mysqli_num_rows($sql_reviewcount);
 
 
 
@@ -1076,11 +1076,11 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 
 
 
-	  $query_review=mysql_query($sql_review);	
+	  $query_review=mysqli_query($link,$sql_review);	
 
 
 
-	  $res_review=mysql_fetch_assoc($query_review);*/
+	  $res_review=mysqli_fetch_assoc($query_review);*/
 
 
 
@@ -1183,11 +1183,11 @@ $text=$value;
 
 	}			
 
-				$sql_reviewcount=mysql_query("select * from reviews where company_id= '$company_id'");
+				$sql_reviewcount=mysqli_query($link,"select * from reviews where company_id= '$company_id'");
 
 
 
-$res_reviewcount=mysql_num_rows($sql_reviewcount);
+$res_reviewcount=mysqli_num_rows($sql_reviewcount);
 
 
 
@@ -1393,11 +1393,11 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $company_name));
 
 
 
-							$sql_get_content=mysql_query("select content from city_content where id='$random' limit 0,1");
+							$sql_get_content=mysqli_query($link,"select content from city_content where id='$random' limit 0,1");
 
 
 
-							$res_get_content=mysql_fetch_array($sql_get_content);
+							$res_get_content=mysqli_fetch_array($sql_get_content);
 
 
 
@@ -1484,11 +1484,11 @@ $sql_dot="select power_units,usdot_number,mc,safety_url,date_format(granted_date
 
 
 
-$query_dot=mysql_query($sql_dot);
+$query_dot=mysqli_query($link,$sql_dot);
 
 
 
-$res_dot=mysql_fetch_assoc($query_dot);
+$res_dot=mysqli_fetch_assoc($query_dot);
 
 
 
@@ -1640,11 +1640,11 @@ $res_dot=mysql_fetch_assoc($query_dot);
 
 
 
-				$query_lat=mysql_query($sql_lat);
+				$query_lat=mysqli_query($link,$sql_lat);
 
 
 
-				$res_lat=mysql_fetch_array($query_lat);
+				$res_lat=mysqli_fetch_array($query_lat);
 
 
 
@@ -1659,11 +1659,11 @@ $res_dot=mysql_fetch_assoc($query_dot);
 				 $get_city = "SELECT *, ((ACOS(SIN($lat * 3.14 / 180) * SIN(latitude * 3.14 / 180) + COS($lat * 3.14 / 180) * COS(latitude * 3.14 / 180) * COS(($lon - longitude) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) AS distance FROM cities_extended where state_code = '$stateshrtname' and city<>'$cityname' GROUP BY city HAVING distance<='1000' ORDER BY distance ASC limit 0,6";
 
 
-				if ($result = mysql_query($get_city)) {
+				if ($result = mysqli_query($link,$get_city)) {
 
 
 
-				    while ($row = mysql_fetch_assoc($result)) {
+				    while ($row = mysqli_fetch_assoc($result)) {
 
 
 
@@ -1675,11 +1675,11 @@ $res_dot=mysql_fetch_assoc($query_dot);
 
 
 
-					$query_state_zip=mysql_query($sql_state_zip);
+					$query_state_zip=mysqli_query($link,$sql_state_zip);
 
 
 
-					$res_state_zip=mysql_fetch_array($query_state_zip); 
+					$res_state_zip=mysqli_fetch_array($query_state_zip); 
 
 					?>
 
@@ -1762,11 +1762,11 @@ $res_dot=mysql_fetch_assoc($query_dot);
 		   $get_city = "SELECT *, ((ACOS(SIN($lat * 3.14 / 180) * SIN(latitude * 3.14 / 180) + COS($lat * 3.14 / 180) * COS(latitude * 3.14 / 180) * COS(($lon - longitude) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) AS distance FROM cities_extended where state_code = '$stateshrtname' and city<>'$cityname' GROUP BY city HAVING distance<='1000' ORDER BY distance ASC limit 6,10";
 
 
-				if ($result = mysql_query($get_city)) {
+				if ($result = mysqli_query($link,$get_city)) {
 
 
 
-				    while ($row = mysql_fetch_assoc($result)) {
+				    while ($row = mysqli_fetch_assoc($result)) {
 
 
 
@@ -1778,11 +1778,11 @@ $res_dot=mysql_fetch_assoc($query_dot);
 
 
 
-					$query_state_zip=mysql_query($sql_state_zip);
+					$query_state_zip=mysqli_query($link,$sql_state_zip);
 
 
 
-					$res_state_zip=mysql_fetch_array($query_state_zip); 
+					$res_state_zip=mysqli_fetch_array($query_state_zip); 
 
 					?>
 
