@@ -8,13 +8,13 @@ $bd         = new db_class();
 $db_link    = $bd->db_connect();
 $company_id = isset($_GET['id']) ? $_GET['id'] : 54;
 
-
+$compname=$_GET['compname'];
 
  //$sql_company   = "SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.website,companies.email,companies.logo,companies.city,companies.state,companies.zipcode  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.id=$company_id";
 $sql_company    = "SELECT companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.website,companies.email,companies.logo,companies.city,companies.state,companies.zipcode  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.id=$company_id";
-$query_company  = mysql_query($sql_company);
-$res_company    = mysql_fetch_array($query_company);
-//$res_company    = mysql_fetch_row($query_company);
+$query_company  = mysqli_query($link,$sql_company);
+$res_company    = mysqli_fetch_array($query_company);
+//$res_company    = mysqli_fetch_row($query_company);
 
 $compnay_address= explode(",",$res_company['address']);
 
@@ -25,12 +25,12 @@ $countarray     = count($compnay_address);
 // Getting the review for the company, to display a proper value
 
 $sql = "SELECT * FROM reviews WHERE company_id='".$company_id."'";
-$query = mysql_query($sql);
+$query = mysqli_query($link,$sql);
 
 
 
 $company_rating = 0;
-$company_review_number = mysql_num_rows($query);
+$company_review_number = mysqli_num_rows($query);
 if($company_review_number  > 0)
 
 {
@@ -39,7 +39,7 @@ if($company_review_number  > 0)
 
 	$review_total = 0;
 
-	while ($obj = mysql_fetch_object($query)) 
+	while ($obj = mysqli_fetch_object($query)) 
 
 	{
 
@@ -59,31 +59,38 @@ if($company_review_number  > 0)
 $adjacents      = 3;
 $tbl_name       = 'reviews';
 $query          = "SELECT COUNT(*) as num FROM $tbl_name where  company_id=$company_id";
-$total_pages    = mysql_fetch_array(mysql_query($query));
+$total_pages    = mysqli_fetch_array(mysqli_query($link,$query));
 $total_pages    = $total_pages['num'];
 /* Setup vars for query. */
 $limit          = 10;
- $getpage        = @split("_", $_GET['compname'], 3);
- $countarraypage = count($getpage);
- $page           = $getpage[$countarraypage - 1];
-if ($page > 1) {
-    $reviews_word = "Reviews";
+ 
+ 
+ /* Setup vars for query. */
+$arr = explode("?",$_SERVER['REQUEST_URI']);
+$isID = false; 
+$Ispage_num = 0;
+
+if(isset($arr[1])){
+    $isID =  true;
+  $pCount=  explode("=",$arr[1]);
+  $Ispage_num = $pCount[1];
 }
 
-if (is_numeric($page)) {
-    $page = $page;
-    $compname = $getpage[0];
-} else {
-    $page = 1;
-    $compname = $_GET['compname'];
-}
+if($isID)
+ $page =$Ispage_num;
+else
+$page=1;
+
+
+ 
+ 
 if ($page)
     $start = ($page - 1) * $limit;    //first item to display on this page
 else
     $start = 0;        //if no page var is given, set start to 0
     /* Get data. */
 $sql = "SELECT * FROM $tbl_name  where  company_id=$company_id order by str_to_date(date,'%b %d, %Y') desc LIMIT $start, $limit";
-$result = mysql_query($sql);
+$result = mysqli_query($link,$sql);
 /* Setup page vars for display. */
 if ($page == 0)
     $page = 1;     //if no page var is given, default to 1.
@@ -99,7 +106,7 @@ if ($lastpage > 1) {
     $pagination .= "<div class=\"pagination\"  ><ul>";
     //previous button
     if ($page > 1) {
-        $pagination.= "<li><a href=\"https://www.topmovingreviews.com/movers/$compname" . "_" . "$prev-$_GET[id]/\">Prev 10</a></li>";
+        $pagination.= "<li><a href=\"https://www.topmovingreviews.com/movers/$compname-$_GET[id]?page=$prev\">Prev 10</a></li>";
     }
     $pagination.= "<li> <span class=\"pagination1\">$company_review_number" . " Reviews</span></li>";
     for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
@@ -110,7 +117,7 @@ if ($lastpage > 1) {
     }
     //next button
     if ($page < $counter - 1)
-        $pagination.= "<li><a href=\"https://www.topmovingreviews.com/movers/$compname" . "_" . "$next-$_GET[id]/\">Next 10</a></li>";
+        $pagination.= "<li><a href=\"https://www.topmovingreviews.com/movers/$compname-$_GET[id]?page=$next\">Next 10</a></li>";
     /* else
       $pagination.= "<li><span class=\"pagination1\">-></span></li>"; */
     $pagination.= "</ul></div>\n";
@@ -224,19 +231,19 @@ if ($lastpage > 1) {
 
 <?php  
 $sllrl = "SELECT * FROM reviews  where  company_id=$company_id order by str_to_date(date,'%b %d, %Y') desc ";
-$resultsllrl = mysql_query($sllrl);
+$resultsllrl = mysqli_query($link,$sllrl);
 
 $qrer        = " SELECT min(rating) as minRating , max(rating)  as bestRating FROM reviews where company_id=".$company_id; 
-                $result111    = mysql_query($qrer);
-                $resultt22    = mysql_fetch_array($result111);
-                $nnresult     = mysql_num_rows($result111);
+                $result111    = mysqli_query($link,$qrer);
+                $resultt22    = mysqli_fetch_array($result111);
+                $nnresult     = mysqli_num_rows($result111);
                 
                 $minRating    = $resultt22['minRating'];
                 $bestRating   = $resultt22['bestRating'];
                 
                 //if($bestRating == $minRating) $minRating=0;
                 if($nnresult > 0){
-                    while ($res_reviews22 = mysql_fetch_array($resultsllrl)) { if (strlen($res_reviews22['text']) > 0) { $move_loca_text  = $res_reviews22['text']; } 
+                    while ($res_reviews22 = mysqli_fetch_array($resultsllrl)) { if (strlen($res_reviews22['text']) > 0) { $move_loca_text  = $res_reviews22['text']; } 
                 
                     $author         = $res_reviews22['author'] ; 
                     $datepublush    = date('M d,Y', strtotime($res_reviews22['date']));
@@ -553,10 +560,10 @@ if ($phonw <> "") {
                         <!--Review Summary 18-05-2020-->
 <?php
 $query_summary = "SELECT id,rating FROM reviews where  company_id=$company_id";
-$result_summary = mysql_query($query_summary);
+$result_summary = mysqli_query($link,$query_summary);
 // $res_summary=mysql_fetch_assoc($result_summary);
 $res_sumarray = [];
-while ($res_summary = mysql_fetch_assoc($result_summary)) {
+while ($res_summary = mysqli_fetch_assoc($result_summary)) {
     $res_sumarray[] = $res_summary;
 }
 $counts = array_count_values(array_column($res_sumarray, 'rating'));
@@ -715,7 +722,7 @@ $avg_rating = number_format((float) $Average_rating, 1, '.', '');
                         </div>
                     </div>
 <?php
-while ($res_reviews = mysql_fetch_array($result)) {
+while ($res_reviews = mysqli_fetch_array($result)) {
     ?>
                         <div class="reviewbox reviewbox-wid newreviewbox" style="margin-top:0px;">
                             <div class=review-tag>
@@ -763,8 +770,8 @@ while ($res_reviews = mysql_fetch_array($result)) {
                     
 <?php
 $sql_dot = "select power_units,usdot_number,mc,safety_url,company_url,date_format(granted_date,\"%m-%d-%Y\") as granted_date from company_dot_data where  company_name= '$res_company[title]' and state='$res_company[state]' and city='$res_company[city]'";
-$query_dot = mysql_query($sql_dot);
-$res_dot = @mysql_fetch_assoc($query_dot);
+$query_dot = mysqli_query($link,$sql_dot);
+$res_dot = mysqli_fetch_assoc($query_dot);
 ?>
                     
                     <br>
@@ -826,8 +833,8 @@ $res_dot = @mysql_fetch_assoc($query_dot);
                         <?php  
                         
                             $sql_pric           = "select  * FROM  company_pricing  WHERE  company_id = $company_id" ; 
-                            $query_ppany        = mysql_query($sql_pric);
-                            $res_ppp            = mysql_fetch_array($query_ppany);
+                            $query_ppany        = mysqli_query($link,$sql_pric);
+                            $res_ppp            = mysqli_fetch_array($query_ppany);
                             
                             $Northeast          = $res_ppp['Northeast'];
                             $SouthEast          = $res_ppp['SouthEast'];
@@ -845,8 +852,8 @@ $res_dot = @mysql_fetch_assoc($query_dot);
                                 inner join states on state_average.state = states.name 
                                 where states.state_code =   '$state' "; 
                             
-                            $sql_state_a        = mysql_query($sql_state_avg);
-                            $sql_sta            = mysql_fetch_array($sql_state_a);
+                            $sql_state_a        = mysqli_query($link,$sql_state_avg);
+                            $sql_sta            = mysqli_fetch_array($sql_state_a);
                             
                             $avgNortheast       = $sql_sta['Northeast'];
                             $avgSouthEast       = $sql_sta['SouthEast'];
@@ -2216,12 +2223,12 @@ $statename = $res_company['state'];
 //select id,company_name,city,state from companies where viewed=1 order by Rand() limit 4  i have  removed viewed for temporary on 18022018
 /* address like '%$cityname%' and address like '%$statename%'  and title!='$res_company[title]' */
 $sql_pplview = "select id,title,address,logo,city,state from companies where rating>3 and state ='$statename' order by Rand() limit 4";
-$query_pplview = mysql_query($sql_pplview);
-while ($res_pplview = mysql_fetch_assoc($query_pplview)) {
+$query_pplview = mysqli_query($link,$sql_pplview);
+while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
     $compnay_address1 = explode(",", $res_pplview['address']);
     $countarray1 = count($compnay_address1);
-    $average = $company->get_average_reviews_count($res_pplview["id"]);
-    $reviews_count = $company->get_company_reviews_count($res_pplview["id"]);
+    $average = $company->get_average_reviews_count($res_pplview["id"],$link);
+    $reviews_count = $company->get_company_reviews_count($res_pplview["id"],$link);
     $comp_name = str_replace(' ', '-', $res_pplview['title']);
     ?>
                                 <?php /* ?><div class=ppl_view>
@@ -2287,9 +2294,9 @@ while ($res_pplview = mysql_fetch_assoc($query_pplview)) {
                     <div style="margin-top:10px;" >
 <?php
 $state_code = $res_company['state'];
-$sql_state = mysql_query("select name from states where state_code='$state_code' and usa_state=1");
-$res_state = mysql_fetch_array($sql_state);
-$numrows = mysql_num_rows($sql_state);
+$sql_state = mysqli_query($link,"select name from states where state_code='$state_code' and usa_state=1");
+$res_state = mysqli_fetch_array($sql_state);
+$numrows = mysqli_num_rows($sql_state);
 
 if ($numrows <> 0) {
     ?>
@@ -2407,7 +2414,7 @@ $prgr_less .='';
 
 //echo $west_arr[0];die;
 
-if(count($west_arr) >= 1){
+if($west_arr && count($west_arr) >= 1){
     $westi      = str_replace(",","",$west_arr[0]);
     $esp        = explode('-',$westi);
     // price 
@@ -2437,7 +2444,7 @@ if(count($west_arr) >= 1){
     
     //$x_axis.='"West"'.',';
 }
-if(count($south_med_west_arr) >= 1){
+if($south_med_west_arr && count($south_med_west_arr) >= 1){
     $south_med_west_arrii      = str_replace(",","",$south_med_west_arr[0]);
     $esp = explode('-',$south_med_west_arrii);
     $esp0 = $esp[0];
@@ -2470,7 +2477,7 @@ if(count($south_med_west_arr) >= 1){
     
  
 }
-if(count($Northwest_arr) >= 1){
+if($Northwest_arr && count($Northwest_arr) >= 1){
     $Northwest_arrii      = str_replace(",","",$Northwest_arr[0]);
     $esp = explode('-',$Northwest_arrii);
     $esp0 = $esp[0];
@@ -2493,7 +2500,7 @@ if(count($Northwest_arr) >= 1){
     $x_axis.="['North  West', '".$prgr_less."'],";
     //$x_axis_la.="['North  West'],";
 }
-if(count($NorthMedwest_arr) >= 1){
+if($NorthMedwest_arr &&  count($NorthMedwest_arr) >= 1){
     $NorthMedwest_arrii      = str_replace(",","",$NorthMedwest_arr[0]);
     $esp = explode('-',$NorthMedwest_arrii);
     $esp0 = $esp[0];
@@ -2515,7 +2522,7 @@ if($esp0 > $esp1 ){
     $x_axis_la.="['North  Med West'],";
     
 }
-if(count($south_east_arr) >= 1){
+if($south_east_arr && count($south_east_arr) >= 1){
     $south_east_arrii      = str_replace(",","",$south_east_arr[0]);
     $esp    = explode('-',$south_east_arrii);
     $esp0   = $esp[0];
@@ -2539,7 +2546,7 @@ if(count($south_east_arr) >= 1){
     $x_axis.="['South East', '".$prgr_less."'],";
     $x_axis_la.="['South East'],";
 }
-if(count($NorthEast_arr) >= 1){
+if($NorthEast_arr && count($NorthEast_arr) >= 1){
     $NorthEast_arrii      = str_replace(",","",$NorthEast_arr[0]);
     $esp    = explode('-',$NorthEast_arrii);
     $esp0   = $esp[0];
