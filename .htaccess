@@ -14,7 +14,7 @@ RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ 
 
 #RewriteRule ^(.*)$ https://www.topmovingreviews.com/$1 [L,R=301,NC]
 
-RewriteBase /Dev/
+#RewriteBase /Dev/
 
 
 
@@ -22,7 +22,7 @@ RewriteBase /Dev/
 #RewriteRule ^(.*)$ /Dev/index.php?/$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /Dev/index.php [L]
+RewriteRule . /Dev/$1 [L]
 
 
 #
