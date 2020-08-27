@@ -16,10 +16,10 @@ class db_class {
     {
         $this->db_server = "localhost";
 	//Local server
-	/*	
+		
 		$this->db_username = "root";
 		$this->db_password = "admin";
-		$this->db_name = "topmoversreview";*/
+		$this->db_name = "topmovin_mymovingreviews";
 		
 		
 		// Arvix Server
@@ -29,11 +29,11 @@ class db_class {
 	
 						// Arvix Server
 
-		$this->db_name = "topmovin_mymovingreviews";
+		/*$this->db_name = "topmovin_mymovingreviews";
 
 		$this->db_username = "topmovin_mmr";
 
-		$this->db_password = "m&[^y71j*a@&";
+		$this->db_password = "m&[^y71j*a@&";*/
 		
     }
 	

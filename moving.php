@@ -766,7 +766,7 @@ if ($nnresult > 0) {
                             </div>
                         </div>
 <?php } ?>
-                <!--<div class=load_more_cls><a href="#">Load More</a>&ensp;<i class="fa fa-angle-down"></i></div>-->
+                
                     <?= $pagination ?>
 
 
@@ -922,19 +922,6 @@ else {?>
 
 
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
-                                    //for postive ones
-                                    //if($SouthEastval  >= 1 ){
-                                    //}else{
-                                    //$noSouthEast = $SouthEastdiff / $avgSouthEast;
-                                    //}
                                 }
 
                                 if (!empty($West) or strpos($West, '- ') !== false) {
@@ -952,14 +939,6 @@ else {?>
 
 
                                     $ofWest = round($ofWest, 1);
-                                    if (!empty($ofWest)) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
                                 }
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
@@ -971,19 +950,6 @@ else {?>
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
                                     $ofnoNorthwest = round($Northwestt, 1);
 
-
-//                                        $Northwestdiff = $avgNorthwest-$Northwest;
-//                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
-//                                        
-//                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if (!empty($ofnoNorthwest)) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="' . $ofnoNorthwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
                                 }
 
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
@@ -997,14 +963,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if (!empty($ofnoNorthMedwest)) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
+                                
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
@@ -1016,14 +975,7 @@ else {?>
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
                                     $ofnoSouthMedwest = round($ofnoSouthMedwest, 1);
 
-                                    if (!empty($ofnoSouthMedwest)) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width:' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
+                                
                                 }
                                 break;
                             case 'South East':
@@ -1034,15 +986,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
 
                                 if (!empty($West) or strpos($West, '- ') !== false) {
@@ -1059,14 +1003,6 @@ else {?>
 
 
                                     $ofWest = round($ofWest, 1);
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
                                 }
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
@@ -1086,14 +1022,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
                                     echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
@@ -1103,14 +1032,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if ($ofnoNorthMedwest) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="' . $ofnoNorthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
 
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
@@ -1122,14 +1044,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
                             case 'West':
@@ -1139,15 +1054,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1159,14 +1066,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
 
 
@@ -1180,14 +1080,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if (!empty($ofnoNorthwest)) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="' . $ofnoNorthwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
+                                    
                                 }
 
 
@@ -1204,14 +1097,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if (!empty($ofnoNorthMedwest)) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
 
@@ -1227,14 +1113,7 @@ else {?>
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
                                     $ofnoSouthMedwest = round($ofnoSouthMedwest, 1);
 
-                                    if (!empty($ofnoSouthMedwest)) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                    <div class="progress"> 
-                                                        <div class="progress-bar bg-green" role="progressbar" style="width:' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                            </div>
-                                                        </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1246,15 +1125,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1265,14 +1136,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1286,14 +1150,7 @@ else {?>
                                     $ofWest = round($ofWest, 1);
 
                                     $ofWest = round($ofWest, 1);
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
                                     echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
@@ -1304,14 +1161,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if ($ofnoNorthMedwest) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="' . $ofnoNorthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
@@ -1321,14 +1171,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1343,15 +1186,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1362,14 +1197,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1381,14 +1209,7 @@ else {?>
                                     $ofWest = $noWest * 100;
 
                                     $ofWest = round($ofWest, 1);
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the North West would be around $" . $Northwest . '.';
@@ -1402,14 +1223,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
@@ -1420,14 +1234,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1442,15 +1249,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1461,14 +1260,8 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1482,14 +1275,7 @@ else {?>
                                     $ofWest = (($West / $avgWest) * 66) / 100;
                                     $ofWest = round($ofWest, 1);
 
-                                    if ($ofWest) {
-                                        $bar_str2 = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the North West would be around $" . $Northwest . '.';
@@ -1503,14 +1289,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
                                     echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
@@ -1521,14 +1300,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if ($ofnoNorthMedwest) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="' . $ofnoNorthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1542,14 +1314,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the North West would be around $" . $Northwest . '.';
@@ -1558,19 +1323,7 @@ else {?>
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
                                     $ofnoNorthwest = round($Northwestt, 1);
 
-//                                        die('Northwest6');
-//                                        $Northwestdiff = $avgNorthwest-$Northwest;
-//                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
-//                                        
-//                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1585,14 +1338,7 @@ else {?>
 
 
                                     $ofWest = round($ofWest, 1);
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
                                     echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
@@ -1602,14 +1348,7 @@ else {?>
                                     $noNorthMedwest = $NorthMedwestdiff / $avgNorthMedwest;
 
                                     $ofnoNorthMedwest = $noNorthMedwest * 100;
-                                    if ($ofnoNorthMedwest) {
-                                        $ofnoNorthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North Med West $' . $NorthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthMedwest . '%" aria-valuenow="' . $ofnoNorthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
@@ -1619,14 +1358,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                   
                                 }
                                 break;
 
@@ -1637,15 +1369,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1659,14 +1383,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1681,14 +1398,7 @@ else {?>
 
 
                                     $ofWest = round($ofWest, 1);
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $Northwest . '.';
@@ -1700,14 +1410,7 @@ else {?>
                                     $noNorthwest = $Northwestdiff / $avgNorthwest;
 
                                     $ofnoNorthwest = $noNorthwest * 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
@@ -1717,14 +1420,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1736,15 +1432,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1756,14 +1444,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1776,14 +1457,6 @@ else {?>
                                     $ofWest = (($West / $avgWest) * 66) / 100;
                                     $ofWest = round($ofWest, 1);
 
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the North West would be around $" . $Northwest . '.';
@@ -1797,14 +1470,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
@@ -1815,14 +1481,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1833,15 +1492,7 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1853,14 +1504,7 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
                                     echo " Moving to the West would be around $" . $West . '.';
@@ -1873,14 +1517,7 @@ else {?>
                                     $ofWest = (($West / $avgWest) * 66) / 100;
                                     $ofWest = round($ofWest, 1);
 
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
                                     echo " Moving to the North West would be around $" . $Northwest . '.';
@@ -1894,14 +1531,7 @@ else {?>
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
 //                                        
 //                                        $ofnoNorthwest = $noNorthwest* 100;
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
@@ -1912,14 +1542,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -1934,15 +1557,6 @@ else {?>
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
-                                    if (!empty($ofNorthEast)) {
-
-                                        $ofNorthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">North East $' . $NorthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofNorthEast . '" aria-valuenow="' . $ofNorthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
                                     echo " Moving to the South East would be around $" . $SouthEast . '.';
@@ -1954,14 +1568,6 @@ else {?>
 
                                     $ofSouthEast = $noSouthEast * 100;
 
-                                    if (!empty($ofSouthEast)) {
-                                        $ofSouthEaststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South East $' . $SouthEast . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofSouthEast . '%" aria-valuenow="' . $ofSouthEast . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
                                 }
 
 
@@ -1977,14 +1583,7 @@ else {?>
                                     $ofWest = (($West / $avgWest) * 66) / 100;
                                     $ofWest = round($ofWest, 1);
 
-                                    if ($ofWest) {
-                                        $ofWeststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">West $' . $West . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofWest . '%" aria-valuenow="' . $ofWest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+
                                 }
 
 
@@ -1999,14 +1598,6 @@ else {?>
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
                                     $ofnoNorthwest = round($Northwestt, 1);
 
-                                    if ($ofnoNorthwest) {
-                                        $ofnoNorthweststr = '<div class="progress-custom">
-                                                    <div class="progress-value" style="font-size: 12px !important;width: 36%;">North west $' . $Northwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoNorthwest . '%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
@@ -2017,14 +1608,7 @@ else {?>
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
                                     $ofnoSouthMedwest = $noSouthMedwest * 100;
-                                    if ($ofnoSouthMedwest) {
-                                        $ofnoSouthMedweststr = '<div class="progress-custom">
-                                                <div class="progress-value" style="font-size: 12px !important;width: 36%;">South Med West $' . $SouthMedwest . '</div>
-                                                <div class="progress"> 
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: ' . $ofnoSouthMedwest . '%" aria-valuenow="' . $ofnoSouthMedwest . '" aria-valuemin="0" aria-valuemax="100"> </div>
-                                                        </div>
-                                                    </div>';
-                                    }
+                                    
                                 }
                                 break;
 
@@ -2034,15 +1618,15 @@ else {?>
                     } else {
                         // companies dont having price
 
-                        $qr = "SELECT   MIN(CAST(`FarNorthEast` AS UNSIGNED)),
-                                            MIN( CAST(`FarNorthEast` AS DECIMAL(5, 3))),
-                                            FarNorthEast
-                                    FROM
-                                        `company_pricing`
-                                    WHERE
-                                        FarNorthEast != ' - ' AND FarNorthEast IS NOT NULL AND FarNorthEast <> ''
-                                    ORDER BY
-                                        FarNorthEast ASC";
+//                        $qr = "SELECT   MIN(CAST(`FarNorthEast` AS UNSIGNED)),
+//                                            MIN( CAST(`FarNorthEast` AS DECIMAL(5, 3))),
+//                                            FarNorthEast
+//                                    FROM
+//                                        `company_pricing`
+//                                    WHERE
+//                                        FarNorthEast != ' - ' AND FarNorthEast IS NOT NULL AND FarNorthEast <> ''
+//                                    ORDER BY
+//                                        FarNorthEast ASC";
                         /* query will find min and max from mysql column SELECT
                           MIN( REPLACE(`FarNorthEast` , ",", ""))
                           FROM
@@ -2085,12 +1669,12 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;%  ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                             
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2114,11 +1698,11 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;% ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2144,11 +1728,11 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;% ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2168,11 +1752,11 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;% ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2192,11 +1776,11 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;% ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2218,11 +1802,11 @@ else {?>
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
                             $prgr_less = '&#x2191;%  ' . $y . ' greater than Market avg';
-                            $percent_higher+= $y;
+                            @$percent_higher+= $y;
                         } else {
                             $y = round((($esp1 - $esp0) / $esp1) * 100, 1);
                             $prgr_less = '<b>&#x2193;%  </b>' . $y . ' less than Market avg';
-                            $percent_higher-= $y;
+                            @$percent_higher-= $y;
                         }
 
 
@@ -2242,8 +1826,8 @@ else {?>
                     //$kksksksavharraa = explode(',',$avharraa);
                     //$kkskskspricearr = explode(',',$pricearr);
                     
-                    $percent_higher     = $percent_higher / 5 ;
-                    $percent_friendly   = round( $percent_higher, 2 );
+                    @$percent_higher     = @$percent_higher / 5 ;
+                    $percent_friendly   = round( @$percent_higher, 2 );
                     /*$skksksksavharraa   = array_sum($kksksksavharraa);
                     $skkskskspricearr   = array_sum($kkskskspricearr);
                     $percent            = $skkskskspricearr/$skksksksavharraa;
@@ -2256,10 +1840,6 @@ else {?>
                         $valeehk = ($percent_friendly)*(-1);
                     }
                     
-                    
-                    
-                    
-                    //str_replace(',','+',$pricearr);
                     
                     ?>
 
