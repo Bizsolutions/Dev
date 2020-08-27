@@ -81,6 +81,34 @@ font-family: arial;
     padding-bottom: 10px;
     font-weight: bold;
 }
+
+.pagination1 {
+                float: left;
+                padding: 8px 16px;
+                line-height: 20px;
+                text-decoration: none;
+                background-color: #fff;
+                border:none !important;   
+                border-left-width: 0;
+                font-weight:bold;
+            }
+            .pagination
+            {
+                padding-left:400px;
+            }
+            .pagination ul>li {
+                display: inline;
+                float:left;
+
+
+            }.pagination a {
+                color: #000;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                border:none !important;
+
+            }
 </style>
 
 
@@ -152,7 +180,11 @@ $r = mysqli_num_rows($sql1);
 
 			 </ul>
 
-			 
+
+
+
+
+
 
             </div>
 
@@ -163,6 +195,249 @@ $r = mysqli_num_rows($sql1);
 
 </div>
 <br/>
+
+<!--srikanta 26/08/2020-->
+
+
+<?php 
+
+
+
+
+$adjacents = 3;
+
+
+
+$query = mysqli_query($link,"SELECT *  FROM    companies  , reviews    where companies.id=reviews.company_id group by companies.id"); 
+
+
+$total_pages = mysqli_num_rows($query);
+
+/* Setup vars for query. */
+$arr = explode("?",$_SERVER['REQUEST_URI']);
+$isID = false; 
+$Ispage_num = 0;
+
+if(isset($arr[1])){
+    $isID =  true;
+  $pCount=  explode("=",$arr[1]);
+  $Ispage_num = $pCount[1];
+}
+$limit = 10; 								//how many items to show per page
+
+if($isID)
+ $page =$Ispage_num;
+else
+$page=1;
+
+
+if($page) 
+
+	$start = ($page - 1) * $limit; 			//first item to display on this page
+
+
+
+else
+
+
+	$start = 0;								//if no page var is given, set start to 0
+
+
+
+
+
+
+  $sql ="SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id group by companies.id order by   companies.rating desc,count(*) desc  LIMIT $start, $limit";
+
+
+
+$result = mysqli_query($link,$sql);
+
+
+
+if ($page == 0) $page = 1;					//if no page var is given, default to 1.
+
+
+$prev = $page - 1;							//previous page is page - 1
+
+
+$next = $page + 1;							//next page is page + 1
+
+
+$lastpage = ceil($total_pages/$limit);		//lastpage is = total pages / items per page, rounded up.
+
+
+$lpm1 = $lastpage - 1;						//last page minus 1
+
+
+$targetpage = "moving-company.php"; 
+$pagination = "";
+
+
+if ($lastpage > 1) {
+    $pagination .= "<div class=\"pagination\"  ><ul>";
+    //previous button
+    if ($page > 1) {
+        $pagination.= "<li><a href=\"$targetpage?page=$prev\">Prev 10</a></li>";
+    }
+    $pagination.= "<li> <span class=\"pagination1\">$total_pages" . " Movers</span></li>";
+    for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
+        /* if ($counter == $page)
+          $pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
+          else
+          $pagination.= "<li><a href=\"https://www.topmovingreviews.com/movers/$compname_$counter-$_GET[id]/\">$counter</a></li>"; */
+    }
+    //next button
+    if ($page < $counter - 1)
+        $pagination.= "<li><a href=\"$targetpage?page=$next\">Next 10</a></li>";
+    /* else
+      $pagination.= "<li><span class=\"pagination1\">-></span></li>"; */
+    $pagination.= "</ul></div>\n";
+}
+
+
+while($res_comp_city=mysqli_fetch_array($result))
+
+{
+
+
+$sql_reviewcount=mysqli_query($link,"select * from reviews where company_id= '$res_comp_city[id]'");
+
+$res_reviewcount=mysqli_num_rows($sql_reviewcount);
+
+
+$compnay_address=explode(",",$res_comp_city['address']);
+
+
+$countarray=count($compnay_address);
+
+$compnay_address_zip=explode(" ",$compnay_address[$countarray-2]);
+
+$comp_name = str_replace('/','-',str_replace(' ', '-', $res_comp_city["title"]));
+
+
+
+
+?>
+
+
+
+
+			 
+		<div class="row" style="padding-top: 40px; " onClick="window.location.href='https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/'">
+
+<div class="col-md-3">
+	<?php
+
+		  $img =  $res_comp_city["logo"];
+
+          $mmrimg = "https://www.topmovingreviews.com/mmr_images/logos/logo_".$res_comp_city["id"].".jpg";
+
+          $compimg = "https://www.topmovingreviews.com/company/logos/logo_".$res_comp_city["id"].".jpg";
+
+          if($res_comp_city["logo"] != NULL){
+
+              if(@getimagesize($mmrimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com"))
+
+              {
+
+                  $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_".$res_comp_city["id"].".jpg";
+
+              }
+
+              else if(@getimagesize($compimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com"))
+
+              {
+
+                  $logo_image = "https://www.topmovingreviews.com/company/logos/logo_".$res_comp_city["id"].".jpg";
+
+              }else if(stristr($res_comp_city["logo"], "mymovingreviews.com"))
+
+              {
+
+                  $logo_image = $img;
+
+              }
+
+              else{
+
+                  $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+
+              }
+          }
+
+          else {
+
+              $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+          }
+
+
+
+	?>
+
+
+
+	<img src="<?php echo $logo_image;?>" height="80" width="190" ></div>
+
+<div class="col-md-9" >
+
+<h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/"><?php echo $res_comp_city["title"]; ?></a></h4>
+
+
+<p class=stars>
+
+
+<span class="fa fa-star  <?php if(round($res_comp_city["rating"])>=1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+<span class="fa fa-star  <?php if(round($res_comp_city["rating"])>=2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+<span class="fa fa-star  <?php if(round($res_comp_city["rating"])>=3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+<span class="fa fa-star  <?php if(round($res_comp_city["rating"])>=4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+<span class="fa fa-star  <?php if(round($res_comp_city["rating"])>=5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+</p>
+
+
+<span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>
+
+<span style="color:#000000"><?php echo $res_comp_city["address"]; ?></span>
+<div style="clear: both; padding-top: 8px;">
+
+
+<?php  
+	  echo substr($res_comp_city["text"],0,240)."...";
+
+
+ ?>
+
+
+
+
+
+
+
+</div>
+
+
+<div style="clear:both"></div>
+
+
+</div>	 
+
+
+
+</div>
+<?php }
+
+?>
+
+<?=$pagination?>
+
+
 
 </div>
 </div>

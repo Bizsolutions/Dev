@@ -1000,7 +1000,7 @@ if($lastpage > 1)
 
 
 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$prev\">Prev</a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$prev#listing\">Prev</a></li>";
 
 
 
@@ -1096,7 +1096,7 @@ if($lastpage > 1)
 
 
 
-				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter\">$counter</a></li>";					
+				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter#listing\">$counter</a></li>";					
 
 
 
@@ -1200,7 +1200,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter#listing\">$counter</a></li>";					
 
 
 
@@ -1224,7 +1224,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lpm1\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lpm1#listing\">$lpm1</a></li>";
 
 
 
@@ -1232,7 +1232,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lastpage\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lastpage#listing\">$lastpage</a></li>";		
 
 
 
@@ -1272,7 +1272,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=1\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=1#listing\">1</a></li>";
 
 
 
@@ -1280,7 +1280,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=2\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=2#listing\">2</a></li>";
 
 
 
@@ -1336,7 +1336,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter#listing\">$counter</a></li>";					
 
 
 
@@ -1360,7 +1360,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lpm1\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lpm1#listing\">$lpm1</a></li>";
 
 
 
@@ -1368,7 +1368,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lastpage\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$lastpage#listing\">$lastpage</a></li>";		
 
 
 
@@ -1408,7 +1408,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=1\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=1#listing\">1</a></li>";
 
 
 
@@ -1416,7 +1416,7 @@ if($lastpage > 1)
 
 
 
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=2\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=2#listing\">2</a></li>";
 
 
 
@@ -1472,7 +1472,7 @@ if($lastpage > 1)
 
 
 
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$counter#listing\">$counter</a></li>";					
 
 
 
@@ -1528,7 +1528,7 @@ if($lastpage > 1)
 
 
 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$next\">Next</a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/routes/$_GET[pickupcity]-to-$_GET[destinationcity]-movers?page=$next#listing\">Next</a></li>";
 
 
 

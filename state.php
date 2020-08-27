@@ -23,6 +23,94 @@ $compnay_address=explode(",",$res_company['address']);
 $countarray=count($compnay_address);
 */
 
+
+
+//grpah code 
+// satte avergae
+
+$sql_state_avg      = "
+    SELECT state_average.* FROM 
+    `state_average` 
+    inner join states on state_average.state = states.name 
+    where states.state_code =   '$state_code' "; 
+
+    $sql_state_a        = mysqli_query($link,$sql_state_avg);
+    $sql_sta            = mysqli_fetch_array($sql_state_a);
+
+    $Region             = $sql_sta['Region'];
+    $avgNortheast       = str_replace(',', '',$sql_sta['NorthEast']);
+    $avgSouthEast       = str_replace(',', '',$sql_sta['SouthEast']);
+    $avgWest            = str_replace(',', '',$sql_sta['West']);
+    $avgNorthwest       = str_replace(',', '',$sql_sta['Northwest']);
+    $avgNorthMedwest    = str_replace(',', '',$sql_sta['NorthMedwest']);
+    $avgSouthMedwest    = str_replace(',', '', $sql_sta['SouthMedwest']);
+    $local_avg_cost     = str_replace(',', '',$sql_sta['local_avg_cost']);
+
+//    $comp_str_x1.= "['";
+//    $comp_str_x2.= "']";
+    //$comp_str_x1 = array();
+    // if region exists map shuld start
+    if(!empty($Region)){
+        
+        switch ($Region) {
+            case 'North East':
+                    $comp_str_y1    = "['".$avgSouthEast."' ,'".$avgWest."' , '".$avgNorthMedwest."' , '".$avgNorthMedwest."' ,'".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'SouthEast','West','North West','North Med West' , 'South Med West'";
+                break;
+            case 'South East':
+                    $comp_str_y1    = "['".$avgNortheast."' ,'".$avgWest."' , '".$avgNorthwest."' , '".$avgNorthMedwest."' ,'".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','West','North West','North Med West' , 'South Med West' ";
+                break;
+            case 'North West':
+                    $comp_str_y1    = "['".$avgNortheast."' ,'".$avgSouthEast."' ,'".$avgWest."' , '".$avgNorthMedwest."' ,'".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East', 'West', 'North Med West' , 'South Med West'";
+                break;
+            case 'North Med West':
+                    $comp_str_y1    = "['".$avgNortheast."' , '".$avgSouthEast."' , '".$avgWest."' , '".$avgNorthwest."' ,'".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East','West',  'North West' , 'South Med West'";
+                break;
+            
+            case 'South Med West':
+                    $comp_str_y1    = "['".$avgNortheast."' ,'".$avgSouthEast."' ,'".$avgWest."' , '".$avgNorthwest."' , '".$avgNorthMedwest."' ]";
+                    $comp_str_x1    = "'North East','South East', 'West', 'North West' , 'North Med West' ";
+                break;
+            case 'Far North East':
+                    $comp_str_y1    = "[ '".$avgSouthEast."' , '".$avgWest."' , '".$avgNorthwest."', '".$avgNorthMedwest."', '".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'South East','West', 'North West' ,  'North Med West' ,  'South Med West'";
+                break;
+            
+            case 'Med East':
+                    $comp_str_y1    = "[ '".$avgNortheast."' , '".$avgSouthEast."' , '".$avgWest."', '".$avgNorthwest."', '".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East', 'West' ,  'North West'  , 'Med West'";
+                break;
+            
+            case 'Far Med West':
+                    $comp_str_y1    = "[ '".$avgNortheast."' , '".$avgSouthEast."' , '".$avgWest."', '".$avgNorthwest."', '".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East', 'West' ,  'North West'  , 'Med West'";
+                break;
+            
+            
+            case 'Far North Med west':
+                    $comp_str_y1    = "[ '".$avgNortheast."' , '".$avgSouthEast."' , '".$avgWest."', '".$avgNorthwest."', '".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East', 'West' ,  'North West'  , 'Med West'";
+                break;
+            
+            
+            case 'Middle North West':
+                    $comp_str_y1    = "[ '".$avgNortheast."' , '".$avgSouthEast."' , '".$avgWest."', '".$avgNorthwest."', '".$avgSouthMedwest."']";
+                    $comp_str_x1    = "'North East','South East', 'West' ,  'North West'  , 'Med West'";
+                break;
+
+            default:
+                break;
+        }
+        
+    }
+
+//echo 'comp_str_y1'.$comp_str_y1 .'=>'. $comp_str_x1;die;
+    
+    //$comp_str_x = "['".$avgNortheast."', '".$avgSouthEast."','".$avgWest."','".$avgNorthwest."','".$avgNorthMedwest."','".$avgSouthMedwest."']"; 
+    //$comp_str_y = "['North East','South East','West','North West','North Med West','South Med West']";
 ?>
 
 <!DOCTYPE HTML>
@@ -223,7 +311,35 @@ function myFunction() {
         </style>
 		
 		
-		
+<!-- bar chart starts -->
+<link href="/assets/barstyles.css" rel="stylesheet" />
+<style>
+    #chart {
+        max-width: 650px;
+        margin: 35px auto;
+    }
+</style>
+<script>
+    window.Promise ||
+            document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+                    )
+    window.Promise ||
+            document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+                    )
+    window.Promise ||
+            document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+                    )
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+<!-- bar chart ends -->
+        
+        
 <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","url":"https://topmovingreviews.com/","contactPoint":[{"@type":"ContactPoint","telephone":"+1-800-219-4008","contactType":"customer service"}]}</script>
 <style>
 #more {display: none;}
@@ -515,7 +631,7 @@ $statename1=str_replace(' ','-',$statename);
 	$pagination .= "<div class=\"pagination\"  ><ul>";
 	//previous button
 	if ($page > 1) 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$prev\"><-</a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$prev#listing\"><-</a></li>";
 	else
 		$pagination.= "<li><span class=\"pagination1\"><-</span></li>";	
 	
@@ -527,7 +643,7 @@ $statename1=str_replace(' ','-',$statename);
 			if ($counter == $page)
 				$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 			else
-				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
+				$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter#listing\">$counter</a></li>";					
 		}
 	}
 	elseif($lastpage > 5 + ($adjacents * 2))	//enough pages to hide some
@@ -540,48 +656,48 @@ $statename1=str_replace(' ','-',$statename);
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter#listing\">$counter</a></li>";					
 			}
 			$pagination.= "<li><span>...</span>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1\">$lpm1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1#listing\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage#listing\">$lastpage</a></li>";		
 		}
 		//in middle; hide some front and some back
 		elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
 		{
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1\">1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1#listing\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2#listing\">2</a></li>";
 			$pagination.= "<li><span>...</span></li>";
 			for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
 			{
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter#listing\">$counter</a></li>";					
 			}
 			$pagination.= "<li><span>...</span></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1\">$lpm1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage\">$lastpage</a></li>";		
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lpm1#listing\">$lpm1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$lastpage#listing\">$lastpage</a></li>";		
 		}
 		//close to end; only hide early pages
 		else
 		{
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1\">1</a></li>";
-			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2\">2</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=1#listing\">1</a></li>";
+			$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=2#listing\">2</a></li>";
 			$pagination.= "<li><span>...</span></li>";
 			for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
 			{
 				if ($counter == $page)
 					$pagination.= "<li><span class=\"pagination1\">$counter</span></li>";
 				else
-					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter\">$counter</a></li>";					
+					$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$counter#listing\">$counter</a></li>";					
 			}
 		}
 	}
 	
 	//next button
 	if ($page < $counter - 1) 
-		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$next\">-></a></li>";
+		$pagination.= "<li><a href=\"https://www.topmovingreviews.com/usa/$statename1-movers-$stateshrtname?page=$next#listing\">-></a></li>";
 	else
 		$pagination.= "<li><span class=\"pagination1\">-></span></li>";
 	$pagination.= "</ul></div>\n";		
@@ -894,6 +1010,17 @@ $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
 							
 							?>
 					
+                        <!-- grpah starts --> 
+                        <div id="app">
+                            <p>
+                                <div id="chart">
+                                    <apexchart type="bar"  height="350" :options="chartOptions" :series="series"></apexchart>
+                                </div>
+                            </p>
+                        </div>
+                        <!-- grpah ends --> 
+                        
+                        
                         <?php /*?><h2><?php echo ucwords($statename); ?>  Movers</h2>
 							<?php
 							$random=mt_rand(1,5000);
@@ -1108,7 +1235,7 @@ $res_city['zips']="00".$res_city['zips'];
 <div class="row newrow">
 <div class="col-md-12">
   <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company-1.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/moving-checklist-how-to-prepare-for-the-moving-day/"><h4>How to Prepare for the Moving Day</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-how-to-prepare-for-the-moving-day/"><h4>How to Prepare for the Moving Day</h4></a></div>
           <p>Most people are aware on how stressful the moving day can be. To help you lessen the load, we created a comprehensive ... </p>
             
 </div>     
@@ -1117,7 +1244,7 @@ $res_city['zips']="00".$res_city['zips'];
 <div class="row newrow">
 <div class="col-md-12">
  <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/tips-on-how-do-you-find-a-moving-company/"><h4>Tips on how do you find a moving company.</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/tips-on-how-do-you-find-a-moving-company/"><h4>Tips on how do you find a moving company.</h4></a></div>
           <p>Moving is a very stressful and also pricey experience, as well as if you do not take precaution it can promptly become ... </p>
             
 </div>     
@@ -1126,7 +1253,7 @@ $res_city['zips']="00".$res_city['zips'];
 <div class="row newrow">
 <div class="col-md-12">
 <img class="img-left" src="https://www.topmovingreviews.com/images/packing-guide.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/essential-tips-when-packing-your-closet-3/"><h4>Packing Guide</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/essential-tips-when-packing-your-closet-3/"><h4>Packing Guide</h4></a></div>
           <p>Packing can be an intensely challenging step when preparing to move. It is during this time that most damages to goods...</p>
             
 </div>     
@@ -1135,7 +1262,7 @@ $res_city['zips']="00".$res_city['zips'];
 <div class="row newrow">
 <div class="col-md-12">
  <img class="img-left" src="https://www.topmovingreviews.com/images/change.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/moving-checklist-when-changing-your-address-3/"><h4>Change Your Address When You Move</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-when-changing-your-address-3/"><h4>Change Your Address When You Move</h4></a></div>
           <p>Before you can settle in, you have to ensure that your mail is updated to continue receiving your regular mail without any...</p>
             
 </div>     
@@ -1146,7 +1273,92 @@ $res_city['zips']="00".$res_city['zips'];
 			
         </div>
         <?php include 'footer.php'; ?>
-        
+
+
+<!-- Chart js code starts--> 
+<script type="text/javascript">
+new Vue({
+            el: '#chart',
+            //el: '#appchart',
+            components: {
+                apexchart: VueApexCharts,
+            },
+            data: {
+                
+                series: [{
+                        name: 'State Average',
+                        //data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+                        data: <?php echo $comp_str_y1    ; ?>
+                    }
+//                    }, {
+//                        name: 'Title',
+//                        data: [<?php echo $comp_str_y1    ; ?>]
+                                //data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+                    ],
+                chartOptions: {
+                    chart: {
+                        type: 'bar',
+                        height: 350,
+                        width: "100%",
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            //endingShape: 'rounded'
+                            endingShape: 'flat'
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        //categories: ['Feb', 'Mar'], ['Apr', 'May'], ['Jun', 'Jul'], ['Aug', 'Sep'],['Oct', 'Nov'] ],
+                        categories: [<?php echo $comp_str_x1; ?>],
+                        //categories: <?php echo $comp_str_x1; ?>,
+                        
+
+                        // labels: {
+                        //     //show: true,
+                        //     rotate: 0,
+                        // }
+
+                    },
+                    yaxis: {
+                        title: {
+                            text: '$ '
+                        }
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    tooltip: {
+                        y: {
+                          formatter: function (val) {
+                            return "$ " + val + " thousands"
+                          }
+                        }
+                    },
+                    /*tooltip: {
+                     y: {
+                     formatter: function (val) {
+                     //return "$ " + val + " thousands"
+                     return "$ " + val + " "
+                     }
+                     }
+                     }*/
+                },
+            },
+        });
+    </script>
+<!-- Chart js code end --> 
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 </script>

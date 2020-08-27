@@ -134,7 +134,7 @@
       </li>
        <li class="nav-item">
 
-        <a class="nav-link" href="https://www.topmovingreviews.com/tips">Moving Tips</a>
+        <a class="nav-link" href="https://www.topmovingreviews.com/Move">Moving Tips</a>
 
       </li>
 

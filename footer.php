@@ -2,11 +2,11 @@
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 text-left">
+            <div class="col-md-4 text-left">
                 <img src="https://www.topmovingreviews.com/images/logo.jpg"/>
                 <p class="pad">Make movers comparison based on moving companies reviews and consumer reports reviews. Find new movers, piano mover, pool table mover or trailer movers with recommendations. Find the best mover services by reading local movers reviews.</p>
             </div>
-            <div class="col-md-3 newfooter">
+            <div class="col-md-4 newfooter">
                 <h3 class="text-left" >Quick Links</h3>
                 <ul  class="text-left" >
                     <li><a href="https://www.topmovingreviews.com/index.php">Home</a></li>
@@ -17,16 +17,16 @@
                     <li><a href="https://www.topmovingreviews.com/add-moving-company.php">Register Business</a></li>
                 </ul>
             </div> 
-            <div class="col-md-3 newfooter">
+    <!--        <div class="col-md-3 newfooter">
                 <h3 class="text-left" >The Blog</h3>
                 <ul class="text-left">
-                    <li><a href="https://www.topmovingreviews.com/tips/college-moving-tips-that-you-should-remember/">College Moving Tips That You Should Remember</a></li>
-                    <li><a href="https://www.topmovingreviews.com/tips/moving-tips-intended-for-roommates/">Moving Tips Intended for Roommates</a></li>
-                    <li><a href="https://www.topmovingreviews.com/tips/preparing-your-workers-for-corporate-relocation/">Preparing Your Workers for Corporate Relocation</a></li>
-                    <li><a href="https://www.topmovingreviews.com/tips/risks-and-dangers-of-diy-moving/">Risks and Dangers of DIY Moving</a></li>
+                    <li><a href="https://www.topmovingreviews.com/Move/keep-or-let-go-of-stuff-when-moving/">Keep Or Let Go Of Stuff When Moving</a></li>
+                    <li><a href="https://www.topmovingreviews.com/Move/technology-effect-on-moving-process/">Technology Effect on Moving Process</a></li>
+                    <li><a href="https://www.topmovingreviews.com/Move/solution-for-mini-moves/">Solution for Mini Moves</a></li>
+                    <li><a href="https://www.topmovingreviews.com/Move/pack-your-kitchen-like-a-pro/">Pack Your Kitchen Like a Pro</a></li>
                 </ul>
-            </div>
-              <div class="col-md-3">
+            </div>-->
+              <div class="col-md-4">
                 <h3 class="text-left">Search Movers</h3><br/>
                 <form class="form-inline my-2 my-lg-0" name="search" action="https://www.topmovingreviews.com/searchcompany.php" method="post">
 

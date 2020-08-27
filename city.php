@@ -1883,7 +1883,7 @@ $res_dot=mysqli_fetch_assoc($query_dot);
 <div class="row newrow">
 <div class="col-md-12">
   <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company-1.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/moving-checklist-how-to-prepare-for-the-moving-day/"><h4>How to Prepare for the Moving Day</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-how-to-prepare-for-the-moving-day/"><h4>How to Prepare for the Moving Day</h4></a></div>
           <p>Most people are aware on how stressful the moving day can be. To help you lessen the load, we created a comprehensive ... </p>
             
 </div>     
@@ -1892,7 +1892,7 @@ $res_dot=mysqli_fetch_assoc($query_dot);
 <div class="row newrow">
 <div class="col-md-12">
  <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/tips-on-how-do-you-find-a-moving-company/"><h4>Tips on how do you find a moving company.</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/tips-on-how-do-you-find-a-moving-company/"><h4>Tips on how do you find a moving company.</h4></a></div>
           <p>Moving is a very stressful and also pricey experience, as well as if you do not take precaution it can promptly become ... </p>
             
 </div>     
@@ -1901,7 +1901,7 @@ $res_dot=mysqli_fetch_assoc($query_dot);
 <div class="row newrow">
 <div class="col-md-12">
 <img class="img-left" src="https://www.topmovingreviews.com/images/packing-guide.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/essential-tips-when-packing-your-closet-3/"><h4>Packing Guide</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/essential-tips-when-packing-your-closet-3/"><h4>Packing Guide</h4></a></div>
           <p>Packing can be an intensely challenging step when preparing to move. It is during this time that most damages to goods...</p>
             
 </div>     
@@ -1910,7 +1910,7 @@ $res_dot=mysqli_fetch_assoc($query_dot);
 <div class="row newrow">
 <div class="col-md-12">
  <img class="img-left" src="https://www.topmovingreviews.com/images/change.jpg"/>
-          <div class="content-heading"><a href="https://www.topmovingreviews.com/tips/moving-checklist-when-changing-your-address-3/"><h4>Change Your Address When You Move</h4></a></div>
+          <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-when-changing-your-address-3/"><h4>Change Your Address When You Move</h4></a></div>
           <p>Before you can settle in, you have to ensure that your mail is updated to continue receiving your regular mail without any...</p>
             
 </div>     
