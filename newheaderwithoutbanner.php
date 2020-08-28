@@ -1,6 +1,4 @@
-<?php
-require_once('core/database.class.php');
-?>
+
 <link rel="stylesheet" href="https://www.topmovingreviews.com/responsive/bootstrap.min.css">
 
 <script src="https://www.topmovingreviews.com/responsive/jquery.min.js"></script>
@@ -90,11 +88,18 @@ require_once('core/database.class.php');
 
         <div class="row">
 
-            <div class="col-sm-12 text-right bar-pad">
-                <a href="<?= $connection->base_url() ?>index.php">Home</a> | 
-                <a href="<?= $connection->base_url() ?>add-moving-company.php">Register Business</a></div>
+            <div class="col-sm-12 text-right bar-pad"><a href="https://www.topmovingreviews.com/index.php">Home</a> | <a href="https://www.topmovingreviews.com/add-moving-company.php">Register Business</a></div>
+
+
+
         </div>
-    </div>
+
+
+
+    </div>    
+
+
+
 </div>
 
 <div class="bg-dark">
@@ -109,9 +114,7 @@ require_once('core/database.class.php');
             </div>-->
         <nav class="navbar navbar-expand-lg navbar-light">
 
-            <a class="navbar-brand" href="<?= $connection->base_url() ?>">
-                <img src="<?= $connection->base_url() ?>images/logo.jpg" alt="top-moving-logo">
-            </a>
+            <a class="navbar-brand" href="https://www.topmovingreviews.com/"><img src="https://www.topmovingreviews.com/images/logo.jpg" alt="top-moving-logo"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -127,30 +130,30 @@ require_once('core/database.class.php');
 
                     <li class="nav-item active">
 
-                        <a class="nav-link" href="<?= $connection->base_url() ?>">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://www.topmovingreviews.com/">Home <span class="sr-only">(current)</span></a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?= $connection->base_url() ?>moving-company.php">Moving Companies</a>
+                        <a class="nav-link" href="<?= $connection->baseUrl() ?>moving-company.php">Moving Companies</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?= $connection->base_url() ?>write-your-review.php">Write A Review</a>
+                        <a class="nav-link" href="https://www.topmovingreviews.com/write-your-review.php">Write A Review</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?= $connection->base_url() ?>add-moving-company.php">Add Moving Company</a>
+                        <a class="nav-link" href="https://www.topmovingreviews.com/add-moving-company.php">Add Moving Company</a>
 
                     </li>
                     <li class="nav-item">
 
-                        <a class="nav-link" href="<?= $connection->base_url() ?>tips">Moving Tips</a>
+                        <a class="nav-link" href="https://www.topmovingreviews.com/tips">Moving Tips</a>
 
                     </li>
 
@@ -163,9 +166,7 @@ require_once('core/database.class.php');
 
 
                 </ul>
-                <div class="pull-right" style="float: right; position: absolute; right: 0px;">
-                    <a href="<?= $connection->base_url() ?>quoteform.php">
-                        <button type="button" class="btn btn-primary btn-lg">Get Quotes</button></div> 
+                <div class="pull-right" style="float: right; position: absolute; right: 0px;"><a href="https://www.topmovingreviews.com/quoteform.php"> <button type="button" class="btn btn-primary btn-lg">Get Quotes</button></div> 
                 </a>
                 <!-- <form class="form-inline my-2 my-lg-0" name="search" action="https://www.topmovingreviews.com/searchcompany.php" method="post">
               

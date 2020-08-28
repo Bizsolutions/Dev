@@ -5,7 +5,7 @@ require_once('core/database.class.php');
 
 
 //$sql_company        = "select * from companies where address IS NOT NULL and (city IS NULL or state IS NULL) limit 0,100";
-$sql_company        = "select address from companies where address IS NOT NULL and (city IS NULL or state IS NULL) limit 0,100";
+$sql_company        = "select address,id from companies where address IS NOT NULL and (city IS NULL or state IS NULL) limit 0,100";
 $query_company      = mysqli_query($link,$sql_company);
 $count              =   0;
  while($res_company=mysqli_fetch_array($query_company))
