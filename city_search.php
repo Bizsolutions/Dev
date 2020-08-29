@@ -1,13 +1,15 @@
 <?php  	 	
 require 'core/database.class.php';
  $state=$_GET['q'];
- $city_zip=split("-",$_GET['city']);
+ if(isset($_GET['city'])){
+ $city_zip=explode("-",$_GET['city']);
  $city=$city_zip[0];
  $zipcode=$city_zip[1];
  if(strlen($zipcode)==4)
 $zipcode="0".$zipcode;
 if(strlen($zipcode)==3)
 $zipcode="00".$zipcode;
+}
 ?>
 
 <input name="city_name" type="hidden" value="<?php echo $row_city['city'] ;?>" />
