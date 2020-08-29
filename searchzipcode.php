@@ -159,7 +159,7 @@ xmlhttp.send();
                              
                                 <div class="">
                               
-                                    <input type="text" value="Search Company Name" name="zipcode_search" onFocus="javascript:document.frm_search1.zipcode_search.value='';" class="form-control form-control-sm"> 
+                                    <input type="text" value="Search Company Name" name="company_search" onFocus="javascript:document.frm_search1.zipcode_search.value='';" class="form-control form-control-sm"> 
                                     <button type="submit" class="btn btn-primary">
                                         <!--<img src="images/ico4.jpg">-->
                                         &nbsp;Search

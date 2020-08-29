@@ -30,7 +30,7 @@ $zipcode="00".$zipcode;
 				?>
               </select> 
 			<?php if($city<>"") {				?>
-<button type="button"  onclick="window.location.href='http://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ","-",$city)."-".$state."-".$zipcode; ?>/'">
+<button type="button"  onclick="window.location.href='https://topmovingreviews.com/moving-companies/<?php echo str_replace(" ","-",$city)."-".$state."-".$zipcode; ?>/'">
                                         <!--<img src="images/ico4.jpg">-->
                                         &nbsp;Find
                                     </button><?php }  ?>
