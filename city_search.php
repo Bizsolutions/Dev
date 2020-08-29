@@ -15,9 +15,9 @@ $zipcode="00".$zipcode;
 		<option value="">Select City</option>
 		<?php  	 	
 		$sql_city = "SELECT distinct(city),zipcode FROM companies where state='$state'";
-	 	$query_city = mysql_query($sql_city);
+	 	$query_city = mysqli_query($link,$sql_city);
 
-	while($row_city = mysql_fetch_array($query_city))
+	while($row_city = mysqli_fetch_array($query_city))
 
 	{ ?>
                 <option value="<?php echo $row_city['city']."-".$row_city['zipcode']; ?>" <?php if($row_city['city']== $city) {?> selected="selected"  <?php  	 	
