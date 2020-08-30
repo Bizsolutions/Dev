@@ -191,7 +191,7 @@ $db_link = $bd->db_connect();
 
 
                 </div>
-                <br/>
+                <br/><br/><br/><br/><br/>
 
                 <!--srikanta 26/08/2020-->
 
@@ -283,7 +283,7 @@ $db_link = $bd->db_connect();
                     $pagination .= "</ul></div>\n";
                 }
 
-
+echo "<h2>  $total_pages Moving Companies</h2>";
                 while ($res_comp_city = mysqli_fetch_array($result)) {
 
 
