@@ -5,6 +5,7 @@ require_once('core/database.class.php');
 require_once('core/company.class.php');
 $bd = new db_class();
 $db_link = $bd->db_connect();
+//echo $link;
 //die;
 ?>
 
