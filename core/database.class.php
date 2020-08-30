@@ -58,8 +58,8 @@ class db_class {
 	}
 	
 	public function baseUrl() {
-	return 'https://topmovingreviews.com/';
-        /*return 'http://localhost/Dev/';*/
+	/*return 'https://topmovingreviews.com/';*/
+        return 'http://localhost/Dev/';
     }
 	
 		
