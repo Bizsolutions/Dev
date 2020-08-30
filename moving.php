@@ -1,4 +1,5 @@
 <?php
+//header('Content-Type: text/html; charset=utf-8');
 header('Content-Type: text/html; charset=windows-1252');
 require_once('core/database.class.php');
 require_once('core/company.class.php');
@@ -208,7 +209,7 @@ if ($lastpage > 1) {
 
         <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("F Y"); ?>">
 
-        <meta property=og:image content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg">
+        <meta property=og:image content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg" >
 
         <meta property=og:site_name content="https://topmovingreviews.com">
 
@@ -340,7 +341,7 @@ if ($nnresult > 0) {
         </style>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" ></script>
 
-        <script>
+        <script type="text/javascript">
 
                 $(document).ready(function () {
 
@@ -437,7 +438,12 @@ if ($nnresult > 0) {
                     myCalendar.setSensitiveRange(today, null);
                 }
         </script>
-
+        <style>
+                        .progress-custom .progress-value{
+                            font-size: 12px !important;width: 36%;
+                        }
+                        .bg-green{ background-color: green !important ; }
+                    </style>
     </head>
 
     <body onLoad="doOnLoad();">
@@ -501,13 +507,18 @@ if ($nnresult > 0) {
                                 <a href="#"><i class="fa fa-share"></i> Share</a>
                                 </div>-->
                             </div></div>
-                        <div class=>
+                        <div >
                             <div class=htag>
                             </div>
                             <div class=info>
                                 <?php if ($res_company['address'] <> "") { ?>
-                                    <p><div class=location></div> 
-                                    <span ><?php echo $res_company['address']; ?> </span><!--| <a rel="nofollow" href="https://www.topmovingreviews.com/map.php?query=<?php echo substr(str_replace(",", "%2C", str_replace(" ", "+", $res_company['address'])), 0, -4); ?>" target="_blank">View On Map</a>--></p><?php } ?>
+                                    <!--<p>-->
+                                    <div class=location></div> 
+                                    <span><?php echo $res_company['address']; ?> </span>
+                                    <!--</p>-->
+                                        
+                                    
+                                            <?php } ?>
                                 <?php
                                 $phonw = $res_company['phone'];
                                 if ($phonw <> "") {
@@ -516,12 +527,15 @@ if ($nnresult > 0) {
                                         $phone1 = $expar[0];
                                         $phone2 = $expar[1];
                                         ?>
-                                        <p><div class=headphone></div> Toll Free:  <span > <?php echo $phone1; ?> </span>| <div class=call></div> Phone:  <?php echo $phone2; ?>
-                                        </p>
+                                    
+                                        <!--<p>-->
+                                        <div class=headphone></div> Toll Free:  <span > <?php echo $phone1; ?> </span>| <div class=call></div> Phone:  <?php echo $phone2; ?>
+                                        <!--</p>-->
                                     <?php } else {
                                         ?>
-                                        <p><div class=headphone></div> Toll Free:  <span ><?php echo $phonw; ?> </span>| <div class=call></div> Phone:  <?php echo $phonw; ?>
-                                        </p>        
+                                        <!--<p>-->
+                                        <div class=headphone></div> Toll Free:  <span ><?php echo $phonw; ?> </span>| <div class=call></div> Phone:  <?php echo $phonw; ?>
+                                        <!--</p>-->        
                                         <?php
                                     }
                                 }
@@ -556,7 +570,7 @@ if ($nnresult > 0) {
                 <div class=block-left>
                     <div style="margin-top:3px; font-size:13px;"><b><a href="https://www.topmovingreviews.com" style="color:#999999;" >
                 <!--<i class="fa fa-home" aria-hidden="true"></i>-->
-                                <img src="https://www.topmovingreviews.com/images/home-icon.png" width="18px"/>
+                                <img src="https://www.topmovingreviews.com/images/home-icon.png" width="18"/>
                             </a>, <a href="https://www.topmovingreviews.com/moving-company.php" style="color:#999999;" >
                                 Movers</a>, <a  style="color:#999999;"><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
                     <div class="row " style="margin-top:20px">
@@ -891,12 +905,7 @@ else {?>
                         ?>
                         <br>
                         <br>
-                    <style>
-                        .progress-custom .progress-value{
-                            font-size: 12px !important;width: 36%;
-                        }
-                        .bg-green{ background-color: green !important ; }
-                    </style>
+                    
                     <?php
                     $Region = $res_ppp['Region'];
 
@@ -1854,11 +1863,11 @@ else {?>
                     <h3 style="text-align:center;"><?php echo $res_company['title']; ?></h3>
                     
                     <!--<div id="app">-->
-                    <p>
+                    <!--<p>-->
                         <div id="chart">
                             <apexchart type="bar"  height="350" :options="chartOptions" :series="series"></apexchart>
                         </div>
-                        </p>
+                        <!--</p>-->
                     <!--</div>-->
                     <?php } ?>
                     <p class="review-para-1" style="font-size:18px !important;">
@@ -1892,7 +1901,7 @@ else {?>
                     <h2>Average service costs information</h2>
                     <br>
                     <br>
-                    <p class="review-para-1" style="font-size:18px !important;text">
+                    <p class="review-para-1" style="font-size:18px !important;">
                         The average prices generated are based on our reviews of <?php echo $res_company['title']; ?>. The rates will vary or change once you contact the company; usually, you will get a lower price in the estimate and go higher on the move itself. 
                         <br>
                         Also, there are factors like home size, the distance between locations, and other services like Packing and assembly.
@@ -1906,10 +1915,10 @@ else {?>
                         If you have a bigger house, move the price is going to be higher. And if you have a smaller house move, the price is going to be lower unless you have a higher amount of Packing. 
                         <br>
                         <!-- To save in Packing, recommend you to <a href="https://www.topmovingreviews.com/Moving-Boxes.php" target="_blank">purchase packing materials.</a>
-                         <br>--->
+                         <br>-->
                     </p>
 
-                   <!---added bynaiya--->
+                   <!--added bynaiya-->
            				<h2 class="pad-cls">Other movers nearby</h2>
 
                    <div class="companies-listing widget">
@@ -1968,13 +1977,15 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
 
                                                     </div>
                                               
-                                                    <div class="based-adr">Based in                                                                    <?= $res_pplview['city'] . ", " . $res_pplview['state']; ?>                                                            </div>
+                                                    <div class="based-adr">Based in  <?= $res_pplview['city'] . ", " . $res_pplview['state']; ?></div>
                                                                             <!--<div class="review-meta">Last reviewed 1/5 stars on Jul, 25 2019 by Ann Larios</div>-->
-                                            </div>
+                            </div>
                
                                     <a class="company-review-section" >
-                        <p class="review-content"><?= substr($res_pplview['text'],0,190);?>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#597DD2">...read more</span></p>
-                    </a>
+                                        <p class="review-content">
+                                        <?= substr($res_pplview['text'],0,190);?>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#597DD2">...read more</span>
+                                        </p>
+                                    </a>
                             </div>
                     
                     <?php } ?>
@@ -2012,7 +2023,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                     <div class=nxt><h3>Read before hiring</h3></div>
                     <div class="row newrow">
                         <div class="col-md-12">
-                            <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company-1.jpg"/>
+                            <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company-1.jpg" alt="Moving Company" />
                             <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-how-to-prepare-for-the-moving-day/"><h4>How to Prepare for the Moving Day</h4></a></div>
                             <p>Most people are aware on how stressful the moving day can be. To help you lessen the load, we created a comprehensive ... </p>
 
@@ -2021,7 +2032,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                     <!--end1-->
                     <div class="row newrow">
                         <div class="col-md-12">
-                            <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company.jpg"/>
+                            <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company.jpg"  alt="Moving Company" />
                             <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/tips-on-how-do-you-find-a-moving-company/"><h4>Tips on how do you find a moving company.</h4></a></div>
                             <p>Moving is a very stressful and also pricey experience, as well as if you do not take precaution it can promptly become ... </p>
 
@@ -2030,7 +2041,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                     <!--end1-->
                     <div class="row newrow">
                         <div class="col-md-12">
-                            <img class="img-left" src="https://www.topmovingreviews.com/images/packing-guide.jpg"/>
+                            <img class="img-left" src="https://www.topmovingreviews.com/images/packing-guide.jpg"  alt="Moving Company Packing Guide" />
                             <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/essential-tips-when-packing-your-closet-3/"><h4>Packing Guide</h4></a></div>
                             <p>Packing can be an intensely challenging step when preparing to move. It is during this time that most damages to goods...</p>
 
@@ -2039,7 +2050,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                     <!--end1-->
                     <div class="row newrow">
                         <div class="col-md-12">
-                            <img class="img-left" src="https://www.topmovingreviews.com/images/change.jpg"/>
+                            <img class="img-left" src="https://www.topmovingreviews.com/images/change.jpg" alt="Change"/>
                             <div class="content-heading"><a href="https://www.topmovingreviews.com/Move/moving-checklist-when-changing-your-address-3/"><h4>Change Your Address When You Move</h4></a></div>
                             <p>Before you can settle in, you have to ensure that your mail is updated to continue receiving your regular mail without any...</p>
 
@@ -2343,5 +2354,3 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
 </body>
 
 </html>
-
-
