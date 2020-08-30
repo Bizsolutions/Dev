@@ -159,7 +159,7 @@ xmlhttp.send();
                              
                                 <div class="">
                               
-                                    <input type="text" value="Search Company Name" name="zipcode_search" onFocus="javascript:document.frm_search1.zipcode_search.value='';" class="form-control form-control-sm"> 
+                                    <input type="text" value="Search Company Name" name="company_search" onFocus="javascript:document.frm_search1.company_search.value='';" class="form-control form-control-sm"> 
                                     <button type="submit" class="btn btn-primary">
                                         <!--<img src="images/ico4.jpg">-->
                                         &nbsp;Search
@@ -187,7 +187,7 @@ xmlhttp.send();
 							 <div class="">
 							 <select onChange="return showCity(this.value)"  name="selStateZip" id="selStateZip" class="form-control form-control-sm">
 							 <option>Select State</option>
-							 <?php 	 $sql_state = mysqli_query($link, "SELECT state_code,name  FROM states where usa_state=1");
+							 <?php 	 $sql_state = mysqli_query($link, "SELECT state_code,name  FROM states where usa_state=1 order by name");
 
 									while($row_state = mysqli_fetch_array($sql_state))
 
