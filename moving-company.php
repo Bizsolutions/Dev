@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; ');
+error_reporting(E_ALL);
 require_once('core/database.class.php');
 require_once('core/company.class.php');
 $bd = new db_class();
@@ -143,7 +144,8 @@ $db_link = $bd->db_connect();
                                 <ul>
 
                                     <?php
-                                    //$sql = mysqli_query( "SELECT state_code,name  FROM states where usa_state=1 GROUP BY name");
+									
+									
                                     $sql = mysqli_query($link, "SELECT state_code,lower(name) as name FROM states where usa_state=1 GROUP BY name");
 
                                     while ($row = mysqli_fetch_array($sql)) {
@@ -162,8 +164,8 @@ $db_link = $bd->db_connect();
 
 
                                         <li>
-                                            <a  href="<?= $connection->baseUrl() ?>usa/<?php echo str_replace(" ", "-", $stname); ?>-movers-<?php echo $sta; ?>/">
-                                                <?php echo $row['name']; ?> (<?php echo $r; ?>)
+                   <a  href="<? echo $connection->baseUrl(); ?>usa/<?php echo str_replace(" ", "-", $stname); ?>-movers-<?php echo $sta; ?>/">
+                                                <?php echo $sname; ?> (<?php echo $r; ?>)
                                             </a>
                                         </li>
 
@@ -190,8 +192,6 @@ $db_link = $bd->db_connect();
 
                 </div>
                 <br/>
-
-
 
                 <!--srikanta 26/08/2020-->
 
@@ -283,7 +283,7 @@ $db_link = $bd->db_connect();
                     $pagination .= "</ul></div>\n";
                 }
 
-echo "<h1>Moving Companies</h1>";
+
                 while ($res_comp_city = mysqli_fetch_array($result)) {
 
 
