@@ -318,6 +318,77 @@ $state_name = $res_state_name['name'];
                             <div class="col-md-3">
 
                                 <?php
+// 		if($res_comp_city["logo"]!=NULL)
+// 		{
+// 			if(getimagesize("https://www.topmovingreviews.com/mmr_images/logos/logo_".$res_comp_city["id"].".jpg"))
+// 			{
+// 				$image_file = "https://www.topmovingreviews.com/mmr_images/logos/logo_".$res_comp_city["id"].".jpg";
+// 			}
+// 			else  if(getimagesize("https://www.topmovingreviews.com/company/logos/logo_".$res_comp_city["id"].".jpg"))
+// 			{
+// 				$image_file = "https://www.topmovingreviews.com/company/logos/logo_".$res_comp_city["id"].".jpg";
+// 			}
+// 			else
+// 			{
+// 				$image_file = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+// 			}
+// 		}
+// 		else
+// 		{
+// 			$image_file = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+// 		}
+
+
+
+
+                                /*
+                                  $mmr_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_".$res_comp_city["id"].".jpg";
+
+                                  $comp_images = "https://www.topmovingreviews.com/company/logos/logo_".$res_comp_city["id"].".jpg";
+
+                                  $no_images = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+
+
+
+                                  // echo $data = getimagesize($mmr_images).'hi';
+
+                                  if($res_comp_city["logo"]!=NULL)
+
+                                  {
+
+                                  if($data = getimagesize($mmr_images))
+
+                                  {
+
+                                  $image_file = $mmr_images;
+
+                                  }
+
+                                  else  if($data = getimagesize($comp_images))
+
+                                  {
+
+                                  $image_file = $comp_images;
+
+                                  }
+
+                                  else
+
+                                  {
+
+                                  $image_file = $no_images;
+
+                                  }
+
+                                  }
+
+                                  else
+
+                                  {
+
+                                  $image_file = $no_images;
+
+                                  } */
                                 $img = $res_comp_city["logo"];
                                 $mmrimg = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $res_comp_city["id"] . ".jpg";
                                 $compimg = "https://www.topmovingreviews.com/company/logos/logo_" . $res_comp_city["id"] . ".jpg";
@@ -340,8 +411,10 @@ $state_name = $res_state_name['name'];
                                 }
                                 ?>
 
-                                <img src="<?php echo $logo_image; ?>" height="80" width="190" >
-                            </div>
+                                <img src="<?php echo $logo_image; ?>" height="80" width="190" ></div>
+
+
+
                             <div class="col-md-9" >
                                 <h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/"><?php echo $res_comp_city["title"]; ?></a></h4>
                                 <p class=stars>
@@ -354,21 +427,56 @@ $state_name = $res_state_name['name'];
                                 <span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>
                                 <span style="color:#000000"><?php echo $res_comp_city["address"]; ?></span>
                                 <div style="clear: both; padding-top: 8px;">
-                                    <?= substr($res_comp_city["text"], 0, 140) . "..."; ?>
+
+
+
+                                    <?php
+                                    /* $sql_review="select * from reviews where company_id=$res_comp_city[id]";
+
+
+
+                                      $query_review=mysqli_query($link,$sql_review);
+
+
+
+                                      $res_review=mysqli_fetch_assoc($query_review); */
+
+
+
+                                    echo substr($res_comp_city["text"], 0, 140) . "...";
+                                    ?>
+
+
+
+
+
+
+
                                 </div>
                             </div>
                             <div style="clear:both"></div>
                         </div>	
                         <?php
-                       
                     }
 
                     $cityname = str_replace('-', ' ', $cityname);
 
 //$link is the database connection string
-                    $result = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link);
+                    $result = getNearbyMoversByCity($cityname, $stateshrtname, 30, 200, 10, $link);
+
+
+
+                    /* var_dump($result); */
+
+
+
+
+
+
 
                     for ($i = 0; $i < count($result); $i++) {
+
+                        /* $i=0; */
 
                         foreach ($result[$i] as $key => $value) {
 
@@ -392,16 +500,36 @@ $state_name = $res_state_name['name'];
                         }
 
                         $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$company_id'");
+
+
+
                         $res_reviewcount = mysqli_num_rows($sql_reviewcount);
+
+
+
                         $compnay_address = explode(",", $address);
+
+
+
                         $countarray = count($compnay_address);
+
+
+
                         $compnay_address_zip = explode(" ", $compnay_address[$countarray - 2]);
+
+
+
                         $comp_name = str_replace('/', '-', str_replace(' ', '-', $company_name));
-                        
                         ?>
 
+
+
                         <div class="row" style="padding-top: 40px; margin-bottom:60px;" onClick="window.location.href = 'https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/'">
+
+
+
                             <div class="col-md-3">
+
                                 <?php
                                 $img1 = $logo;
                                 $mmrimg1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $company_id . ".jpg";
@@ -424,167 +552,586 @@ $state_name = $res_state_name['name'];
                                     $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
                                 }
                                 ?>
-                                <img src="<?php echo $logo_image1; ?>" height="80" width="190" >
-                            </div>
+
+                                <img src="<?php echo $logo_image1; ?>" height="80" width="190" ></div>
+
+
+
                             <div class="col-md-9" >
-                                <h4  style="text-align:left!important;">
-                                    <a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/">
-                                        <?php echo $company_name; ?>
-                                    </a>
-                                </h4>
+
+
+
+                                <h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/"><?php echo $company_name; ?></a></h4>
+
+
+
                                 <p class=stars>
+
+
+
                                     <span class="fa fa-star  <?php if (round($rating) >= 1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+
                                     <span class="fa fa-star  <?php if (round($rating) >= 2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+
                                     <span class="fa fa-star  <?php if (round($rating) >= 3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+
                                     <span class="fa fa-star  <?php if (round($rating) >= 4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+
                                     <span class="fa fa-star  <?php if (round($rating) >= 5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+
+
+
                                 </p>
+
+
+
                                 <span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>
+
+
+
                                 <span style="color:#000000"><?php echo $address; ?></span>
+
+
+
                             </div>
+
+
+
                             <div style="clear:both"></div>
+
+
+
                             <div style="clear: both; padding-top: 8px;">
-                                <?= substr($text, 0, 140) . "..."; ?>
+
+
+
+                                <?php
+                                echo substr($text, 0, 140) . "...";
+                                ?>
+
+
+
+
+
+
+
                             </div>
-                        </div>
+
+
+
+                        </div>	
+
+
+
+
+
+
+
+
+
                         <?php
                     }
                     ?>
+
+
+
+
+
+
+
                     <?= $pagination ?>
+
+
+
+
+
+
+
                     <div class="bottomtext">
+
+
+
+
+
+
+
                         <?php
                         $random = mt_rand(1, 5000);
+
+
+
                         $sql_get_content = mysqli_query($link, "select content from city_content where id='$random' limit 0,1");
+
+
+
                         $res_get_content = mysqli_fetch_array($sql_get_content);
+
+
+
                         $city_statecode = "<strong>" . ucfirst($cityname) . "," . strtoupper($stateshrtname) . "</strong>";
+
+
+
                         $moving_companies = "<strong>" . "Moving Companies" . "</strong>";
+
+
+
                         $movers_in = "<strong>" . "cheap movers in" . "</strong>";
+
+
+
                         $cheap_local_moves = "<strong>" . "local moves" . "</strong>";
+
+
+
                         $long_distance_movers = "<strong>" . "long distance movers" . "</strong>";
+
+
+
                         $top = "<strong>" . "top" . "</strong>";
                         ?>
-                        <p>
-                            <?php echo str_replace("long distance movers", $long_distance_movers, str_replace("local moves", $local_moves, str_replace("top", $top, str_replace("cheap movers in", $cheap_movers_in, str_replace("Moving Companies", $moving_companies, str_replace("(City), (State)", $city_statecode, $res_get_content['content'])))))); ?>
+
+
+
+
+
+
+
+                        <p ><?php echo str_replace("long distance movers", $long_distance_movers, str_replace("local moves", $local_moves, str_replace("top", $top, str_replace("cheap movers in", $cheap_movers_in, str_replace("Moving Companies", $moving_companies, str_replace("(City), (State)", $city_statecode, $res_get_content['content'])))))); ?>
+
+
+
                         </p>
+
+
+
                     </div>
+
+
+
+
+
                 </div>
+
+
+
                 <div class="block-right">
+
                     <div class=cstm_get_quote>
-                        <h6>
-                            <i>The quick and easy money saver</i>
-                        </h6>
+
+                        <h6><i>The quick and easy money saver</i></h6>
+
                         <form id="frm1" name="frm1" method="post" action=https://www.topmovingreviews.com/quoteform.php autocomplete="off">
+
                             <div class=cstm_frm>
-                                <label>
-                                    <input  class=newinput  placeholder="Moving Date" onFocus="this.value = ''"  id="calendarHere"  name="calendarHere" onClick="setFrom();" readonly="">
-                                </label>
-                                <label>
-                                    <input class=newinput  placeholder="From Zip" onFocus="this.value = ''" name="MovingFrom" id="MovingFrom" maxlength="5" >
-                                </label>
-                                <label>
-                                    <input class=newinput  placeholder="To Zip or City, State" onFocus="this.value = ''" name="MovingTo" id="MovingTo">
-                                </label>
+
+                                <label> <input  class=newinput  placeholder="Moving Date" onFocus="this.value = ''"  id="calendarHere"  name="calendarHere" onClick="setFrom();" readonly=""></label>
+
+                                <label><input class=newinput  placeholder="From Zip" onFocus="this.value = ''" name="MovingFrom" id="MovingFrom" maxlength="5" ></label>
+
+                                <label><input class=newinput  placeholder="To Zip or City, State" onFocus="this.value = ''" name="MovingTo" id="MovingTo"></label>
                                 <div id="suggesstion-box1"></div>
-                                <div class=submit-new>
-                                    <a  onClick="javascript:return validate()" style="cursor:pointer;">
-                                        Continue
-                                    </a> 
-                                </div>
+
+                                <div class=submit-new><a  onClick="javascript:return validate()" style="cursor:pointer;">Continue</a> </div>
+
                             </div>
+
                         </form>
+
                     </div>
+
                     <?php
                     $sql_dot = "select power_units,usdot_number,mc,safety_url,date_format(granted_date,\"%m-%d-%Y\") as granted_date from company_dot_data where  company_name= '$res_company[title]'";
+
+
+
                     $query_dot = mysqli_query($link, $sql_dot);
+
+
+
                     $res_dot = mysqli_fetch_assoc($query_dot);
                     ?>
 
-                    <div class="callfor">
-                        <h3>Are  you  a  Moving  Company  </h3>
-                        <br>
-                        <span style="font-size:15px;">
-                            Find  out  how  you  can  be  in  our 
-                            <a href="">Moving List</a>
-                        </span>.
+
+
+                    <div class="callfor"><h3>Are  you  a  Moving  Company  </h3><br>
+
+
+
+                        <span style="font-size:15px;">Find  out  how  you  can  be  in  our  <a href="">Moving List</a></span>.
+
+
+
+                        <!--<img src="images/300x600.jpg" width="300px" height="600" alt="city page add"/>-->
+
+
+
                     </div>
+
 
                     <div  class="callfor">
                         <h2>Best movers nearby</h2>
-                        <div class="input-group ">
-                            <form name="frm_zip" action="https://www.topmovingreviews.com/searchzipcode.php" method="post">
-                                <input type="text" class="form-control" placeholder="Find movers by zip" name="zipcode_search" >
-                            </form>
+                        <div class="input-group "><form name="frm_zip" action="https://www.topmovingreviews.com/searchzipcode.php" method="post">
+                                <input type="text" class="form-control" placeholder="Find movers by zip" name="zipcode_search" ></form>
                             <span class="input-group-btn">
                                 <input class="btn btn-search newbtn" name="bt" type="submit" value="Find"  onClick="javascript:document.frm_zip.submit();">
                             </span>
                         </div>
                     </div>
+
+
+
+
+                    <!-- <div class="cmprev">
+ 
+ 
+ 
+                         <p>Write a Moving Company Review Here</p>
+ 
+ 
+ 
+                         <h4>Company Name</h4>
+ 
+ 
+ 
+                         <div class="search-box">
+ 
+ 
+ 
+                             <input type="text" placeholder="Looking For..." name="search">
+ 
+ 
+ 
+                             <button type="submit"><i class="fa fa-search"></i>&nbsp;Search</button>
+ 
+ 
+ 
+                         </div>	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                     </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div class="cities">
-                        <h2 style="line-height:24px;">
-                            Movers near <? echo ucwords($cityname);?> by City   
-                        </h2>
+
+
+
+                        <h2 style="line-height:24px;">Movers near <? echo ucwords($cityname);?> by City    </h2>
+
+
+
+                        <!-- <div class="search-box">
+ 
+ 
+ 
+                             <input type="text" placeholder="Search California's Cities" name="search">
+ 
+ 
+ 
+                             <button type="submit"><i class="fa fa-search"></i>&nbsp;Search</button>
+ 
+ 
+ 
+                         </div>	-->
+
+
+
                         <div class="city">
+
+
+
+
+
+
+
                             <?php
+                            /*  echo "Srikana". $ip = $_REQUEST['REMOTE_ADDR']; 
+
+
+
+                              $query = @unserialize(file_get_contents('https://ip-api.com/php/' . $ip));
+
+
+
+
+
+
+
+                              if ($query && $query['status'] == 'success') {
+
+
+
+
+
+
+
+                              $region = $query['region']; */
+
+
+
+
+
+
+
                             $sql_lat = "select * from cities_extended where city='$cityname' and state_code='$stateshrtname' limit 0,1";
+
+
+
                             $query_lat = mysqli_query($link, $sql_lat);
+
+
+
                             $res_lat = mysqli_fetch_array($query_lat);
+
+
+
                             $lat = $res_lat['latitude'];
+                            ;
+
+
+
                             $lon = $res_lat['longitude'];
+
+
 
                             $get_city = "SELECT *, ((ACOS(SIN($lat * 3.14 / 180) * SIN(latitude * 3.14 / 180) + COS($lat * 3.14 / 180) * COS(latitude * 3.14 / 180) * COS(($lon - longitude) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) AS distance FROM cities_extended where state_code = '$stateshrtname' and city<>'$cityname' GROUP BY city HAVING distance<='1000' ORDER BY distance ASC limit 0,6";
 
+
                             if ($result = mysqli_query($link, $get_city)) {
+
+
+
                                 while ($row = mysqli_fetch_assoc($result)) {
 
+
+
+
+
+
+
                                     $sql_state_zip = "select zipcode,city,state  from companies  where city='$cityname' limit 0,1";
+
+
+
                                     $query_state_zip = mysqli_query($link, $sql_state_zip);
+
+
+
                                     $res_state_zip = mysqli_fetch_array($query_state_zip);
                                     ?>
 
                                     <div class='city-box' >
+
+
                                         <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
-                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
-                                        </a>
+
+
+
+
+
+
+
+                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?></a>
+
+
+
+
+
+
+
                                     </div>
+
+
+
+
+
+
+
                                     <?php
                                 }
                             }
+
+                            /* } else {
+
+                              echo 'Unable to get location';
+
+                              } */
                             ?>
-                            <div class="city-anchr"> </div>
+
+
+
+                            <div class="city-anchr">
+
+
+
+                                <?php /* ?>   <a href="https://www.topmovingreviews.com/state-city.php?state_code=<?php echo $stateshrtname; ?>" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']);?>">
+
+
+
+                                  <u>See All Cities</u>&ensp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+
+
+
+                                  </a><?php */ ?>
+
+
+
+                            </div>
+
+
+
+
                             <div class="row">
                                 <div class="col-md-12">
+
                                     <div class="collapse multi-collapse" id="multiCollapseExample1">
                                         <div class='city-box' >
+
+
                                             <?php
                                             $get_city = "SELECT *, ((ACOS(SIN($lat * 3.14 / 180) * SIN(latitude * 3.14 / 180) + COS($lat * 3.14 / 180) * COS(latitude * 3.14 / 180) * COS(($lon - longitude) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) AS distance FROM cities_extended where state_code = '$stateshrtname' and city<>'$cityname' GROUP BY city HAVING distance<='1000' ORDER BY distance ASC limit 6,10";
+
+
                                             if ($result = mysqli_query($link, $get_city)) {
+
+
+
                                                 while ($row = mysqli_fetch_assoc($result)) {
+
+
+
+
+
+
+
                                                     $sql_state_zip = "select zipcode,city,state  from companies  where city='$cityname' limit 0,1";
+
+
+
                                                     $query_state_zip = mysqli_query($link, $sql_state_zip);
+
+
+
                                                     $res_state_zip = mysqli_fetch_array($query_state_zip);
                                                     ?>
+
                                                     <div class='city-box' >
+
+
                                                         <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
-                                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
-                                                        </a>
+
+
+
+
+
+
+
+                                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?></a>
+
+
+
+
+
+
+
                                                     </div>
+
+
+
+
+
+
+
                                                     <?php
                                                 }
                                             }
                                             ?>
+
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                             <p>
                                 <a class="hidden-button" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><u>See More</u>&ensp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                             </p>
+
+
+
+
                         </div>
+
+
+
+
+
+
+
                     </div>
 
-                    <div class=nxt>
-                        <h3>Read before hiring</h3>
-                    </div>
+
+
+
+
+
+
+                    <!--<div class="find">
+
+
+
+                        <h4>Find Movers near me</h4>
+
+
+
+                        <div class="search-box">
+
+
+
+                            <input type="text" placeholder="Enter Zip" name="search">
+
+
+
+                            <button type="submit"><i class="fa fa-search"></i>&nbsp;Find</button>
+
+
+
+                        </div>	
+
+
+
+                    </div>-->
+
+
+
+
+
+                    <div class=nxt><h3>Read before hiring</h3></div>
                     <div class="row newrow">
                         <div class="col-md-12">
                             <img class="img-left" src="https://www.topmovingreviews.com/images/moving-company-1.jpg"/>
@@ -620,24 +1167,99 @@ $state_name = $res_state_name['name'];
 
                         </div>     
                     </div>
+
+
+
                 </div>
+
+
+
             </div>
+
+
+
         </div>
+
+
+
+
+
+
+
         <?php include 'footer.php'; ?>
+
+
+
         <script>
+
+
+
             window.onscroll = function () {
+
+
+
                 myFunction()
+
+
+
             };
+
+
+
+
+
+
+
             var navtop = document.getElementById("myHeader");
+
+
+
             var sticky = navtop.offsetTop;
 
+
+
+
+
+
+
             function myFunction() {
+
+
+
                 if (window.pageYOffset >= sticky) {
+
+
+
                     navtop.classList.add("sticky");
+
+
+
                 } else {
+
+
+
                     navtop.classList.remove("sticky");
+
+
+
                 }
+
+
+
             }
+
+
+
         </script>
+
+
+
+
+
+
+
     </body>
+
+
+
 </html>
