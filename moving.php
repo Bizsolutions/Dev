@@ -168,7 +168,7 @@ if ($lastpage > 1) {
 
         <link rel="icon" href="https://www.topmovingreviews.com/favicon.ico" type="image/ico" sizes="16x16"> 
 
-        <meta name="description" content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("F Y"); ?>">
+        <meta name="description" content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
         <meta name=keywords content="<?php echo $res_company['title']; ?>, Moving">
 
@@ -178,7 +178,7 @@ if ($lastpage > 1) {
 
         <meta property=og:title content="<?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?>">
 
-        <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("F Y"); ?>">
+        <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
         <!--<meta property=og:image content="https://www.topmovingreviews.com/images/logo.jpg">-->
 
@@ -207,7 +207,7 @@ if ($lastpage > 1) {
 
         <meta property=og:title content="<?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?>">
 
-        <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("F Y"); ?>">
+        <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
         <meta property=og:image content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg" >
 
@@ -221,7 +221,7 @@ if ($lastpage > 1) {
 
         <meta name="twitter:image" content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg"/>
 
-        <meta name="twitter:description" content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("F Y"); ?>" />
+        <meta name="twitter:description" content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>" />
 
         <meta name="twitter:site" content="@topmovingreviews" />
 
