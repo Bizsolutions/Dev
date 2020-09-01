@@ -791,6 +791,7 @@ if ($nnresult > 0) {
                     ?>
 
                     <br>
+                    <div class="company-infonew">
                     <h2>Company Info</h2>
                     <br>
                     <br>
@@ -918,7 +919,7 @@ else {?>
                             case 'North East':
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
 
-                                    echo "Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  "Moving to the South East would be around $" . $SouthEast . '.';
 
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
@@ -934,7 +935,7 @@ else {?>
                                 }
 
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str = " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 
@@ -952,7 +953,7 @@ else {?>
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
 
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
                                     //echo $avgNorthwest; 
 
@@ -962,7 +963,7 @@ else {?>
                                 }
 
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
 
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
@@ -975,7 +976,7 @@ else {?>
                                 
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
                                     $SouthMedwestdiff = $avgSouthMedwest - $SouthMedwest;
@@ -999,7 +1000,7 @@ else {?>
                                 }
 
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
                                     //$avgWest.'-'.$West ;
@@ -1015,7 +1016,7 @@ else {?>
                                 }
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1034,7 +1035,7 @@ else {?>
                                     
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
                                     $NorthMedwestdiff = $avgNorthMedwest - $NorthMedwest;
@@ -1045,7 +1046,7 @@ else {?>
                                 }
 
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
 
@@ -1058,15 +1059,17 @@ else {?>
                                 break;
                             case 'West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
                                     $ofNorthEast = $noNorthEast * 100;
                                     
                                 }
+                                
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
 
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
@@ -1080,7 +1083,7 @@ else {?>
 
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
                                     $ofnoNorthwest = round($Northwestt, 1);
@@ -1094,7 +1097,7 @@ else {?>
 
 
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
 
@@ -1112,7 +1115,7 @@ else {?>
 
 
 
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
 
@@ -1129,7 +1132,7 @@ else {?>
 
                             case 'North West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1137,7 +1140,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
                                     $SouthEastdiff = $avgSouthEast - $SouthEast;
@@ -1148,7 +1151,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 //                                        $Westdiff   = $avgWest-$West;
@@ -1162,7 +1165,7 @@ else {?>
                                     
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
 
@@ -1175,7 +1178,7 @@ else {?>
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $SouthMedwestdiff = $avgSouthMedwest - $SouthMedwest;
                                     $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
 
@@ -1190,7 +1193,7 @@ else {?>
 
                             case 'North Med West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1198,7 +1201,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str=  " Moving to the South East would be around $" . $SouthEast . '.';
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
                                     $SouthEastdiff = $avgSouthEast - $SouthEast;
@@ -1209,7 +1212,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
                                     $Westdiff = $avgWest - $West;
@@ -1221,7 +1224,7 @@ else {?>
                                     
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1235,7 +1238,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
 
@@ -1253,7 +1256,7 @@ else {?>
 
                             case 'South Med West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1261,7 +1264,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
                                     $SouthEastdiff = $avgSouthEast - $SouthEast;
@@ -1273,7 +1276,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 
@@ -1287,7 +1290,7 @@ else {?>
                                     
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1301,7 +1304,7 @@ else {?>
                                     
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
 
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
@@ -1315,7 +1318,7 @@ else {?>
 
                             case 'Far North East':
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
                                     $SouthEastdiff = $avgSouthEast - $SouthEast;
@@ -1326,7 +1329,7 @@ else {?>
                                     
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str=  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1335,7 +1338,7 @@ else {?>
 
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 //                                        $Westdiff   = $avgWest-$West;
@@ -1350,7 +1353,7 @@ else {?>
 
                                 }
                                 if (!empty($NorthMedwest) or strpos($NorthMedwest, '- ') !== false) {
-                                    echo " Moving to the North Med West would be around $" . $NorthMedwest . '.';
+                                    $NorthMedwest_str =  " Moving to the North Med West would be around $" . $NorthMedwest . '.';
                                     $NorthMedwest_arr[] = $NorthMedwest . '-' . $avgNorthMedwest;
 
                                     $NorthMedwestdiff = $avgNorthMedwest - $NorthMedwest;
@@ -1360,7 +1363,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
                                     $SouthMedwestdiff = $avgSouthMedwest - $SouthMedwest;
@@ -1373,7 +1376,7 @@ else {?>
 
                             case 'Med East':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1381,7 +1384,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
 
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
@@ -1395,7 +1398,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 //                                        $Westdiff   = $avgWest-$West;
@@ -1410,7 +1413,7 @@ else {?>
                                     
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the West would be around $" . $Northwest . '.';
 
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
@@ -1422,7 +1425,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
                                     $SouthMedwestdiff = $avgSouthMedwest - $SouthMedwest;
@@ -1436,7 +1439,7 @@ else {?>
 
                             case 'Far Med West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str  = " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1444,7 +1447,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
 
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
@@ -1456,7 +1459,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 //                                        $Westdiff   = $avgWest-$West;
@@ -1468,7 +1471,7 @@ else {?>
 
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1482,7 +1485,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
 
@@ -1496,7 +1499,7 @@ else {?>
 
                             case 'Far North Med west':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1504,7 +1507,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
 
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
@@ -1516,7 +1519,7 @@ else {?>
                                     
                                 }
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 //                                        $Westdiff   = $avgWest-$West;
@@ -1529,7 +1532,7 @@ else {?>
                                     
                                 }
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 
                                     $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
@@ -1543,7 +1546,7 @@ else {?>
                                     
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str = " Moving to the Med West would be around $" . $SouthMedwest . '.';
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
 
@@ -1557,7 +1560,7 @@ else {?>
 
                             case 'Middle North West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
-                                    echo " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
 
                                     $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
 
@@ -1568,7 +1571,8 @@ else {?>
                                     $ofNorthEast = $noNorthEast * 100;
                                 }
                                 if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
-                                    echo " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $SouthEast_str =  " Moving to the South East would be around $" . $SouthEast . '.';
+                                    
                                     $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
 
 
@@ -1581,7 +1585,7 @@ else {?>
 
 
                                 if (!empty($West) or strpos($West, '- ') !== false) {
-                                    echo " Moving to the West would be around $" . $West . '.';
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
                                     $west_arr[] = $West . '-' . $avgWest;
 
 
@@ -1597,7 +1601,7 @@ else {?>
 
 
                                 if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
-                                    echo " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
                                     $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
 //                                        $Northwestdiff = $avgNorthwest-$Northwest;
 //                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
@@ -1609,7 +1613,7 @@ else {?>
 
                                 }
                                 if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
-                                    echo " Moving to the Med West would be around $" . $SouthMedwest . '.';
+                                    $SouthMedwest_str =  " Moving to the Med West would be around $" . $SouthMedwest . '.';
 
                                     $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
 
@@ -1870,6 +1874,11 @@ else {?>
                         <!--</p>-->
                     <!--</div>-->
                     <?php } ?>
+                    
+                    <p class="review-para-1" style="font-size:18px !important;">
+                        <?php echo $SouthEast_str.$West_str.$Northwest_str.$NorthMedwest_str.$NorthEast_str.$SouthMedwest_str ;?>
+                    </p>
+                    
                     <p class="review-para-1" style="font-size:18px !important;">
 
 
@@ -1917,7 +1926,7 @@ else {?>
                         <!-- To save in Packing, recommend you to <a href="https://www.topmovingreviews.com/Moving-Boxes.php" target="_blank">purchase packing materials.</a>
                          <br>-->
                     </p>
-
+</div>
                    <!--added bynaiya-->
            				<h2 class="pad-cls">Other movers nearby</h2>
 
