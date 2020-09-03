@@ -196,17 +196,21 @@ $state_name = $res_state_name['name'];
                     else
                         $start = 0;        //if no page var is given, set start to 0
                         /* Get data. */
-
-                    if (isset($_REQUEST['filter'])) {
+                    $cityname = str_replace('-', ' ', $cityname);
+                    if (isset($_REQUEST['filter']) && $_REQUEST['filter']) {
 
                         $filter = $_REQUEST['filter'];
-                        $sql = "SELECT title,address,id,rating,phone,logo  FROM  companies      where   city in ('$cityname') group by companies.id order by $filter LIMIT $start, $limit";
+                        $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, $filter, $start, $limit);
+
+                        // $sql = "SELECT title,address,id,rating,phone,logo  FROM  companies      where   city in ('$cityname') group by companies.id order by $filter LIMIT $start, $limit";
                     } else {
-                        $sql = "SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname')  group by companies.id order by   companies.rating desc,count(*) desc  LIMIT $start, $limit";
+                        // $sql = "SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname')  group by companies.id order by   companies.rating desc,count(*) desc  LIMIT $start, $limit";
                         //$sql = "SELECT title,address,id,rating,phone  FROM  companies      where   address like '% $cityname,%' LIMIT $start, $limit";
+                        //$link is the database connection string
+                        $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, '', $start, $limit);
                     }
 
-                    $result = mysqli_query($link, $sql);
+                    $result = $result1;
                     /* Setup page vars for display. */
 
 
@@ -305,7 +309,7 @@ $state_name = $res_state_name['name'];
                     }
 
 
-                    while ($res_comp_city = mysqli_fetch_array($result)) {
+                    foreach ($result as $res_comp_city) {
                         $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$res_comp_city[id]'");
                         $res_reviewcount = mysqli_num_rows($sql_reviewcount);
                         $compnay_address = explode(",", $res_comp_city['address']);
@@ -359,94 +363,6 @@ $state_name = $res_state_name['name'];
                             </div>
                             <div style="clear:both"></div>
                         </div>	
-                        <?php
-                       
-                    }
-
-                    $cityname = str_replace('-', ' ', $cityname);
-
-//$link is the database connection string
-                    $result = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link);
-
-                    for ($i = 0; $i < count($result); $i++) {
-
-                        foreach ($result[$i] as $key => $value) {
-
-                            if ($key == 'id')
-                                $company_id = $value;
-
-                            if ($key == 'address')
-                                $address = $value;
-
-                            if ($key == 'title')
-                                $company_name = $value;
-
-                            if ($key == 'logo')
-                                $logo = $value;
-
-                            if ($key == 'rating')
-                                $rating = $value;
-
-                            if ($key == 'text')
-                                $text = $value;
-                        }
-
-                        $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$company_id'");
-                        $res_reviewcount = mysqli_num_rows($sql_reviewcount);
-                        $compnay_address = explode(",", $address);
-                        $countarray = count($compnay_address);
-                        $compnay_address_zip = explode(" ", $compnay_address[$countarray - 2]);
-                        $comp_name = str_replace('/', '-', str_replace(' ', '-', $company_name));
-                        
-                        ?>
-
-                        <div class="row" style="padding-top: 40px; margin-bottom:60px;" onClick="window.location.href = 'https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/'">
-                            <div class="col-md-3">
-                                <?php
-                                $img1 = $logo;
-                                $mmrimg1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $company_id . ".jpg";
-                                $compimg1 = "https://www.topmovingreviews.com/company/logos/logo_" . $company_id . ".jpg";
-
-                                if ($logo != NULL) {
-
-                                    if (@getimagesize($mmrimg1) != '' && stristr($logo, "topmovingreviews.com")) {
-
-                                        $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $company_id . ".jpg";
-                                    } else if (@getimagesize($compimg1) != '' && stristr($logo, "topmovingreviews.com")) {
-
-                                        $logo_image1 = "https://www.topmovingreviews.com/company/logos/logo_" . $company_id . ".jpg";
-                                    } else if (stristr($logo, "mymovingreviews.com")) {
-                                        $logo_image1 = $img1;
-                                    } else {
-                                        $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
-                                    }
-                                } else {
-                                    $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
-                                }
-                                ?>
-                                <img src="<?php echo $logo_image1; ?>" height="80" width="190" >
-                            </div>
-                            <div class="col-md-9" >
-                                <h4  style="text-align:left!important;">
-                                    <a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/">
-                                        <?php echo $company_name; ?>
-                                    </a>
-                                </h4>
-                                <p class=stars>
-                                    <span class="fa fa-star  <?php if (round($rating) >= 1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($rating) >= 2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($rating) >= 3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($rating) >= 4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($rating) >= 5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                </p>
-                                <span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>
-                                <span style="color:#000000"><?php echo $address; ?></span>
-                            </div>
-                            <div style="clear:both"></div>
-                            <div style="clear: both; padding-top: 8px;">
-                                <?= substr($text, 0, 140) . "..."; ?>
-                            </div>
-                        </div>
                         <?php
                     }
                     ?>

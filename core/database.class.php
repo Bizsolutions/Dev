@@ -18,8 +18,8 @@ class db_class {
 	//Local server
 		
 		$this->db_username = "root";
-		$this->db_password = "admin";
-		$this->db_name = "topmoversreview";
+		$this->db_password = "";
+		$this->db_name = "topmovin_mymovingreviews";
 		
 		
 		// Arvix Server

@@ -62,7 +62,7 @@ function getNearbyMoversByCity($city_name, $state_code, $distance, $max_distance
     return $company_list;
 }
 
-function NearbyMoversByCity($city_name, $state_code, $distance, $max_distance, $min_nr_of_companies, $link) {
+function NearbyMoversByCity($city_name, $state_code, $distance, $max_distance, $min_nr_of_companies, $link, $filter, $start, $limit) {
     $sql = "SELECT * FROM cities_extended WHERE city='" . $city_name . "' AND state_code='" . $state_code . "' LIMIT 0,1";
     $query_coorinates = mysqli_query($link, $sql);
 
@@ -91,10 +91,17 @@ function NearbyMoversByCity($city_name, $state_code, $distance, $max_distance, $
     }
 
     $cities = array_column($query_cities->fetch_all(MYSQLI_ASSOC), 'city');
+//    $allcity = array_push($cities,$city_name);
     $city = implode(',', array_map('quote', $cities));
-    $sql1 = "SELECT companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.rating > 3 AND LOWER(TRIM(city)) In ($city) group by companies.id";
+
+    if ($filter) {
+        $sql1 = "SELECT companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.rating > 3 AND LOWER(TRIM(city)) In ($city) group by companies.id order by $filter  LIMIT $start, $limit";
+    } else {
+        $sql1 = "SELECT companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and companies.rating > 3 AND LOWER(TRIM(city)) In ($city) group by companies.id LIMIT $start, $limit";
+    }
+//    echo $sql1;
     $query_companies = mysqli_query($link, $sql1);
-    return $query_companies->fetch_all(MYSQLI_ASSOC);
+    return (array) $query_companies->fetch_all(MYSQLI_ASSOC);
 }
 
 function quote($str) {

@@ -352,7 +352,7 @@ $("#suggesstion-box1").hide();
 
 
 
-        <a class="nav-link" href="https://www.topmovingreviews.com/moving-company.php">Moving Companies</a>
+        <a class="nav-link" href="<?= $connection->baseUrl() ?>moving-company.php">Moving Companies</a>
 
 
 
