@@ -133,8 +133,8 @@ xmlhttp.send();
           <div style="position:absolute; float:right; z-index:9999; right:0px; top:523px; width:20%">
        <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Moving To A New Home During The COVID-19 Pandemic</strong> There are several things to consider when planning to move to a new location during the coronavirus (COVID-19) pandemic. 
-  <p><button type="button" class="btn btn-primary"><a href="https://www.topmovingreviews.com/Move/moving-to-a-new-home-during-the-covid-19-pandemic/" style="color:#fff">View Blog</a></button></p>
+    <strong><a href="https://www.topmovingreviews.com/Move/moving-to-a-new-home-during-the-covid-19-pandemic/">Moving To A New Home During The COVID-19 Pandemic</strong><br/> There are several things to consider when planning to move to a new location during the coronavirus (COVID-19) pandemic. </a>
+  <!--<p><button type="button" class="btn btn-primary"><a href="https://www.topmovingreviews.com/Move/moving-to-a-new-home-during-the-covid-19-pandemic/" style="color:#fff">View Blog</a></button></p>-->
   </div>
            </div>
     <body id="shahaidul-body" onmouseover="loadcss" onLoad="doOnLoad();">
@@ -206,7 +206,7 @@ xmlhttp.send();
                                     <div class="reviewbox newreviewbox">
                                         <div class="review-rating">
                                             <div class="review-logo hidelogo">
-                                                <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>/">
+                                                <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>">
                                                 <?php
                                                   if($company["logo"] != NULL)
                                                   {
@@ -239,7 +239,7 @@ xmlhttp.send();
                                                 <img src="<?php if ($company["logo"]==NULL){echo "no";} else echo $company['logo'];?>" alt="<?php echo $res_recent_company['title'];?> Logo" width="200" height="70" ></a>
                                             </div>
                                             <div class="review-stars">
-                                                <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>/"> <b > <?php echo $company['title'];?></b></a>
+                                                <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>"> <b > <?php echo $company['title'];?></b></a>
                                                 &emsp;
                                                 <span class=stars>
                                                     <span class="fa fa-star  <?php if(round($company_rating)>=1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
@@ -258,7 +258,7 @@ xmlhttp.send();
                                         <div class="review-by">
                                        
                                                 <!--<img src="images/ico1.jpg"/>-->
-                                                | by&ensp;<span><a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>/" style="text-decoration:none;"> <?php echo $review["author"];?></a></span>
+                                                | by&ensp;<span><a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>" style="text-decoration:none;"> <?php echo $review["author"];?></a></span>
                                      
                                     
                                                 <!--<img src="images/ico2.jpg">-->
@@ -267,7 +267,7 @@ xmlhttp.send();
                                         </div>
                                         <p class="review-para">
                                             <?php echo  substr($review['text'],0,400); ?> 
-                                            <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>/">
+                                            <a href="https://www.topmovingreviews.com/movers/<?php echo str_replace('/','-',str_replace(' ', '-',$company['title']))."-". $company["id"];?>">
                                                 ...Full review&ensp;
                                                 <!--<img src="images/ico5.jpg">-->
                                             </a>

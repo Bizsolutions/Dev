@@ -1668,7 +1668,7 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $res_comp_city["title"]))
 
 
 
-				<div class="row" style="padding-top: 40px; " onClick="window.location.href='https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/'">
+				<div class="row" style="padding-top: 40px; " onClick="window.location.href='https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>'">
 
 
 
@@ -1780,7 +1780,7 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $res_comp_city["title"]))
 
 
 
-<h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/"><?php echo $res_comp_city["title"]; ?></a></h4>
+<h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>"><?php echo $res_comp_city["title"]; ?></a></h4>
 
 
 
