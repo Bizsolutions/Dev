@@ -521,28 +521,35 @@ if ($nnresult > 0) {
                                             <?php } ?>
                                 <?php
                                 $phonw = $res_company['phone'];
-                                if ($phonw <> "") {
+                                if ($phonw <> "") { ?>
+                                    <!--<p>--><br>
+                                    <?php
                                     if (strpos($phonw, ',') !== false) {
                                         $expar = explode(',', $phonw);
                                         $phone1 = $expar[0];
                                         $phone2 = $expar[1];
+                                        //if($phone1 != $phone2){
+                                        
                                         ?>
                                     
-                                        <!--<p>-->
-                                        <div class=headphone></div> Toll Free:  <span > <?php echo $phone1; ?> </span>| <div class=call></div> Phone:  <?php echo $phone2; ?>
+                                        
+                                        <div class=headphone></div> Toll Free:  <?php echo $phone1; ?> | <div class=call></div> Phone:  <?php echo $phone2; ?>
+                                        <?php /*}else { ?>
+                                        <div class=headphone></div> Toll Free:  <span > <?php echo $phone1; ?> </span>
+                                        <?php } */?>
                                         <!--</p>-->
                                     <?php } else {
                                         ?>
                                         <!--<p>-->
-                                        <div class=headphone></div> Toll Free:  <span ><?php echo $phonw; ?> </span>| <div class=call></div> Phone:  <?php echo $phonw; ?>
+                                        <div class=headphone></div> Toll Free:  <span ><?php echo $phonw; ?> </span>
                                         <!--</p>-->        
                                         <?php
                                     }
                                 }
                                 ?>
-                                <p><?php if ($res_company['email'] <> "") { ?><div class=mail></div> <?php echo $res_company['email']; ?> | <?php } if ($res_company['website'] <> "") { ?> <div class=web></div><?php echo $res_company['website'];
+                                <br><?php if ($res_company['email'] <> "") { ?><div class=mail></div> <?php echo $res_company['email']; ?> | <?php } if ($res_company['website'] <> "") { ?> <div class=web></div><?php echo $res_company['website'];
                                 }
-                                ?></p>
+                                ?>
                             </div>
                         </div></div>
                     <div class="jeft-right">
@@ -572,7 +579,7 @@ if ($nnresult > 0) {
                 <!--<i class="fa fa-home" aria-hidden="true"></i>-->
                                 <img src="https://www.topmovingreviews.com/images/home-icon.png" width="18"/>
                             </a>, <a href="https://www.topmovingreviews.com/moving-company.php" style="color:#999999;" >
-                                Movers</a>, <a  style="color:#999999;"><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
+                                Movers</a>, <a style="color:#999999;" href="https://www.topmovingreviews.com/movers/<?php echo $compname; ?>-<?php echo $company_id; ?>/"    ><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
                     <div class="row " style="margin-top:20px">
                         <!--Review Summary 18-05-2020-->
                         <?php
@@ -802,7 +809,7 @@ if ($nnresult > 0) {
                             echo "Start doing business after " . $res_dot['granted_date'] . ",";
                         }
                         ?> located in <?php echo $res_company['address'] . ',' . $res_company['city'] . ',' . $res_company['zip'] . ',' . $res_company['state'] . ' , U.S.A'; ?>  <a href="https://www.topmovingreviews.com/map.php?query=<?php echo substr(str_replace(",", "%2C", str_replace(" ", "+", $res_company['address'])), 0, -4); ?>" target="_blank">View On Map</a>, but moving companies covered larger areas includes states nearby.
-                    </p>
+                 
                     
 					 <?php
                                         $state_code = $res_company['state'];
@@ -812,10 +819,11 @@ if ($nnresult > 0) {
 
                                         if ($numrows <> 0) {
                                             ?>
-                            See more <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(' ', '-', trim($res_company['city'])) . str_replace(' ', '-', $compnay_address[$countarray - 2]); ?>/" style="font-weight:bold; color:#839AEB;">movers in <?php echo $res_company['city']; ?>, <?php echo $state_code; ?></a><br>Explore more
+                                            
+                          <br/><br/>  See more <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(' ', '-', trim($res_company['city'])) . str_replace(' ', '-', $compnay_address[$countarray - 2]); ?>/" style="font-weight:bold; color:#839AEB;">movers in <?php echo $res_company['city']; ?>, <?php echo $state_code; ?></a><br>Explore more
                             <a href="https://www.topmovingreviews.com/usa/<?php echo str_replace(' ', '-', $res_state['name']) . "-movers-" . $state_code; ?>/" style="font-weight:bold; color:#839AEB;;"><?php echo $res_state['name']; ?> Movers</a>
 <?php } ?>
-					
+					   </p>
                     <br><br>
                     <h2>Licenses & Certificates for <?php echo $res_company['title']; ?></h2>
                     <br>
@@ -1896,7 +1904,8 @@ else {?>
                         It only means that <?php echo $res_company['title']; ?> is <?php echo $highre_lower; ?> by an approximate of <?php echo $valeehk; ?> % when it comes to long-distance moving average costs. 
                         <br>
                         <?php  } ?>
-                        Please take note that the prices provided based on data such as reviews and other sources.
+                        <br/> <br/>
+                        Take note that the prices provided based on data such as reviews and other sources.
                         The estimated amount that you receive from the company is lower. 
                         Several factors, like shipment size, the distance between locations, and other services like Packing and assembly, will contribute to the price of the move.
                         <!--We recommend you to save on packing and packing labor by <a href="https://www.topmovingreviews.com/Moving-Boxes.php" target="_blank"> purchasing packing supplies here</a>.
@@ -1912,13 +1921,13 @@ else {?>
                     <br>
                     <p class="review-para-1" style="font-size:18px !important;">
                         The average prices generated are based on our reviews of <?php echo $res_company['title']; ?>. The rates will vary or change once you contact the company; usually, you will get a lower price in the estimate and go higher on the move itself. 
-                        <br>
-                        Also, there are factors like home size, the distance between locations, and other services like Packing and assembly.
-                        <br>
+                        <br><br>
+                        There are factors like home size, the distance between locations, and other services like Packing and assembly.
+                          <br><br>
                         The approximate moving costs are generated based on reviews on our database and data collected from other reliable sources and partners. 
                         <br>
                         We based the calculations on five different prices based on five destinations or regions with five different prices. Also, the rates are determined by the moving company based on distance and season demand.
-                        <br>
+                        <br><br>
                         Our information based on the company's moves for a medium-sized house or a family apartment. 
                         <br>
                         If you have a bigger house, move the price is going to be higher. And if you have a smaller house move, the price is going to be lower unless you have a higher amount of Packing. 
@@ -1952,7 +1961,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
 
            
                                         <div class="company-list-item">
-               <a class="company-section " href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_pplview["id"]; ?>/" >
+               <a class="company-section" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_pplview["id"]; ?>/" >
                      <h3 class="title" data-id="company-name"> <?= $res_pplview["title"]; ?></h3>
                     <div class="company-logo">
                         <div class="logo-wrap">
