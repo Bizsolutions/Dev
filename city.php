@@ -564,7 +564,8 @@ $state_name = $res_state_name['name'];
                                                     $res_state_zip = mysqli_fetch_array($query_state_zip);
                                                     ?>
                                                     <div class='city-box' >
-                                                                                                                    <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
+                                                        <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
+                                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
                                                         </a>
                                                     </div>
                                                     <?php
