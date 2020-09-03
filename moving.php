@@ -579,7 +579,7 @@ if ($nnresult > 0) {
                 <!--<i class="fa fa-home" aria-hidden="true"></i>-->
                                 <img src="https://www.topmovingreviews.com/images/home-icon.png" width="18"/>
                             </a>, <a href="https://www.topmovingreviews.com/moving-company.php" style="color:#999999;" >
-                                Movers</a>, <a style="color:#999999;" href="https://www.topmovingreviews.com/movers/<?php echo $compname; ?>-<?php echo $company_id; ?>/"    ><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
+                                Movers</a>, <a style="color:#999999;" href="https://www.topmovingreviews.com/movers/<?php echo $compname; ?>-<?php echo $company_id; ?>"    ><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
                     <div class="row " style="margin-top:20px">
                         <!--Review Summary 18-05-2020-->
                         <?php
@@ -1961,7 +1961,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
 
            
                                         <div class="company-list-item">
-               <a class="company-section" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_pplview["id"]; ?>/" >
+             <a class="company-section" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_pplview["id"]; ?>" >
                      <h3 class="title" data-id="company-name"> <?= $res_pplview["title"]; ?></h3>
                     <div class="company-logo">
                         <div class="logo-wrap">
