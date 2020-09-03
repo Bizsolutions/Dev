@@ -484,13 +484,13 @@ $comp_name = str_replace('/','-',str_replace(' ', '-', $res_company["title"]));
 
 
 
-<div class="row c-bottom" onClick="window.location.href='http://topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_company["id"]; ?>/'">
+<div class="row c-bottom" onClick="window.location.href='http://topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_company["id"]; ?>'">
 
 <div class="column col-md-3"><img src="https://topmovingreviews.com/mmr_images/logos/logo_<?php if ($res_company["logo"]==NULL){echo "no";} else echo $res_company["id"];?>.jpg" ></div>
 
 <div class="column col-md-9 text-left" >
 
-<h4 style="color:#3b65a7; text-align:left!important"><a href="http://topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_company["id"]; ?>/"><?php echo $res_company["title"]; ?></a></h4>
+<h4 style="color:#3b65a7; text-align:left!important"><a href="http://topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_company["id"]; ?>"><?php echo $res_company["title"]; ?></a></h4>
 
 <p class=stars>
 
