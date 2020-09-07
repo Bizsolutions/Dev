@@ -196,21 +196,23 @@ $state_name = $res_state_name['name'];
                     else
                         $start = 0;        //if no page var is given, set start to 0
                         /* Get data. */
-                    $cityname = str_replace('-', ' ', $cityname);
-                    if (isset($_REQUEST['filter']) && $_REQUEST['filter']) {
+
+                    if (isset($_REQUEST['filter'])) {
 
                         $filter = $_REQUEST['filter'];
-                        $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, $filter, $start, $limit);
+                          $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, $filter, $start, $limit);
 
                         // $sql = "SELECT title,address,id,rating,phone,logo  FROM  companies      where   city in ('$cityname') group by companies.id order by $filter LIMIT $start, $limit";
                     } else {
+                        $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, '', $start, $limit);
+
                         // $sql = "SELECT count(*),companies.title,companies.address,reviews.text,companies.id,companies.rating,companies.address,companies.phone,companies.logo  FROM  companies  , reviews    where companies.id=reviews.company_id and city in ('$cityname')  group by companies.id order by   companies.rating desc,count(*) desc  LIMIT $start, $limit";
                         //$sql = "SELECT title,address,id,rating,phone  FROM  companies      where   address like '% $cityname,%' LIMIT $start, $limit";
-                        //$link is the database connection string
-                        $result1 = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, '', $start, $limit);
                     }
 
-                    $result = $result1;
+                    $result = $result1['data'];
+                    $total_pages = $result1['total_records'];
+
                     /* Setup page vars for display. */
 
 
@@ -232,7 +234,7 @@ $state_name = $res_state_name['name'];
                     $pagination = "";
                     $cityname = str_replace(' ', '-', $cityname);
 
-
+                   
                     $zipcode = isset($_GET['zipcode']) ? $_GET['zipcode'] : '';
                     if ($lastpage > 1) {
                         $pagination .= "<div class=\"pagination\"  ><ul>";
@@ -261,29 +263,29 @@ $state_name = $res_state_name['name'];
                                     if ($counter == $page)
                                         $pagination .= "<li><span class=\"pagination1\">$counter</span></li>";
                                     else
-                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";
+                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$counter\">$counter</a></li>";
                                 }
 
                                 $pagination .= "<li><span>...</span>";
-                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$lpm1/\">$lpm1</a></li>";
-                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$lastpage/\">$lastpage</a></li>";
+                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$lpm1\">$lpm1</a></li>";
+                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$lastpage\">$lastpage</a></li>";
                             }
 
                             //in middle; hide some front and some back
                             elseif ($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
 
-                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-1/\">1</a></li>";
-                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-2/\">2</a></li>";
+                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=1/\">1</a></li>";
+                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=2/\">2</a></li>";
                                 $pagination .= "<li><span>...</span></li>";
                                 for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
                                     if ($counter == $page)
                                         $pagination .= "<li><span class=\"pagination1\">$counter</span></li>";
                                     else
-                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";
+                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$counter\">$counter</a></li>";
                                 }
 
                                 $pagination .= "<li><span>...</span></li>";
-                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$lpm1/\">$lpm1</a></li>";
+                                $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$lpm1\">$lpm1</a></li>";
                                 $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$lastpage/\">$lastpage</a></li>";
                             }
                             //close to end; only hide early pages
@@ -295,7 +297,7 @@ $state_name = $res_state_name['name'];
                                     if ($counter == $page)
                                         $pagination .= "<li><span class=\"pagination1\">$counter</span></li>";
                                     else
-                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode/\">$counter</a></li>";
+                                        $pagination .= "<li><a href=\"https://www.topmovingreviews.com/moving-companies/$cityname-$stateshrtname-$zipcode?page=$counter\">$counter</a></li>";
                                 }
                             }
                         }
@@ -309,60 +311,149 @@ $state_name = $res_state_name['name'];
                     }
 
 
-                    foreach ($result as $res_comp_city) {
-                        $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$res_comp_city[id]'");
-                        $res_reviewcount = mysqli_num_rows($sql_reviewcount);
-                        $compnay_address = explode(",", $res_comp_city['address']);
-                        $countarray = count($compnay_address);
-                        $compnay_address_zip = explode(" ", $compnay_address[$countarray - 2]);
-                        $comp_name = str_replace('/', '-', str_replace(' ', '-', $res_comp_city["title"]));
+                    // while ($res_comp_city = $result) {
+                    //     $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$res_comp_city[id]'");
+                    //     $res_reviewcount = mysqli_num_rows($sql_reviewcount);
+                    //     $compnay_address = explode(",", $res_comp_city['address']);
+                    //     $countarray = count($compnay_address);
+                    //     $compnay_address_zip = explode(" ", $compnay_address[$countarray - 2]);
+                    //     $comp_name = str_replace('/', '-', str_replace(' ', '-', $res_comp_city["title"]));
                         ?>
 
-                        <div class="row" style="padding-top: 40px; " onClick="window.location.href = 'https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/'">
+                        <!--<div class="row" style="padding-top: 40px; " onClick="window.location.href = 'https://www.topmovingreviews.com/movers/<?php //echo $comp_name; ?>-<?php// echo $res_comp_city["id"]; ?>/'">-->
+                            <!--<div class="col-md-3">-->
+
+                               <?php
+                            // <!--    $img = $res_comp_city["logo"];-->
+                            // <!--    $mmrimg = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $res_comp_city["id"] . ".jpg";-->
+                            // <!--    $compimg = "https://www.topmovingreviews.com/company/logos/logo_" . $res_comp_city["id"] . ".jpg";-->
+
+                            // <!--    if ($res_comp_city["logo"] != NULL) {-->
+
+                            // <!--        if (@getimagesize($mmrimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com")) {-->
+
+                            // <!--            $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $res_comp_city["id"] . ".jpg";-->
+                            // <!--        } else if (@getimagesize($compimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com")) {-->
+
+                            // <!--            $logo_image = "https://www.topmovingreviews.com/company/logos/logo_" . $res_comp_city["id"] . ".jpg";-->
+                            // <!--        } else if (stristr($res_comp_city["logo"], "mymovingreviews.com")) {-->
+                            // <!--            $logo_image = $img;-->
+                            // <!--        } else {-->
+                            // <!--            $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";-->
+                            // <!--        }-->
+                            // <!--    } else {-->
+                            // <!--        $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";-->
+                            // <!--    }-->
+                            ?>
+
+                            <!--    <img src="<?php echo $logo_image; ?>" height="80" width="190" >-->
+                            <!--</div>-->
+                            <!--<div class="col-md-9" >-->
+                            <!--    <h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/"><?php echo $res_comp_city["title"]; ?></a></h4>-->
+                            <!--    <p class=stars>-->
+                            <!--        <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>-->
+                            <!--        <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>-->
+                            <!--        <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>-->
+                            <!--        <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>-->
+                            <!--        <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>-->
+                            <!--    </p>-->
+                            <!--    <span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>-->
+                            <!--    <span style="color:#000000"><?php echo $res_comp_city["address"]; ?></span>-->
+                            <!--    <div style="clear: both; padding-top: 8px;">-->
+                            <!--        <?= substr($res_comp_city["text"], 0, 140) . "..."; ?>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<div style="clear:both"></div>-->
+                        <!--</div>	-->
+                        <?php
+                       
+                    // }
+
+                    $cityname = str_replace('-', ' ', $cityname);
+
+//$link is the database connection string
+                    // $result = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link);
+                    //  $result = NearbyMoversByCity($cityname, $stateshrtname, 50, 200, 10, $link, $filter, $start, $limit);
+
+                    for ($i = 0; $i < count($result); $i++) {
+
+                        foreach ($result[$i] as $key => $value) {
+
+                            if ($key == 'id')
+                                $company_id = $value;
+
+                            if ($key == 'address')
+                                $address = $value;
+
+                            if ($key == 'title')
+                                $company_name = $value;
+
+                            if ($key == 'logo')
+                                $logo = $value;
+
+                            if ($key == 'rating')
+                                $rating = $value;
+
+                            if ($key == 'text')
+                                $text = $value;
+                        }
+
+                        $sql_reviewcount = mysqli_query($link, "select * from reviews where company_id= '$company_id'");
+                        $res_reviewcount = mysqli_num_rows($sql_reviewcount);
+                        $compnay_address = explode(",", $address);
+                        $countarray = count($compnay_address);
+                        $compnay_address_zip = explode(" ", $compnay_address[$countarray - 2]);
+                        $comp_name = str_replace('/', '-', str_replace(' ', '-', $company_name));
+                        
+                        ?>
+
+                        <div class="row" style="padding-top: 40px; margin-bottom:60px;" onClick="window.location.href = 'https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/'">
                             <div class="col-md-3">
-
                                 <?php
-                                $img = $res_comp_city["logo"];
-                                $mmrimg = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $res_comp_city["id"] . ".jpg";
-                                $compimg = "https://www.topmovingreviews.com/company/logos/logo_" . $res_comp_city["id"] . ".jpg";
+                                $img1 = $logo;
+                                $mmrimg1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $company_id . ".jpg";
+                                $compimg1 = "https://www.topmovingreviews.com/company/logos/logo_" . $company_id . ".jpg";
 
-                                if ($res_comp_city["logo"] != NULL) {
+                                if ($logo != NULL) {
 
-                                    if (@getimagesize($mmrimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com")) {
+                                    if (@getimagesize($mmrimg1) != '' && stristr($logo, "topmovingreviews.com")) {
 
-                                        $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $res_comp_city["id"] . ".jpg";
-                                    } else if (@getimagesize($compimg) != '' && stristr($res_comp_city["logo"], "topmovingreviews.com")) {
+                                        $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_" . $company_id . ".jpg";
+                                    } else if (@getimagesize($compimg1) != '' && stristr($logo, "topmovingreviews.com")) {
 
-                                        $logo_image = "https://www.topmovingreviews.com/company/logos/logo_" . $res_comp_city["id"] . ".jpg";
-                                    } else if (stristr($res_comp_city["logo"], "mymovingreviews.com")) {
-                                        $logo_image = $img;
+                                        $logo_image1 = "https://www.topmovingreviews.com/company/logos/logo_" . $company_id . ".jpg";
+                                    } else if (stristr($logo, "mymovingreviews.com")) {
+                                        $logo_image1 = $img1;
                                     } else {
-                                        $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+                                        $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
                                     }
                                 } else {
-                                    $logo_image = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
+                                    $logo_image1 = "https://www.topmovingreviews.com/mmr_images/logos/logo_no.jpg";
                                 }
                                 ?>
-
-                                <img src="<?php echo $logo_image; ?>" height="80" width="190" >
+                                <img src="<?php echo $logo_image1; ?>" height="80" width="190" >
                             </div>
                             <div class="col-md-9" >
-                                <h4  style="text-align:left!important;"><a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $res_comp_city["id"]; ?>/"><?php echo $res_comp_city["title"]; ?></a></h4>
+                                <h4  style="text-align:left!important;">
+                                    <a style="color:#000000;" href="https://www.topmovingreviews.com/movers/<?php echo $comp_name; ?>-<?php echo $company_id; ?>/">
+                                        <?php echo $company_name; ?>
+                                    </a>
+                                </h4>
                                 <p class=stars>
-                                    <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
-                                    <span class="fa fa-star  <?php if (round($res_comp_city["rating"]) >= 5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+                                    <span class="fa fa-star  <?php if (round($rating) >= 1) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+                                    <span class="fa fa-star  <?php if (round($rating) >= 2) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+                                    <span class="fa fa-star  <?php if (round($rating) >= 3) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+                                    <span class="fa fa-star  <?php if (round($rating) >= 4) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
+                                    <span class="fa fa-star  <?php if (round($rating) >= 5) { ?> checked <?php } else { ?> checkednot <?php } ?>"></span>
                                 </p>
                                 <span style="color:#000000" >(<?php echo $res_reviewcount; ?> Reviews)</span><br>
-                                <span style="color:#000000"><?php echo $res_comp_city["address"]; ?></span>
-                                <div style="clear: both; padding-top: 8px;">
-                                    <?= substr($res_comp_city["text"], 0, 140) . "..."; ?>
-                                </div>
+                                <span style="color:#000000"><?php echo $address; ?></span>
                             </div>
                             <div style="clear:both"></div>
-                        </div>	
+                            <div style="clear: both; padding-top: 8px;">
+                                <?= substr($text, 0, 140) . "..."; ?>
+                            </div>
+                        </div>
                         <?php
                     }
                     ?>
@@ -458,8 +549,10 @@ $state_name = $res_state_name['name'];
                                     ?>
 
                                     <div class='city-box' >
-                                        <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
-                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
+                                       
+                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>";?>
+											 <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;color:#2B4EAA;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
+											 <?php echo substr(str_replace("-", " ", $row['city']), 0, 13); ?>
                                         </a>
                                     </div>
                                     <?php
@@ -480,8 +573,10 @@ $state_name = $res_state_name['name'];
                                                     $res_state_zip = mysqli_fetch_array($query_state_zip);
                                                     ?>
                                                     <div class='city-box' >
-                                                        <a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize;' title="<?php echo str_replace("-", " ", $row['city']); ?>">
-                                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>" . "   " . substr(str_replace("-", " ", $row['city']), 0, 13); ?>
+                                                       
+                                                            <?php echo round($row['distance'], 0) . "<span style=font-size:11px>mi</span>";?>   
+															
+															<a href="https://www.topmovingreviews.com/moving-companies/<?php echo str_replace(" ", "-", $row['city']) . "-" . $row['state_code'] . "-" . $row['zip']; ?>/" style='text-transform: capitalize; color:#2B4EAA;' title="<?php echo str_replace("-", " ", $row['city']); ?>"> <?php  echo substr(str_replace("-", " ", $row['city']), 0, 13); ?>
                                                         </a>
                                                     </div>
                                                     <?php
