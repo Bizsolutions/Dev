@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-4 text-left">
                 <img src="https://www.topmovingreviews.com/images/logo.jpg"/>
-                <p class="pad">Make movers comparison based on moving companies reviews and consumer reports reviews. Find new movers, piano mover, pool table mover or trailer movers with recommendations. Find the best mover services by reading local movers reviews.</p>
-            </div>
+                <!--<p class="pad">Make movers comparison based on moving companies reviews and consumer reports reviews. Find new movers, piano mover, pool table mover or trailer movers with recommendations. Find the best mover services by reading local movers reviews.</p>
+           --> </div>
             <div class="col-md-4 newfooter">
                 <h3 class="text-left" >Quick Links</h3>
                 <ul  class="text-left" >
@@ -15,6 +15,7 @@
                     <li><a href="https://www.topmovingreviews.com/add-moving-company.php"> Add Moving Company</a></li>
                     <li><a href="https://www.topmovingreviews.com/moving-company.php">Moving Reviews</a> </li>
                     <li><a href="https://www.topmovingreviews.com/add-moving-company.php">Register Business</a></li>
+ 					<li><a href="https://www.topmovingreviews.com/check-license.php">Check License</a></li>
                 </ul>
             </div> 
     <!--        <div class="col-md-3 newfooter">
