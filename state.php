@@ -907,10 +907,7 @@ if (!empty($Region)) {
                     <?= $pagination ?>
                     <div class="bottomtext">
 
-                        <?php
-                        echo $res_topbottom_text['bottom_text'];
-                        ?>
-
+                        
                         <!-- grpah starts --> 
                         <div id="app">
                             <p>
@@ -920,6 +917,11 @@ if (!empty($Region)) {
                             </p>
                         </div>
                         <!-- grpah ends --> 
+
+
+                        <?php
+                        echo $res_topbottom_text['bottom_text'];
+                        ?>
 
 
                         <?php /* ?><h2><?php echo ucwords($statename); ?>  Movers</h2>
@@ -962,7 +964,7 @@ if (!empty($Region)) {
                     ?>
 
                     <div class="callfor">
-                        <h3>Are  you  a  Moving  Company</h3><br>Find out how you can be in our <a href="">Moving List</a>.  
+                        <h3>Are  you  a  Moving  Company</h3><br>Find out how you can be in our <a href="https://www.topmovingreviews.com/add-moving-company.php">Moving List</a>.  
                                                 <!--<img src="images/300x600.jpg"/>-->
                     </div>
 
@@ -1195,6 +1197,9 @@ if (!empty($Region)) {
                             type: 'bar',
                             height: 350,
                             width: "100%",
+                            toolbar: {
+                              show: false
+                            }
                         },
                         plotOptions: {
                             bar: {

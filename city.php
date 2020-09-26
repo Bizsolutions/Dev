@@ -511,7 +511,7 @@ $state_name = $res_state_name['name'];
                         <br>
                         <span style="font-size:15px;">
                             Find  out  how  you  can  be  in  our 
-                            <a href="">Moving List</a>
+                            <a href="https://www.topmovingreviews.com/add-moving-company.php">Moving List</a>
                         </span>.
                     </div>
 

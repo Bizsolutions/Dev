@@ -125,7 +125,7 @@ if ($lastpage > 1) {
 
     <head>
 
-        <title><?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?></title>
+        <title><?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?></title>
 
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400&display=swap' rel='stylesheet'>
         <!--<link href='fonts.googleapis.com/css?family=Montserrat:400'; rel='stylesheet' type='text/css'>-->
@@ -176,7 +176,7 @@ if ($lastpage > 1) {
 
         <meta name="HandheldFriendly" content="true">
 
-        <meta property=og:title content="<?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?>">
+        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>">
 
         <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
@@ -205,7 +205,7 @@ if ($lastpage > 1) {
 
 
 
-        <meta property=og:title content="<?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?>">
+        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>">
 
         <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
@@ -217,7 +217,7 @@ if ($lastpage > 1) {
 
         <meta name="twitter:url" content="https://www.topmovingreviews.com/moving.php" />
 
-        <meta name="twitter:title" content="<?php echo $res_company['title'] . "-" . $res_company['city'] . ", " . $res_company['state'] . " With " . $company_review_number . " Moving Reviews "; ?>" />
+        <meta name="twitter:title" content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>" />
 
         <meta name="twitter:image" content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg"/>
 
@@ -533,7 +533,7 @@ if ($nnresult > 0) {
                                         ?>
                                     
                                         
-                                        <div class=headphone></div> Toll Free:  <?php echo $phone1; ?> | <div class=call></div> Phone:  <?php echo $phone2; ?>
+                                    <div class=headphone></div> Toll Free:  <?php echo $phone1; ?> <br> <div class=call></div> Phone:  <?php echo $phone2; ?>
                                         <?php /*}else { ?>
                                         <div class=headphone></div> Toll Free:  <span > <?php echo $phone1; ?> </span>
                                         <?php } */?>
@@ -547,9 +547,13 @@ if ($nnresult > 0) {
                                     }
                                 }
                                 ?>
-                                <br><?php if ($res_company['email'] <> "") { ?><div class=mail></div> <?php echo $res_company['email']; ?> | <?php } if ($res_company['website'] <> "") { ?> <div class=web></div><?php echo $res_company['website'];
+                                <br> 
+                                <?php if ($res_company['website'] <> "") { ?> 
+                                        <div class=web></div><?php echo $res_company['website'].'<br>'; 
                                 }
                                 ?>
+                                <?php if ($res_company['email'] <> "") { ?><div class=mail></div> <?php echo $res_company['email']; ?> 
+                                <?php }  ?>
                             </div>
                         </div></div>
                     <div class="jeft-right">
@@ -579,7 +583,7 @@ if ($nnresult > 0) {
                 <!--<i class="fa fa-home" aria-hidden="true"></i>-->
                                 <img src="https://www.topmovingreviews.com/images/home-icon.png" width="18"/>
                             </a>, <a href="https://www.topmovingreviews.com/moving-company.php" style="color:#999999;" >
-                                Movers</a>, <a style="color:#999999;" href="https://www.topmovingreviews.com/movers/<?php echo $compname; ?>-<?php echo $company_id; ?>"    ><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
+                                Movers</a>, <a style="color:#999999;"    ><?php echo str_replace('-', ' ', $res_company['title']); ?></a></b></div>
                     <div class="row " style="margin-top:20px">
                         <!--Review Summary 18-05-2020-->
                         <?php
@@ -864,7 +868,7 @@ else {?>
 <?php } ?>
 					
                        
-                        </a>
+                        <!--</a>-->
                         <br>
                         (US Department of Transportation number)
                     </p>
@@ -890,11 +894,25 @@ else {?>
                         $Northwest = $res_ppp['Northwest'];
                         $NorthMedwest = $res_ppp['NorthMedwest'];
                         $SouthMedwest = $res_ppp['SouthMedwest'];
+                        
+                        
+                        
+                        $FarMedWest             = $res_ppp['FarMedWest'];
+                        $FarNorthMedwest        = $res_ppp['FarNorthMedwest'];
+                        $MiddleNorthWest        = $res_ppp['MiddleNorthWest'];
+                        $FarNorthEast           = $res_ppp['FarNorthEast'];
+                        
+                        $FarNorthEastStr        =  !empty($FarNorthEast) ? ' Moving to the Far North East would be around '.$FarNorthEast : '';
+                        $MiddleNorthWestStr     =  !empty($MiddleNorthWest) ? ' Moving to the Middle North West would be around '.$MiddleNorthWest : '';
+                        $FarNorthMedwestStr     =  !empty($FarNorthMedwest) ? ' Moving to the Far North Med West would be around '.$FarNorthMedwest : '';
+                        $FarMedWestStr          =  !empty($FarMedWest) ? ' Moving to the Far Med West would be around '.$FarMedWest : '';
+                        
 
 
                         // satte avergae
-                        $state = $res_company['state'];
-                        $sql_state_avg = "
+                         $state = $res_company['state'];
+                        //echo '<br>';
+                         $sql_state_avg = "
                                 SELECT state_average.* FROM 
                                 `state_average` 
                                 inner join states on state_average.state = states.name 
@@ -916,7 +934,7 @@ else {?>
                         <br>
                     
                     <?php
-                    $Region = $res_ppp['Region'];
+                      $Region = $res_ppp['Region'];
 
 
                     //region must exists for pricing 
@@ -1000,6 +1018,8 @@ else {?>
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     echo " Moving to the North East would be around $" . $NorthEast . '.';
 
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1068,6 +1088,8 @@ else {?>
                             case 'West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
                                     
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
@@ -1141,6 +1163,8 @@ else {?>
                             case 'North West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1202,6 +1226,71 @@ else {?>
                             case 'North Med West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
+                                    $NorthEastdiff = $avgNortheast - $NorthEast;
+                                    $noNorthEast = $NorthEastdiff / $avgNortheast;
+
+                                    $ofNorthEast = $noNorthEast * 100;
+                                    
+                                }
+                                if (!empty($SouthEast) or strpos($SouthEast, '- ') !== false) {
+                                    $SouthEast_str=  " Moving to the South East would be around $" . $SouthEast . '.';
+                                    $south_east_arr[] = $SouthEast . '-' . $avgSouthEast;
+
+                                    $SouthEastdiff = $avgSouthEast - $SouthEast;
+                                    $noSouthEast = $SouthEastdiff / $avgSouthEast;
+
+                                    $ofSouthEast = $noSouthEast * 100;
+
+                                    
+                                }
+                                if (!empty($West) or strpos($West, '- ') !== false) {
+                                    $West_str =  " Moving to the West would be around $" . $West . '.';
+                                    $west_arr[] = $West . '-' . $avgWest;
+
+                                    $Westdiff = $avgWest - $West;
+                                    $noWest = $Westdiff / $avgWest;
+
+                                    $ofWest = $noWest * 100;
+
+                                    $ofWest = round($ofWest, 1);
+                                    
+                                }
+                                if (!empty($Northwest) or strpos($Northwest, '- ') !== false) {
+                                    $Northwest_str =  " Moving to the North West would be around $" . $Northwest . '.';
+                                    $Northwest_arr[] = $Northwest . '-' . $avgNorthwest;
+
+                                    $Northwestt = (($Northwest / $avgNorthwest) * 66) / 100;
+                                    $ofnoNorthwest = round($Northwestt, 1);
+
+//                                        die('Northwest4');
+//                                        $Northwestdiff = $avgNorthwest-$Northwest;
+//                                        $noNorthwest   = $Northwestdiff/ $avgNorthwest;
+//                                        
+//                                        $ofnoNorthwest = $noNorthwest* 100;
+                                    
+                                }
+                                if (!empty($SouthMedwest) or strpos($SouthMedwest, '- ') !== false) {
+                                    $SouthMedwest_str = " Moving to the South Med West would be around $" . $SouthMedwest . '.';
+                                    $south_med_west_arr[] = $SouthMedwest . '-' . $avgSouthMedwest;
+
+
+                                    $SouthMedwestdiff = $avgSouthMedwest - $SouthMedwest;
+                                    $noSouthMedwest = $SouthMedwestdiff / $avgSouthMedwest;
+
+                                    $ofnoSouthMedwest = $noSouthMedwest * 100;
+                                    
+                                }
+                                break;
+
+
+                            
+                            case 'North Med west':
+                                if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
+                                    $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1261,10 +1350,14 @@ else {?>
 
 
 
-
-                            case 'South Med West':
+                            case 'South Med west':
+                                
+                                //echo 'North-->'.$NorthEast .'-->Avg '.$avgNortheast.'<br>';
+                                
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1385,6 +1478,9 @@ else {?>
                             case 'Med East':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1448,6 +1544,9 @@ else {?>
                             case 'Far Med West':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str  = " Moving to the North East would be around $" . $NorthEast . '.';
+                                    
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1508,6 +1607,8 @@ else {?>
                             case 'Far North Med west':
                                 if (!empty($NorthEast) or strpos($NorthEast, '- ') !== false) {
                                     $NorthEast_str =  " Moving to the North East would be around $" . $NorthEast . '.';
+                                    $NorthEast_arr[] = $NorthEast . '-' . $avgNortheast;
+                                    
                                     $NorthEastdiff = $avgNortheast - $NorthEast;
                                     $noNorthEast = $NorthEastdiff / $avgNortheast;
 
@@ -1734,7 +1835,7 @@ else {?>
 
 
                         //$x_axis.="['North  east', '".$y."', '".$prgr_less."'],";
-                        $x_axis.="['South Med West', '" . $prgr_less . "'],";
+                        $x_axis.="['South Med west', '" . $prgr_less . "'],";
                         //$x_axis_la.="['South Med West'],";
                         //$x_axis.="['South Med West', '".$y."'],";
                         //$x_axis.='"South Med West"'.',';
@@ -1769,6 +1870,7 @@ else {?>
                         $esp = explode('-', $NorthMedwest_arrii);
                         $esp0 = $esp[0];
                         $esp1 = $esp[1];
+                        //echo $esp1 = $esp[1];die;
                         // percent of  avergae
                         if ($esp0 > $esp1) {
                             $y = round((($esp0 - $esp1) / $esp0) * 100, 1);
@@ -1884,7 +1986,13 @@ else {?>
                     <?php } ?>
                     
                     <p class="review-para-1" style="font-size:18px !important;">
-                        <?php echo $SouthEast_str.$West_str.$Northwest_str.$NorthMedwest_str.$NorthEast_str.$SouthMedwest_str ;?>
+                        <?php 
+                        echo $SouthEast_str.$West_str.$Northwest_str.$NorthMedwest_str.$NorthEast_str.$SouthMedwest_str  .$FarMedWestStr. $FarNorthMedwestStr.$MiddleNorthWestStr .$FarNorthEastStr 
+                                
+                                ;
+                        
+                        
+                        ?>
                     </p>
                     
                     <p class="review-para-1" style="font-size:18px !important;">
@@ -2218,6 +2326,9 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
             components: {
                 apexchart: VueApexCharts,
             },
+            /*tools:{
+              download:false  
+            },*/
             data: {
                 
                 series: [{
@@ -2234,7 +2345,11 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                         type: 'bar',
                         height: 350,
                         width: "100%",
+                        toolbar: {
+                          show: false
+                        }
                     },
+                    
                     plotOptions: {
                         bar: {
                             horizontal: false,
@@ -2293,6 +2408,7 @@ while ($res_pplview = mysqli_fetch_assoc($query_pplview)) {
                                 }
                             }]
                     },
+                    
                     /*tooltip: {
                      y: {
                      formatter: function (val) {
