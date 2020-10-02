@@ -125,7 +125,7 @@ if ($lastpage > 1) {
 
     <head>
 
-        <title><?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?></title>
+        <title><?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . ", " . $res_company['state'] . " Movers"; ?></title>
 
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400&display=swap' rel='stylesheet'>
         <!--<link href='fonts.googleapis.com/css?family=Montserrat:400'; rel='stylesheet' type='text/css'>-->
@@ -176,7 +176,7 @@ if ($lastpage > 1) {
 
         <meta name="HandheldFriendly" content="true">
 
-        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>">
+        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . ", " . $res_company['state'] . " Movers"; ?>">
 
         <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
@@ -205,7 +205,7 @@ if ($lastpage > 1) {
 
 
 
-        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>">
+        <meta property=og:title content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . ", " . $res_company['state'] . " Movers"; ?>">
 
         <meta property=og:description content="<?php echo $res_company['title'] . " Reviews and rating, " . $res_company['city'] . "," . $res_company['state'] . "." . " Compare movers, get a free Moving quotes and pricing of " . date("Y"); ?>">
 
@@ -217,7 +217,7 @@ if ($lastpage > 1) {
 
         <meta name="twitter:url" content="https://www.topmovingreviews.com/moving.php" />
 
-        <meta name="twitter:title" content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . " " . $res_company['state'] . " Movers"; ?>" />
+        <meta name="twitter:title" content="<?php echo $res_company['title'] . " Reviews - " . $res_company['city'] . ", " . $res_company['state'] . " Movers"; ?>" />
 
         <meta name="twitter:image" content="https://topmovingreviews.com/mmr_images/logos/logo_<?php echo $company_id; ?>.jpg"/>
 
@@ -1973,17 +1973,23 @@ else {?>
 
 
                     <br>
-                    <?php if($reviee >5  ){ ?>
-                    <h3 style="text-align:center;"><?php echo $res_company['title']; ?></h3>
+                    <?php
+                    // if x axis exists then show graph
+                        if($x_axis){
                     
-                    <!--<div id="app">-->
-                    <!--<p>-->
-                        <div id="chart">
-                            <apexchart type="bar"  height="350" :options="chartOptions" :series="series"></apexchart>
-                        </div>
-                        <!--</p>-->
-                    <!--</div>-->
-                    <?php } ?>
+                            if($reviee >5  ){ ?>
+                            <!--<h3 style="text-align:center;"><?php echo $res_company['title']; ?></h3>-->
+                            <h4 style="text-align:center;">Average Service Price</h4>
+                            
+                            <!--<div id="app">-->
+                            <!--<p>-->
+                                
+                                <div id="chart">
+                                    <apexchart type="bar"  height="350" :options="chartOptions" :series="series"></apexchart>
+                                </div>
+                                <!--</p>-->
+                            <!--</div>-->
+                            <?php }} ?>
                     
                     <p class="review-para-1" style="font-size:18px !important;">
                         <?php 
