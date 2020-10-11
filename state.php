@@ -29,12 +29,12 @@ $state_code = $res_state['state_code'];
 //grpah code 
 // satte avergae
 
-$sql_state_avg = "
+  $sql_state_avg = "
     SELECT state_average.* FROM 
     `state_average` 
     inner join states on state_average.state = states.name 
     where states.state_code =   '$state_code' ";
-
+    
 $sql_state_a = mysqli_query($link, $sql_state_avg);
 $sql_sta = mysqli_fetch_array($sql_state_a);
 
@@ -54,6 +54,14 @@ $local_avg_cost = str_replace(',', '', $sql_sta['local_avg_cost']);
 if (!empty($Region)) {
 
     switch ($Region) {
+        
+        case 'West':
+            $comp_str_y1 = "['" . $avgSouthEast . "' ,'" . $avgNortheast . "' , '" . $avgNorthwest . "' , '" . $avgNorthMedwest . "' ,'" . $avgSouthMedwest . "']";
+            $comp_str_x1 = "'SouthEast','North East','North West','North Med West' , 'South Med West'";                
+            break;
+
+        
+        
         case 'North East':
             $comp_str_y1 = "['" . $avgSouthEast . "' ,'" . $avgWest . "' , '" . $avgNorthMedwest . "' , '" . $avgNorthMedwest . "' ,'" . $avgSouthMedwest . "']";
             $comp_str_x1 = "'SouthEast','West','North West','North Med West' , 'South Med West'";
@@ -907,7 +915,7 @@ if (!empty($Region)) {
                     <?= $pagination ?>
                     <div class="bottomtext">
 
-                        
+                        <?php if($comp_str_x1 && $comp_str_y1){?>
                         <!-- grpah starts --> 
                         <div id="app">
                             <p>
@@ -916,6 +924,7 @@ if (!empty($Region)) {
                             </div>
                             </p>
                         </div>
+                        <?php } ?>
                         <!-- grpah ends --> 
 
 
