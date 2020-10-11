@@ -34,15 +34,14 @@
        
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
         <link rel="stylesheet" href="https://topmovingreviews.com/css/font-awesome.min.css">
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157799891-1"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174156467-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-157799891-1');
+  gtag('config', 'UA-174156467-3');
 </script>
 		
 <script>

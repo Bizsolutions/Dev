@@ -1822,7 +1822,7 @@ echo "</span>";
 
     <td colspan="2">Move Date</td>
 
-    <td><input id=calendarHere  name=calendarHere onClick="setFrom();"  value="<?php echo $_REQUEST[calendarHere]; ?>" readonly="" class="form-control" required></td>
+    <td><input id=calendarHere  name=calendarHere onClick="setFrom();"  value="<?php echo $_REQUEST['calendarHere']; ?>" readonly="" class="form-control" required></td>
 
 
 
